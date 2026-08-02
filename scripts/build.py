@@ -87,12 +87,30 @@ def _find_musl_gcc():
     return None
 
 
+def _symlink_linux_headers_for_musl(musl_gcc):
+    """Symlink /usr/include/linux into musl's include dir if not already there."""
+    try:
+        arch = platform.machine().lower()
+        for candidate in (
+            f"/usr/lib/{arch}-linux-musl/include",
+            "/usr/lib/x86_64-linux-musl/include",
+            "/usr/lib/aarch64-linux-musl/include",
+        ):
+            musl_inc = Path(candidate)
+            if musl_inc.is_dir():
+                linux_dst = musl_inc / "linux"
+                linux_src = Path("/usr/include/linux")
+                if linux_src.is_dir() and not linux_dst.exists():
+                    run(["sudo", "ln", "-sf", str(linux_src), str(linux_dst)])
+                    print(f"Symlinked {linux_src} -> {linux_dst}")
+                return
+    except Exception as e:
+        print(f"Warning: could not symlink linux headers for musl: {e}")
+
+
 def build(src_dir, install_dir, configure_args, make_args=""):
     os_name = platform.system().lower()
     env = os.environ.copy()
-    # make_env may diverge from configure_env (extra headers added after configure)
-    make_env = None
-
     if os_name == "linux":
         if _is_alpine():
             # Alpine's system gcc links musl by default — just add -static
@@ -104,10 +122,10 @@ def build(src_dir, install_dir, configure_args, make_args=""):
                 env["CC"] = musl_gcc
                 env["CFLAGS"] = f"-O2 {env.get('CFLAGS', '')}"
                 env["LDFLAGS"] = f"-static {env.get('LDFLAGS', '')}"
-                # Pass /usr/include only during make (not configure) so that
-                # kernel headers like linux/fs.h are reachable without
-                # triggering the cross-compilation check in configure.
-                make_env = {**env, "CPPFLAGS": f"-I/usr/include {env.get('CPPFLAGS', '')}"}
+                # musl-gcc uses its own sysroot and skips /usr/include, so
+                # kernel headers (e.g. linux/fs.h) are unreachable.  Symlink
+                # the system linux/ tree into musl's include dir if needed.
+                _symlink_linux_headers_for_musl(musl_gcc)
             else:
                 print("WARNING: musl-gcc not found, falling back to glibc static link")
                 env["LDFLAGS"] = f"-static -static-libgcc -static-libstdc++ {env.get('LDFLAGS', '')}"
@@ -130,9 +148,8 @@ def build(src_dir, install_dir, configure_args, make_args=""):
 
     ncpu = os.cpu_count() or 2
     extra_make = shlex.split(make_args) if make_args else []
-    build_env = make_env if make_env is not None else env
-    run(["make", f"-j{ncpu}"] + extra_make, cwd=src_dir, env=build_env)
-    run(["make", "install"] + extra_make, cwd=src_dir, env=build_env)
+    run(["make", f"-j{ncpu}"] + extra_make, cwd=src_dir, env=env)
+    run(["make", "install"] + extra_make, cwd=src_dir, env=env)
 
 
 def verify_binary(binary_path):
