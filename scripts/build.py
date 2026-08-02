@@ -88,9 +88,11 @@ def _find_musl_gcc():
 
 
 def _symlink_linux_headers_for_musl(musl_gcc):
-    """Symlink /usr/include/linux into musl's include dir if not already there."""
+    """Symlink /usr/include/linux and ncurses into musl's sysroot."""
     try:
         arch = platform.machine().lower()
+        musl_inc = None
+        musl_lib = None
         for candidate in (
             f"/usr/include/{arch}-linux-musl",
             "/usr/include/x86_64-linux-musl",
@@ -98,28 +100,57 @@ def _symlink_linux_headers_for_musl(musl_gcc):
             f"/usr/lib/{arch}-linux-musl/include",
             "/usr/lib/x86_64-linux-musl/include",
         ):
-            musl_inc = Path(candidate)
-            if not musl_inc.is_dir():
-                continue
-            for name, src in [
-                ("linux", Path("/usr/include/linux")),
-                ("asm-generic", Path("/usr/include/asm-generic")),
-            ]:
-                if src.is_dir():
-                    dst = musl_inc / name
-                    if not dst.exists():
-                        run(["sudo", "ln", "-sf", str(src), str(dst)])
-                        print(f"Symlinked {src} -> {dst}")
-            # asm/ioctl.h is needed by linux/ioctl.h but the full glibc asm/
-            # dir conflicts with musl types — provide only a minimal shim.
-            asm_dir = musl_inc / "asm"
-            if not asm_dir.exists():
-                run(["sudo", "mkdir", "-p", str(asm_dir)])
-                asm_ioctl = asm_dir / "ioctl.h"
-                run(["sudo", "bash", "-c",
-                     f'echo "#include <asm-generic/ioctl.h>" > {asm_ioctl}'])
-                print(f"Created minimal {asm_ioctl}")
+            if Path(candidate).is_dir():
+                musl_inc = Path(candidate)
+                break
+        if musl_inc is None:
             return
+        # Linux kernel headers
+        for name, src in [
+            ("linux", Path("/usr/include/linux")),
+            ("asm-generic", Path("/usr/include/asm-generic")),
+        ]:
+            if src.is_dir():
+                dst = musl_inc / name
+                if not dst.exists():
+                    run(["sudo", "ln", "-sf", str(src), str(dst)])
+                    print(f"Symlinked {src} -> {dst}")
+        # asm/ioctl.h is needed by linux/ioctl.h but the full glibc asm/
+        # dir conflicts with musl types — provide only a minimal shim.
+        asm_dir = musl_inc / "asm"
+        if not asm_dir.exists():
+            run(["sudo", "mkdir", "-p", str(asm_dir)])
+            asm_ioctl = asm_dir / "ioctl.h"
+            run(["sudo", "bash", "-c",
+                 f'echo "#include <asm-generic/ioctl.h>" > {asm_ioctl}'])
+            print(f"Created minimal {asm_ioctl}")
+        # ncurses: symlink headers and static libs so projects that need
+        # terminal support (less, nano) can find them under musl-gcc's sysroot.
+        for nc_hdr in ("ncurses.h", "curses.h", "term.h", "termcap.h", "ncursesw"):
+            src = Path("/usr/include") / nc_hdr
+            dst = musl_inc / nc_hdr
+            if src.exists() and not dst.exists():
+                run(["sudo", "ln", "-sf", str(src), str(dst)])
+                print(f"Symlinked ncurses header {src} -> {dst}")
+        # musl lib dir: /usr/lib/<arch>-linux-musl/
+        musl_lib_candidates = [
+            Path(f"/usr/lib/{arch}-linux-musl"),
+            Path("/usr/lib/x86_64-linux-musl"),
+            Path("/usr/lib/aarch64-linux-musl"),
+        ]
+        for c in musl_lib_candidates:
+            if c.is_dir():
+                musl_lib = c
+                break
+        if musl_lib:
+            system_lib = Path(f"/usr/lib/{arch}-linux-gnu")
+            for nc_lib in ("libncurses.a", "libncursesw.a", "libtinfo.a",
+                           "libncurses.so", "libncursesw.so", "libtinfo.so"):
+                src = system_lib / nc_lib
+                dst = musl_lib / nc_lib
+                if src.exists() and not dst.exists():
+                    run(["sudo", "ln", "-sf", str(src), str(dst)])
+                    print(f"Symlinked ncurses lib {src} -> {dst}")
     except Exception as e:
         print(f"Warning: could not symlink linux headers for musl: {e}")
 
