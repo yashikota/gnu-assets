@@ -118,8 +118,7 @@ projects:
 
   - name: global
     binary_names: "global gtags gozilla htags"
-    dependencies_apt: "libncurses-dev"
-    configure_args: "'CPPFLAGS=-I/usr/include'"
+    configure_args: "--disable-gtagscscope"
 
   - name: pem
     binary_names: "pem"
