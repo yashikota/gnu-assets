@@ -105,7 +105,7 @@ projects:
 
   - name: cflow
     binary_names: "cflow"
-    configure_args: "CFLAGS=-O2 -D__attribute_maybe_unused__="
+    configure_args: "'CFLAGS=-O2 -D__attribute_maybe_unused__='"
 
   - name: rush
     binary_names: "rush rushlast rushwho"
@@ -114,4 +114,10 @@ projects:
   # shared lib issue too. Skip.
   # - name: trueprint
   #   binary_names: "trueprint"
+
+  - name: global
+    binary_names: "global gtags gozilla htags"
+
+  - name: pem
+    binary_names: "pem"
 
