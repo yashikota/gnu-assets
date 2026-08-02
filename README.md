@@ -123,7 +123,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ⏳ | [gnubatch](https://ftp.gnu.org/gnu/gnubatch/) | - |
 | ⏳ | [gnubg](https://ftp.gnu.org/gnu/gnubg/) | - |
 | ⏳ | [gnubik](https://ftp.gnu.org/gnu/gnubik/) | - |
-| ⏳ | [gnucap](https://ftp.gnu.org/gnu/gnucap/) | - |
+| ✅ | [gnucap](https://ftp.gnu.org/gnu/gnucap/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=gnucap&expanded=true) |
 | ⏳ | [gnucobol](https://ftp.gnu.org/gnu/gnucobol/) | - |
 | ⏳ | [gnudos](https://ftp.gnu.org/gnu/gnudos/) | - |
 | ⏳ | [gnugo](https://ftp.gnu.org/gnu/gnugo/) | - |
