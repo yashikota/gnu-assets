@@ -10,6 +10,7 @@ macOS:  dynamically linked against /usr/lib/libSystem.B.dylib only (unavoidable 
 import argparse
 import os
 import platform
+import shlex
 import shutil
 import subprocess
 import sys
@@ -114,7 +115,7 @@ def build(src_dir, install_dir, configure_args, make_args=""):
     Configure = src_dir / "Configure"
     prefix = f"--prefix={install_dir}"
     base_args = [prefix, "--disable-dependency-tracking", "--disable-nls"]
-    extra = configure_args.split() if configure_args else []
+    extra = shlex.split(configure_args) if configure_args else []
 
     if configure.exists():
         run([str(configure)] + base_args + extra, cwd=src_dir, env=env)
@@ -122,7 +123,7 @@ def build(src_dir, install_dir, configure_args, make_args=""):
         run([str(Configure), prefix] + extra, cwd=src_dir, env=env)
 
     ncpu = os.cpu_count() or 2
-    extra_make = make_args.split() if make_args else []
+    extra_make = shlex.split(make_args) if make_args else []
     run(["make", f"-j{ncpu}"] + extra_make, cwd=src_dir, env=env)
     run(["make", "install"] + extra_make, cwd=src_dir, env=env)
 
