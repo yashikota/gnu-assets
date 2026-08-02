@@ -316,6 +316,17 @@ projects:
   # - name: gama
   #   binary_names: "gama"
 
-  - name: pies
-    binary_names: "pies"
+  # pies: Linux daemon; uses asm/posix_types.h (musl stub incomplete);
+  # macOS lacks CBAUD/SIGPWR. Skip.
+  # - name: pies
+  #   binary_names: "pies"
+
+  - name: bison
+    binary_names: "bison yacc"
+
+  - name: bash
+    binary_names: "bash"
+
+  - name: texinfo
+    binary_names: "info install-info makeinfo pod2texi texi2any texi2dvi texi2pdf texindex"
 
