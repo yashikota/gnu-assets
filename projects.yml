@@ -88,16 +88,27 @@ projects:
   - name: teseq
     binary_names: "teseq"
 
-  - name: gperf
-    binary_names: "gperf"
+  # gperf: gnulib lib/sys/types.h conflicts with musl's off64_t typedef. Skip.
+  # - name: gperf
+  #   binary_names: "gperf"
 
   - name: bool
     binary_names: "bool"
 
-  - name: idutils
-    binary_names: "mkid lid fid fnid xtokid aid eid gid"
+  # idutils: gnulib-generated stdio.h references gets() which musl removed. Skip.
+  # - name: idutils
+  #   binary_names: "mkid lid fid fnid xtokid aid eid gid"
 
-  - name: barcode
-    binary_names: "barcode"
-    configure_args: "--disable-shared"
+  # barcode: multiple definition of 'streaming' (common-symbol bug in old code). Skip.
+  # - name: barcode
+  #   binary_names: "barcode"
+
+  - name: cflow
+    binary_names: "cflow"
+
+  - name: rush
+    binary_names: "rush rushlast rushwho"
+
+  - name: trueprint
+    binary_names: "trueprint"
 
