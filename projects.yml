@@ -378,9 +378,18 @@ projects:
   # - name: vera
   #   binary_names: "vera"
 
-  - name: glpk
-    binary_names: "glpsol"
+  # glpk: libtool shared libglpk with -rpath causes musl libc.so dynamic load; macOS links own dylib. Skip.
+  # - name: glpk
+  #   binary_names: "glpsol"
 
-  - name: gnubatch
-    binary_names: "btq btr bta btd btedit btrw btwrite xbq"
+  # gnubatch: requires curses/ncurses; musl-gcc cannot find system ncurses headers. Skip.
+  # - name: gnubatch
+  #   binary_names: "btq btr bta btd btedit btrw btwrite xbq"
+
+  - name: gnats
+    binary_names: "send-pr query-pr file-pr edit-pr gnats-admin"
+
+  # gnucobol: COBOL compiler - check if pure C
+  - name: gnucobol
+    binary_names: "cobc cobcrun"
 
