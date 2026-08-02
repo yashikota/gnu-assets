@@ -399,13 +399,13 @@ projects:
   # - name: gss
   #   binary_names: "gss"
 
-  # libtasn1: libtool shared lib with -rpath causes musl libc.so dynamic load. Skip.
-  # - name: libtasn1
-  #   binary_names: "asn1Coding asn1Decoding asn1Parser"
+  - name: libtasn1
+    binary_names: "asn1Coding asn1Decoding asn1Parser"
+    configure_args: "--disable-shared"
 
-  # libidn: libtool shared lib with -rpath causes musl libc.so dynamic load. Skip.
-  # - name: libidn
-  #   binary_names: "idn"
+  - name: libidn
+    binary_names: "idn"
+    configure_args: "--disable-shared"
 
   # gnucobol: requires GMP and Berkeley DB external dependencies. Skip.
   # - name: gnucobol
