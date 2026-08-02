@@ -483,18 +483,9 @@ projects:
   # - name: acct
   #   binary_names: "accton ac lastcomm dump-acct dump-utmp"
 
-  - name: recutils
-    binary_names: "recsel recins recdel recset recfmt reccount recfix recconv"
-
-  - name: sharutils
-    binary_names: "shar unshar uuencode uudecode"
-
-  - name: cflow
-    binary_names: "cflow"
-
-  - name: which
-    binary_names: "which"
-
-  - name: complexity
-    binary_names: "complexity"
+  # recutils: already skipped above (libtool -rpath).
+  # sharutils: already skipped above (duplicate program_name).
+  # cflow: already skipped above ([[maybe_unused]] on macOS).
+  # which: already skipped above (getopt type conflict on macOS).
+  # complexity: already skipped above (requires libopts).
 
