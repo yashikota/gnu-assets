@@ -439,9 +439,18 @@ projects:
     binary_names: "vc-changelog"
     ftp_path: "vc-changelog"
 
-  - name: termutils
-    binary_names: "ul"
-    skip_gpg: true
+  # termutils: very old K&R C syntax errors on modern compilers. Skip.
+  # - name: termutils
+  #   binary_names: "ul"
+
+  - name: ferret
+    binary_names: "ferret"
+
+  - name: c-graph
+    binary_names: "c-graph"
+    ftp_path: "c-graph"
+    tarball_prefix: "c-graph"
+    configure_args: "--without-png"
 
   # acct: libtool shared lib with -rpath causes musl libc.so dynamic load. Skip.
   # - name: acct
