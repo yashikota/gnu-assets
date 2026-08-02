@@ -116,9 +116,10 @@ projects:
   # - name: trueprint
   #   binary_names: "trueprint"
 
-  - name: global
-    binary_names: "global gtags gozilla htags"
-    configure_args: "--disable-gtagscscope --disable-shared --enable-static"
+  # global: libtool shared plugins (user-custom.la, ctags.la) are mandatory;
+  # cannot be built as fully static with musl. Skip.
+  # - name: global
+  #   binary_names: "global gtags gozilla htags"
 
   - name: pem
     binary_names: "pem"
