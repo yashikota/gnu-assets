@@ -74,8 +74,9 @@ def install_deps(deps_apt, deps_brew, deps_apk=""):
             pkgs = ["texinfo", "musl-tools"] + (deps_apt.split() if deps_apt else [])
             run(["sudo", "apt-get", "update", "-qq"])
             run(["sudo", "apt-get", "install", "-y", "-qq"] + pkgs)
-    elif os_name == "darwin" and deps_brew:
-        run(["brew", "install", "texinfo"] + deps_brew.split())
+    elif os_name == "darwin":
+        pkgs = ["texinfo"] + (deps_brew.split() if deps_brew else [])
+        run(["brew", "install"] + pkgs)
 
 
 def _find_musl_gcc():

@@ -4,15 +4,14 @@ projects:
 
   - name: sed
     binary_names: "sed"
+    dependencies_apt: "linux-libc-dev"
 
   - name: grep
     binary_names: "grep egrep fgrep"
+    configure_args: "--disable-perl-regexp"
 
   - name: gzip
     binary_names: "gzip gunzip zcat"
 
   - name: bc
     binary_names: "bc"
-
-  - name: ed
-    binary_names: "ed"
