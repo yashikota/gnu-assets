@@ -26,7 +26,7 @@ def run(cmd, check=True, **kwargs):
 
 def resolve_tarball(ftp_path, tarball_prefix, version):
     base_url = f"https://ftpmirror.gnu.org/{ftp_path}"
-    for ext in ("tar.xz", "tar.gz", "tar.bz2", "tgz"):
+    for ext in ("tar.xz", "tar.gz", "tar.bz2", "tgz", "tar.lz"):
         name = f"{tarball_prefix}-{version}.{ext}"
         url = f"{base_url}/{name}"
         req = urllib.request.Request(url, method="HEAD")
@@ -67,16 +67,16 @@ def install_deps(deps_apt, deps_brew, deps_apk=""):
     os_name = platform.system().lower()
     if os_name == "linux":
         if _is_alpine():
-            base_pkgs = ["build-base", "curl", "gnupg", "texinfo", "bash", "tar", "xz", "gzip"]
+            base_pkgs = ["build-base", "curl", "gnupg", "texinfo", "bash", "tar", "xz", "gzip", "lzip"]
             # prefer deps_apk when provided; fall back to deps_apt for Alpine-compatible package names
             extra = (deps_apk or deps_apt).split() if (deps_apk or deps_apt) else []
             run(["apk", "add", "--no-cache"] + base_pkgs + extra)
         else:
-            pkgs = ["texinfo", "musl-tools"] + (deps_apt.split() if deps_apt else [])
+            pkgs = ["texinfo", "musl-tools", "lzip"] + (deps_apt.split() if deps_apt else [])
             run(["sudo", "apt-get", "update", "-qq"])
             run(["sudo", "apt-get", "install", "-y", "-qq"] + pkgs)
     elif os_name == "darwin":
-        pkgs = ["texinfo"] + (deps_brew.split() if deps_brew else [])
+        pkgs = ["texinfo", "lzip"] + (deps_brew.split() if deps_brew else [])
         run(["brew", "install"] + pkgs)
 
 
@@ -339,12 +339,17 @@ def main(args=None):
             )
         verify_gpg(tarball_path)
 
-    run(["tar", "xf", str(tarball_path)], cwd=work_dir)
+    if tarball_name.endswith(".tar.lz"):
+        run(["lzip", "-d", "-k", str(tarball_path)], cwd=work_dir)
+        tar_path = work_dir / tarball_name[:-3]  # strip .lz → .tar
+        run(["tar", "xf", str(tar_path)], cwd=work_dir)
+    else:
+        run(["tar", "xf", str(tarball_path)], cwd=work_dir)
 
     # Derive the expected directory name from the tarball stem so we don't
     # accidentally pick up a leftover directory from a previous build run.
     stem = tarball_name
-    for suffix in (".tar.xz", ".tar.gz", ".tar.bz2", ".tgz"):
+    for suffix in (".tar.xz", ".tar.gz", ".tar.bz2", ".tgz", ".tar.lz"):
         if stem.endswith(suffix):
             stem = stem[: -len(suffix)]
             break

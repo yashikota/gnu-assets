@@ -502,3 +502,6 @@ projects:
   # - name: swbis
   #   binary_names: "swpackage swinstall swcopy swlist swremove swverify"
 
+  - name: ocrad
+    binary_names: "ocrad"
+

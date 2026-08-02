@@ -47,7 +47,7 @@ def get_latest_ftp_version(ftp_path, tarball_prefix, force_version=None):
     if html is None:
         raise RuntimeError(f"Failed to fetch FTP listing for {ftp_path}: {last_err}") from last_err
 
-    pattern = rf"{tarball_prefix}-([0-9]+(?:\.[0-9]+)*)\.(?:tar\.(?:xz|gz|bz2)|tgz)"
+    pattern = rf"{tarball_prefix}-([0-9]+(?:\.[0-9]+)*)\.(?:tar\.(?:xz|gz|bz2|lz)|tgz)"
     matches = re.findall(pattern, html)
     if not matches:
         return None
@@ -66,7 +66,7 @@ def resolve_tarball_url(ftp_path, tarball_prefix, version):
         f"https://ftpmirror.gnu.org/{ftp_path}",
         f"https://ftp.gnu.org/gnu/{ftp_path}",
     ]
-    for ext in ("tar.xz", "tar.gz", "tar.bz2", "tgz"):
+    for ext in ("tar.xz", "tar.gz", "tar.bz2", "tgz", "tar.lz"):
         name = f"{tarball_prefix}-{version}.{ext}"
         for base_url in base_urls:
             url = f"{base_url}/{name}"
