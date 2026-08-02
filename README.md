@@ -64,7 +64,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ⏳ | [coreutils](https://ftp.gnu.org/gnu/coreutils/) | - |
 | ✅ | [cpio](https://ftp.gnu.org/gnu/cpio/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=cpio-v&expanded=true) |
 | ✅ | [cppi](https://ftp.gnu.org/gnu/cppi/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=cppi-v&expanded=true) |
-| ⏳ | [cssc](https://ftp.gnu.org/gnu/cssc/) | - |
+| ✅ | [cssc](https://ftp.gnu.org/gnu/cssc/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=cssc-v&expanded=true) |
 | ⏳ | [cursynth](https://ftp.gnu.org/gnu/cursynth/) | - |
 | ⏳ | [dap](https://ftp.gnu.org/gnu/dap/) | - |
 | ✅ | [datamash](https://ftp.gnu.org/gnu/datamash/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=datamash-v&expanded=true) |
@@ -187,7 +187,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ⏳ | [jami](https://ftp.gnu.org/gnu/jami/) | - |
 | ⏳ | [jel](https://ftp.gnu.org/gnu/jel/) | - |
 | ⏳ | [jtw](https://ftp.gnu.org/gnu/jtw/) | - |
-| ⏳ | [jwhois](https://ftp.gnu.org/gnu/jwhois/) | - |
+| ✅ | [jwhois](https://ftp.gnu.org/gnu/jwhois/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=jwhois-v&expanded=true) |
 | ⏳ | [kawa](https://ftp.gnu.org/gnu/kawa/) | - |
 | ⏳ | [less](https://ftp.gnu.org/gnu/less/) | - |
 | ⏳ | [lightning](https://ftp.gnu.org/gnu/lightning/) | - |
@@ -224,7 +224,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ⏳ | [parted](https://ftp.gnu.org/gnu/parted/) | - |
 | ✅ | [patch](https://ftp.gnu.org/gnu/patch/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=patch-v&expanded=true) |
 | ✅ | [pem](https://ftp.gnu.org/gnu/pem/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=pem-v&expanded=true) |
-| ⏳ | [pexec](https://ftp.gnu.org/gnu/pexec/) | - |
+| ✅ | [pexec](https://ftp.gnu.org/gnu/pexec/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=pexec-v&expanded=true) |
 | ⏳ | [pies](https://ftp.gnu.org/gnu/pies/) | - |
 | ⏳ | [plotutils](https://ftp.gnu.org/gnu/plotutils/) | - |
 | ⏳ | [poke](https://ftp.gnu.org/gnu/poke/) | - |
@@ -278,7 +278,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ⏳ | [userv](https://ftp.gnu.org/gnu/userv/) | - |
 | ⏳ | [uucp](https://ftp.gnu.org/gnu/uucp/) | - |
 | ⏳ | [vc-changelog](https://ftp.gnu.org/gnu/vc-changelog/) | - |
-| ⏳ | [vc-dwim](https://ftp.gnu.org/gnu/vc-dwim/) | - |
+| ✅ | [vc-dwim](https://ftp.gnu.org/gnu/vc-dwim/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=vc-dwim-v&expanded=true) |
 | ⏳ | [vcdimager](https://ftp.gnu.org/gnu/vcdimager/) | - |
 | ⏳ | [vera](https://ftp.gnu.org/gnu/vera/) | - |
 | ⏳ | [wb](https://ftp.gnu.org/gnu/wb/) | - |
