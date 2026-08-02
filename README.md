@@ -174,7 +174,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ⏳ | [halifax](https://ftp.gnu.org/gnu/halifax/) | - |
 | ⏳ | [health](https://ftp.gnu.org/gnu/health/) | - |
 | ✅ | [hello](https://ftp.gnu.org/gnu/hello/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=hello-v&expanded=true) |
-| ⏳ | [help2man](https://ftp.gnu.org/gnu/help2man/) | - |
+| ✅ | [help2man](https://ftp.gnu.org/gnu/help2man/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=help2man-v&expanded=true) |
 | ⏳ | [hp2xx](https://ftp.gnu.org/gnu/hp2xx/) | - |
 | ⏳ | [httptunnel](https://ftp.gnu.org/gnu/httptunnel/) | - |
 | ⏳ | [hurd](https://ftp.gnu.org/gnu/hurd/) | - |
@@ -250,7 +250,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ⏳ | [sharutils](https://ftp.gnu.org/gnu/sharutils/) | - |
 | ⏳ | [shepherd](https://ftp.gnu.org/gnu/shepherd/) | - |
 | ⏳ | [shishi](https://ftp.gnu.org/gnu/shishi/) | - |
-| ⏳ | [shtool](https://ftp.gnu.org/gnu/shtool/) | - |
+| ✅ | [shtool](https://ftp.gnu.org/gnu/shtool/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=shtool-v&expanded=true) |
 | ⏳ | [sipwitch](https://ftp.gnu.org/gnu/sipwitch/) | - |
 | ⏳ | [slib](https://ftp.gnu.org/gnu/slib/) | - |
 | ⏳ | [smalltalk](https://ftp.gnu.org/gnu/smalltalk/) | - |
@@ -260,7 +260,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ✅ | [spell](https://ftp.gnu.org/gnu/spell/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=spell-v&expanded=true) |
 | ⏳ | [sqltutor](https://ftp.gnu.org/gnu/sqltutor/) | - |
 | ⏳ | [src-highlite](https://ftp.gnu.org/gnu/src-highlite/) | - |
-| ⏳ | [stow](https://ftp.gnu.org/gnu/stow/) | - |
+| ✅ | [stow](https://ftp.gnu.org/gnu/stow/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=stow-v&expanded=true) |
 | ⏳ | [superopt](https://ftp.gnu.org/gnu/superopt/) | - |
 | ⏳ | [swbis](https://ftp.gnu.org/gnu/swbis/) | - |
 | ⏳ | [taler](https://ftp.gnu.org/gnu/taler/) | - |
