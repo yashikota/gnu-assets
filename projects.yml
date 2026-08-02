@@ -193,18 +193,37 @@ projects:
   # - name: gengetopt
   #   binary_names: "gengetopt"
 
-  - name: httptunnel
-    binary_names: "htc hts"
+  # httptunnel: no GPG signature file on FTP server. Skip.
+  # - name: httptunnel
+  #   binary_names: "htc hts"
 
-  - name: alive
-    binary_names: "alive"
+  # alive: requires guile scripting engine. Skip.
+  # - name: alive
+  #   binary_names: "alive"
 
-  - name: macchanger
-    binary_names: "macchanger"
+  # macchanger: requires linux/ethtool.h (Linux-only); asm/types.h missing with
+  # musl-gcc minimal asm/ stub. Skip.
+  # - name: macchanger
+  #   binary_names: "macchanger"
 
-  - name: gsasl
-    binary_names: "gsasl"
-    configure_args: "--with-gssapi=no"
+  # gsasl: libtool shared lib with -rpath causes musl libc.so dynamic load. Skip.
+  # - name: gsasl
+  #   binary_names: "gsasl"
+
+  - name: plotutils
+    binary_names: "graph plot spline ode"
+    configure_args: "--without-x --disable-libplotter"
+
+  - name: moe
+    binary_names: "moe"
+
+  - name: gtypist
+    binary_names: "gtypist"
+    configure_args: "--without-ncurses"
+
+  - name: anubis
+    binary_names: "anubis"
+    configure_args: "--without-gsasl --without-gnutls --without-gss"
 
   - name: ed
     binary_names: "ed"
