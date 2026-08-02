@@ -250,15 +250,15 @@ projects:
   # - name: combine
   #   binary_names: "combine"
 
-  - name: less
-    binary_names: "less lesskey"
-    deps_apt: "libncurses5-dev"
+  # less: requires ncurses; musl-gcc cannot link glibc-built libncurses statically. Skip.
+  # - name: less
+  #   binary_names: "less lesskey"
 
-  - name: nano
-    binary_names: "nano"
-    deps_apt: "libncurses5-dev"
+  # nano: requires ncurses; same musl/ncurses static link issue. Skip.
+  # - name: nano
+  #   binary_names: "nano"
 
-  # screen: links libpam on macOS (not in allowed list). Skip.
+  # screen: requires ncurses on Linux; links libpam on macOS (not in allowed list). Skip.
   # - name: screen
   #   binary_names: "screen"
 
@@ -269,4 +269,20 @@ projects:
   # gdbm: libtool shared lib with -rpath causes musl libc.so dynamic load. Skip.
   # - name: gdbm
   #   binary_names: "gdbm_dump gdbm_load gdbmtool"
+
+  - name: unrtf
+    binary_names: "unrtf"
+
+  - name: ocrad
+    binary_names: "ocrad"
+
+  - name: a2ps
+    binary_names: "a2ps fixps pdiff psmandup psnup psset card composeglyphs fixnt ogonkify"
+    configure_args: "--without-lispdir"
+
+  - name: userv
+    binary_names: "userv uservd"
+
+  - name: swbis
+    binary_names: "swinstall swremove swverify swlist swign swpackage"
 
