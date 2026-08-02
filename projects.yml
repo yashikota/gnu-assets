@@ -443,14 +443,13 @@ projects:
   # - name: termutils
   #   binary_names: "ul"
 
-  - name: ferret
-    binary_names: "ferret"
+  # ferret: no configure script; bare Makefile that fails with musl-gcc. Skip.
+  # - name: ferret
+  #   binary_names: "ferret"
 
-  - name: c-graph
-    binary_names: "c-graph"
-    ftp_path: "c-graph"
-    tarball_prefix: "c-graph"
-    configure_args: "--without-png"
+  # c-graph: requires Fortran compiler. Skip.
+  # - name: c-graph
+  #   binary_names: "c-graph"
 
   # acct: libtool shared lib with -rpath causes musl libc.so dynamic load. Skip.
   # - name: acct
