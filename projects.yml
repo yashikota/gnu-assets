@@ -105,7 +105,7 @@ projects:
 
   - name: cflow
     binary_names: "cflow"
-    configure_args: "'CFLAGS=-O2 -D__attribute_maybe_unused__='"
+    configure_args: "ac_cv_have_c_attribute_maybe_unused=no"
 
   - name: rush
     binary_names: "rush rushlast rushwho"
@@ -117,6 +117,7 @@ projects:
 
   - name: global
     binary_names: "global gtags gozilla htags"
+    dependencies_apt: "libncurses-dev"
 
   - name: pem
     binary_names: "pem"
