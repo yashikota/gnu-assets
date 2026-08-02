@@ -47,11 +47,12 @@ projects:
 
   - name: m4
     binary_names: "m4"
-    make_args: "SUBDIRS=."
+    make_args: "SUBDIRS=. examples lib src doc po"
 
   - name: indent
     binary_names: "indent"
     deps_brew: "gettext"
+    configure_args: "CPPFLAGS=-I/opt/homebrew/opt/gettext/include"
 
   - name: time
     binary_names: "time"
