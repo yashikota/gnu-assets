@@ -428,10 +428,16 @@ projects:
   # - name: superopt
   #   binary_names: "superopt"
 
-  - name: proxyknife
-    binary_names: "proxyknife"
-    make_args: "SUBDIRS=src"
-    configure_args: "'CFLAGS=-O2 -include locale.h'"
+  # proxyknife: broken old code (implicit function decls, pod2man failures). Skip.
+  # - name: proxyknife
+  #   binary_names: "proxyknife"
+
+  - name: speedx
+    binary_names: "speedx"
+
+  - name: vc-changelog
+    binary_names: "vc-changelog"
+    ftp_path: "vc-changelog"
 
   # acct: libtool shared lib with -rpath causes musl libc.so dynamic load. Skip.
   # - name: acct
