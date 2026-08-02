@@ -424,6 +424,12 @@ projects:
   # - name: hp2xx
   #   binary_names: "hp2xx"
 
+  - name: superopt
+    binary_names: "superopt"
+
+  - name: proxyknife
+    binary_names: "proxyknife"
+
   # acct: libtool shared lib with -rpath causes musl libc.so dynamic load. Skip.
   # - name: acct
   #   binary_names: "accton ac lastcomm dump-acct dump-utmp"
