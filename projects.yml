@@ -330,3 +330,9 @@ projects:
   - name: texinfo
     binary_names: "install-info texindex"
 
+  - name: groff
+    binary_names: "groff grog troff nroff pic tbl eqn refer soelim preconv grops gropdf grotty grn grodvi"
+
+  - name: dap
+    binary_names: "dap"
+

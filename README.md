@@ -39,11 +39,11 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ⏳ | [avl](https://ftp.gnu.org/gnu/avl/) | - |
 | ⏳ | [ballandpaddle](https://ftp.gnu.org/gnu/ballandpaddle/) | - |
 | ⏳ | [barcode](https://ftp.gnu.org/gnu/barcode/) | - |
-| ⏳ | [bash](https://ftp.gnu.org/gnu/bash/) | - |
+| ✅ | [bash](https://ftp.gnu.org/gnu/bash/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=bash&expanded=true) |
 | ⏳ | [bayonne](https://ftp.gnu.org/gnu/bayonne/) | - |
 | ✅ | [bc](https://ftp.gnu.org/gnu/bc/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=bc&expanded=true) |
 | ⏳ | [binutils](https://ftp.gnu.org/gnu/binutils/) | - |
-| ⏳ | [bison](https://ftp.gnu.org/gnu/bison/) | - |
+| ✅ | [bison](https://ftp.gnu.org/gnu/bison/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=bison&expanded=true) |
 | ✅ | [bool](https://ftp.gnu.org/gnu/bool/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=bool&expanded=true) |
 | ⏳ | [c-graph](https://ftp.gnu.org/gnu/c-graph/) | - |
 | ⏳ | [c-intro-and-ref](https://ftp.gnu.org/gnu/c-intro-and-ref/) | - |
@@ -269,7 +269,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ⏳ | [termutils](https://ftp.gnu.org/gnu/termutils/) | - |
 | ✅ | [teseq](https://ftp.gnu.org/gnu/teseq/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=teseq&expanded=true) |
 | ⏳ | [teximpatient](https://ftp.gnu.org/gnu/teximpatient/) | - |
-| ⏳ | [texinfo](https://ftp.gnu.org/gnu/texinfo/) | - |
+| ✅ | [texinfo](https://ftp.gnu.org/gnu/texinfo/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=texinfo&expanded=true) |
 | ✅ | [time](https://ftp.gnu.org/gnu/time/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=time&expanded=true) |
 | ⏳ | [tramp](https://ftp.gnu.org/gnu/tramp/) | - |
 | ⏳ | [trueprint](https://ftp.gnu.org/gnu/trueprint/) | - |
