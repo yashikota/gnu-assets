@@ -549,3 +549,7 @@ projects:
     tarball_prefix: "gnuchess"
     configure_args: "--with-readline=no"
 
+  - name: gprolog
+    binary_names: "gprolog gplc"
+    ftp_path: "gprolog"
+

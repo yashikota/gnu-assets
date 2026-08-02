@@ -54,7 +54,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ⏳ | [cfengine](https://ftp.gnu.org/gnu/cfengine/) | - |
 | ⏳ | [cflow](https://ftp.gnu.org/gnu/cflow/) | - |
 | ⏳ | [cgicc](https://ftp.gnu.org/gnu/cgicc/) | - |
-| ⏳ | [chess](https://ftp.gnu.org/gnu/chess/) | - |
+| ✅ | [chess](https://ftp.gnu.org/gnu/chess/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=chess&expanded=true) |
 | ⏳ | [cim](https://ftp.gnu.org/gnu/cim/) | - |
 | ⏳ | [classpath](https://ftp.gnu.org/gnu/classpath/) | - |
 | ⏳ | [classpathx](https://ftp.gnu.org/gnu/classpathx/) | - |
@@ -126,7 +126,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ✅ | [gnucap](https://ftp.gnu.org/gnu/gnucap/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=gnucap&expanded=true) |
 | ⏳ | [gnucobol](https://ftp.gnu.org/gnu/gnucobol/) | - |
 | ⏳ | [gnudos](https://ftp.gnu.org/gnu/gnudos/) | - |
-| ⏳ | [gnugo](https://ftp.gnu.org/gnu/gnugo/) | - |
+| ✅ | [gnugo](https://ftp.gnu.org/gnu/gnugo/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=gnugo&expanded=true) |
 | ⏳ | [gnuit](https://ftp.gnu.org/gnu/gnuit/) | - |
 | ⏳ | [gnujump](https://ftp.gnu.org/gnu/gnujump/) | - |
 | ⏳ | [gnukart](https://ftp.gnu.org/gnu/gnukart/) | - |
