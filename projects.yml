@@ -517,7 +517,7 @@ projects:
   # macchanger: already skipped above (linux-only, caddr_t missing in musl).
 
   - name: inetutils
-    binary_names: "ftp telnet traceroute"
+    binary_names: "ftp telnet"
 
   # global: libtool .la shared lib in plugin subdir fails with --disable-shared. Skip.
   # - name: global
