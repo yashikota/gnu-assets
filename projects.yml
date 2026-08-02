@@ -312,9 +312,7 @@ projects:
   # - name: motti
   #   binary_names: "motti"
 
-  # gama: binary names are gama-local/gama-g3, not gama; also C++ program. Skip.
-  # - name: gama
-  #   binary_names: "gama"
+  # gama: see active entry below (libexpat allowed on macOS)
 
   # pies: Linux daemon; uses asm/posix_types.h (musl stub incomplete);
   # macOS lacks CBAUD/SIGPWR. Skip.
@@ -531,8 +529,7 @@ projects:
   # - name: httptunnel
   #   binary_names: "htc hts"
 
-  - name: gengetopt
-    binary_names: "gengetopt"
+  # gengetopt: C++ program; musl-gcc has no static libstdc++. Skip. (see comment at line ~193)
 
   - name: gama
     binary_names: "gama-local gama-g3"

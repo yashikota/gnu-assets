@@ -248,6 +248,7 @@ def verify_binary(binary_path):
             "/usr/lib/libcurl",
             "/usr/lib/libedit",     # readline-compatible line editor, system-provided on macOS
             "/usr/lib/libresolv",   # DNS resolver, system-provided on macOS
+            "/usr/lib/libexpat",    # XML parser, system-provided on macOS
             "/System/Library/Frameworks/CoreFoundation.framework",
             "/System/Library/Frameworks/CoreServices.framework",
         )
