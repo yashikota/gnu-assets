@@ -250,10 +250,9 @@ projects:
   # - name: combine
   #   binary_names: "combine"
 
-  - name: less
-    binary_names: "less lesskey"
-    configure_args: "--with-ncurses"
-    dependencies_apt: "libncurses-dev"
+  # less: requires ncurses built with musl; two-stage build not supported. Skip.
+  # - name: less
+  #   binary_names: "less lesskey"
 
   # nano: requires ncurses; same musl/ncurses static link issue. Skip.
   # - name: nano
