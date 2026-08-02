@@ -543,4 +543,5 @@ projects:
 
   - name: chess
     binary_names: "gnuchess"
+    tarball_prefix: "gnuchess"
 
