@@ -98,7 +98,14 @@ def main(dry_run=False):
 
         print(f"[{name}]: FTP={latest_ftp}, GitHub={latest_gh}")
 
-        if latest_ftp and latest_ftp != latest_gh:
+        def _parse_ver(v):
+            try:
+                return [int(x) for x in v.split(".")]
+            except (ValueError, AttributeError):
+                return [0]
+
+        ftp_newer = latest_ftp and (not latest_gh or _parse_ver(latest_ftp) > _parse_ver(latest_gh))
+        if ftp_newer:
             if dry_run:
                 print(f"  -> Would trigger build: {latest_gh} -> {latest_ftp}")
                 triggered.append(name)

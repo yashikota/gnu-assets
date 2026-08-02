@@ -128,6 +128,13 @@ def test_get_latest_github_release_returns_none_on_empty():
     assert result is None
 
 
+def test_get_latest_github_release_raises_on_gh_failure():
+    with patch("subprocess.run") as mock_run:
+        mock_run.return_value = MagicMock(returncode=1, stdout="", stderr="API error")
+        with pytest.raises(RuntimeError, match="gh release list failed"):
+            check.get_latest_github_release("sed")
+
+
 def test_main_has_new(projects_file, tmp_path):
     output_file = tmp_path / "github_output"
     output_file.write_text("")

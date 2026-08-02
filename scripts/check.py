@@ -50,7 +50,7 @@ def get_latest_ftp_version(ftp_path, tarball_prefix, force_version=None):
 
 def resolve_tarball_url(ftp_path, tarball_prefix, version):
     base_url = f"https://ftpmirror.gnu.org/{ftp_path}"
-    for ext in ("tar.xz", "tar.gz", "tar.bz2"):
+    for ext in ("tar.xz", "tar.gz", "tar.bz2", "tgz"):
         name = f"{tarball_prefix}-{version}.{ext}"
         url = f"{base_url}/{name}"
         req = urllib.request.Request(url, method="HEAD")
@@ -67,7 +67,9 @@ def get_latest_github_release(project_name):
         ["gh", "release", "list", "--json", "tagName", "-q", ".[].tagName"],
         capture_output=True, text=True,
     )
-    if res.returncode != 0 or not res.stdout.strip():
+    if res.returncode != 0:
+        raise RuntimeError(f"gh release list failed: {res.stderr.strip()}")
+    if not res.stdout.strip():
         return None
     tags = [
         t.removeprefix(f"{project_name}-v")
@@ -135,6 +137,7 @@ def main(argv=None):
         "binary_names": p["binary_names"],
         "configure_args": p.get("configure_args", ""),
         "dependencies_apt": p.get("dependencies_apt", ""),
+        "dependencies_apk": p.get("dependencies_apk", ""),
         "dependencies_brew": p.get("dependencies_brew", ""),
     }
     write_outputs(outputs, None if args.print else os.environ.get("GITHUB_OUTPUT"))

@@ -25,7 +25,7 @@ def run(cmd, check=True, **kwargs):
 
 def resolve_tarball(ftp_path, tarball_prefix, version):
     base_url = f"https://ftpmirror.gnu.org/{ftp_path}"
-    for ext in ("tar.xz", "tar.gz", "tar.bz2"):
+    for ext in ("tar.xz", "tar.gz", "tar.bz2", "tgz"):
         name = f"{tarball_prefix}-{version}.{ext}"
         url = f"{base_url}/{name}"
         req = urllib.request.Request(url, method="HEAD")
@@ -62,12 +62,13 @@ def _is_alpine():
         return False
 
 
-def install_deps(deps_apt, deps_brew):
+def install_deps(deps_apt, deps_brew, deps_apk=""):
     os_name = platform.system().lower()
     if os_name == "linux":
         if _is_alpine():
             base_pkgs = ["build-base", "curl", "gnupg", "texinfo", "bash", "tar", "xz", "gzip"]
-            extra = deps_apt.split() if deps_apt else []
+            # prefer deps_apk when provided; fall back to deps_apt for Alpine-compatible package names
+            extra = (deps_apk or deps_apt).split() if (deps_apk or deps_apt) else []
             run(["apk", "add", "--no-cache"] + base_pkgs + extra)
         else:
             pkgs = ["texinfo", "musl-tools"] + (deps_apt.split() if deps_apt else [])
@@ -135,15 +136,18 @@ def verify_binary(binary_path):
         if "not a dynamic executable" in output or result.returncode != 0:
             print(f"  static: {binary_path.name}")
             return
-        # ldd succeeded → dynamically linked
-        deps = [line.strip() for line in output.splitlines() if "=>" in line or "linux-vdso" in line]
-        # vdso is a kernel-injected virtual DSO, not a real file dep — acceptable
-        real_deps = [d for d in deps if "linux-vdso" not in d and "ld-musl" not in d]
+        # ldd succeeded → dynamically linked; vdso is kernel-injected and not a real file dep
+        deps = [
+            line.strip()
+            for line in output.splitlines()
+            if "=>" in line or "linux-vdso" in line or "ld-" in line
+        ]
+        real_deps = [d for d in deps if "linux-vdso" not in d]
         if real_deps:
             raise RuntimeError(
                 f"{binary_path.name} is NOT fully static. Dynamic deps:\n" + "\n".join(real_deps)
             )
-        print(f"  static (musl/vdso only): {binary_path.name}")
+        print(f"  static (vdso only): {binary_path.name}")
 
     elif os_name == "darwin":
         result = run(["otool", "-L", str(binary_path)], check=False, capture_output=True, text=True)
@@ -173,10 +177,11 @@ def package(project, version, binary_names, install_dir, work_dir, src_dir, veri
         stage = Path(stage)
         for binary in binary_names.split():
             found = next(install_dir.rglob(binary), None)
-            if found and found.is_file():
-                if verify:
-                    verify_binary(found)
-                shutil.copy2(found, stage / binary)
+            if not found or not found.is_file():
+                raise RuntimeError(f"Expected binary '{binary}' not found in install tree")
+            if verify:
+                verify_binary(found)
+            shutil.copy2(found, stage / binary)
 
         for lic in ("COPYING", "COPYING.v3", "COPYING.v2", "LICENSE"):
             lic_path = src_dir / lic
@@ -208,6 +213,7 @@ def main(args=None):
     parser.add_argument("--configure-args", default="")
     parser.add_argument("--tarball-url", default=None, help="Skip FTP resolution, use this URL directly")
     parser.add_argument("--deps-apt", default="")
+    parser.add_argument("--deps-apk", default="")
     parser.add_argument("--deps-brew", default="")
     parser.add_argument("--skip-gpg", action="store_true")
     parser.add_argument("--skip-verify", action="store_true", help="Skip binary linkage verification")
@@ -220,7 +226,7 @@ def main(args=None):
     install_dir = work_dir / "_install"
     install_dir.mkdir(exist_ok=True)
 
-    install_deps(a.deps_apt, a.deps_brew)
+    install_deps(a.deps_apt, a.deps_brew, a.deps_apk)
 
     if a.tarball_url:
         download_url = a.tarball_url
@@ -233,12 +239,13 @@ def main(args=None):
 
     sig_url = f"{download_url}.sig"
     sig_path = work_dir / f"{tarball_name}.sig"
-    try:
-        download(sig_url, sig_path)
-    except subprocess.CalledProcessError:
-        pass
-
     if not a.skip_gpg:
+        try:
+            download(sig_url, sig_path)
+        except subprocess.CalledProcessError:
+            raise RuntimeError(
+                f"Failed to download signature {sig_url}. Use --skip-gpg to bypass verification."
+            )
         verify_gpg(tarball_path)
 
     run(["tar", "xf", str(tarball_path)], cwd=work_dir)

@@ -29,6 +29,7 @@ jobs:
       binary_names: ${{ steps.check.outputs.binary_names }}
       configure_args: ${{ steps.check.outputs.configure_args }}
       dependencies_apt: ${{ steps.check.outputs.dependencies_apt }}
+      dependencies_apk: ${{ steps.check.outputs.dependencies_apk }}
       dependencies_brew: ${{ steps.check.outputs.dependencies_brew }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -88,6 +89,7 @@ jobs:
           BINARY_NAMES: ${{ needs.check.outputs.binary_names }}
           CONFIGURE_ARGS: ${{ needs.check.outputs.configure_args }}
           DEPS_APT: ${{ needs.check.outputs.dependencies_apt }}
+          DEPS_APK: ${{ needs.check.outputs.dependencies_apk }}
           DEPS_BREW: ${{ needs.check.outputs.dependencies_brew }}
           TARBALL_URL: ${{ needs.check.outputs.download_url }}
         run: |
@@ -98,6 +100,7 @@ jobs:
             --work-dir "${GITHUB_WORKSPACE}/build" \
             --configure-args "${CONFIGURE_ARGS}" \
             --deps-apt "${DEPS_APT}" \
+            --deps-apk "${DEPS_APK}" \
             --deps-brew "${DEPS_BREW}" \
             --tarball-url "${TARBALL_URL}"
 

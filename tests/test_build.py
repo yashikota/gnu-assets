@@ -62,6 +62,20 @@ def test_verify_binary_linux_static(tmp_path):
         build.verify_binary(binary)  # should not raise
 
 
+def test_verify_binary_linux_musl_dynamic_raises(tmp_path):
+    binary = tmp_path / "sed"
+    binary.write_bytes(b"ELF fake")
+
+    ldd_output = (
+        "linux-vdso.so.1 => (0x...)\n"
+        "/lib/ld-musl-x86_64.so.1 (0x...)\n"
+    )
+    with patch("platform.system", return_value="Linux"), \
+         patch("build.run", return_value=MagicMock(returncode=0, stdout=ldd_output, stderr="")):
+        with pytest.raises(RuntimeError, match="NOT fully static"):
+            build.verify_binary(binary)
+
+
 def test_verify_binary_linux_dynamic_raises(tmp_path):
     binary = tmp_path / "sed"
     binary.write_bytes(b"ELF fake")
@@ -107,6 +121,18 @@ def test_verify_binary_macos_unexpected_dep_raises(tmp_path):
 
 
 # --- package ---
+
+def test_package_missing_binary_raises(tmp_path):
+    install_dir = tmp_path / "_install" / "bin"
+    install_dir.mkdir(parents=True)
+    # "hello" binary is not created — should raise
+
+    src_dir = tmp_path / "hello-2.12"
+    src_dir.mkdir()
+
+    with pytest.raises(RuntimeError, match="not found in install tree"):
+        build.package("hello", "2.12", "hello", tmp_path / "_install", tmp_path, src_dir, verify=False)
+
 
 def test_package_creates_tarball(tmp_path):
     install_dir = tmp_path / "_install" / "bin"
