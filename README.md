@@ -256,7 +256,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ⏳ | [smalltalk](https://ftp.gnu.org/gnu/smalltalk/) | - |
 | ⏳ | [solfege](https://ftp.gnu.org/gnu/solfege/) | - |
 | ⏳ | [spacechart](https://ftp.gnu.org/gnu/spacechart/) | - |
-| ⏳ | [speedx](https://ftp.gnu.org/gnu/speedx/) | - |
+| ✅ | [speedx](https://ftp.gnu.org/gnu/speedx/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=speedx&expanded=true) |
 | ✅ | [spell](https://ftp.gnu.org/gnu/spell/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=spell&expanded=true) |
 | ⏳ | [sqltutor](https://ftp.gnu.org/gnu/sqltutor/) | - |
 | ⏳ | [src-highlite](https://ftp.gnu.org/gnu/src-highlite/) | - |
@@ -277,7 +277,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ✅ | [unrtf](https://ftp.gnu.org/gnu/unrtf/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=unrtf&expanded=true) |
 | ✅ | [userv](https://ftp.gnu.org/gnu/userv/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=userv&expanded=true) |
 | ⏳ | [uucp](https://ftp.gnu.org/gnu/uucp/) | - |
-| ⏳ | [vc-changelog](https://ftp.gnu.org/gnu/vc-changelog/) | - |
+| ✅ | [vc-changelog](https://ftp.gnu.org/gnu/vc-changelog/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=vc-changelog&expanded=true) |
 | ✅ | [vc-dwim](https://ftp.gnu.org/gnu/vc-dwim/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=vc-dwim&expanded=true) |
 | ⏳ | [vcdimager](https://ftp.gnu.org/gnu/vcdimager/) | - |
 | ⏳ | [vera](https://ftp.gnu.org/gnu/vera/) | - |
