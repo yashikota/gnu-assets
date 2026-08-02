@@ -408,6 +408,10 @@ projects:
   # - name: libidn
   #   binary_names: "idn"
 
+  - name: ncurses
+    binary_names: "tic infocmp toe tput tset captoinfo infotocap"
+    configure_args: "--without-shared --with-normal"
+
   # gnucobol: requires GMP and Berkeley DB external dependencies. Skip.
   # - name: gnucobol
   #   binary_names: "cobc cobcrun"
