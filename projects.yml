@@ -349,3 +349,17 @@ projects:
   - name: gengen
     binary_names: "gengen"
 
+  - name: coreutils
+    binary_names: "ls cp mv rm mkdir rmdir cat head tail tee wc sort uniq cut paste join tr od touch chmod chown ln stat du df date id who whoami hostname echo printf env pwd tty true false sleep"
+
+  - name: gettext
+    binary_names: "msgfmt msgmerge msginit msgcat msgconv xgettext msgattrib msgcomm msgcmp msgen msgexec msgfilter msggrep msginit msgunfmt msguniq envsubst"
+
+  - name: gnuchess
+    binary_names: "gnuchess"
+    ftp_path: "chess"
+    tarball_prefix: "gnuchess"
+
+  - name: radius
+    binary_names: "radiusd radtest radlast radwho radzap"
+
