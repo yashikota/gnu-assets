@@ -57,10 +57,10 @@ projects:
 
   - name: recutils
     binary_names: "recsel recins recdel recset recfmt recfix reccount"
+    configure_args: "--disable-shared"
 
   - name: units
     binary_names: "units"
-    configure_args: "--without-readline"
 
   - name: cpio
     binary_names: "cpio"
