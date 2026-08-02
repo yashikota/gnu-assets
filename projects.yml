@@ -118,7 +118,7 @@ projects:
 
   - name: global
     binary_names: "global gtags gozilla htags"
-    configure_args: "--disable-gtagscscope"
+    configure_args: "--disable-gtagscscope --disable-shared --enable-static"
 
   - name: pem
     binary_names: "pem"
