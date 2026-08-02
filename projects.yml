@@ -441,6 +441,7 @@ projects:
 
   - name: termutils
     binary_names: "ul"
+    skip_gpg: true
 
   # acct: libtool shared lib with -rpath causes musl libc.so dynamic load. Skip.
   # - name: acct
