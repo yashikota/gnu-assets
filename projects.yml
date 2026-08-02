@@ -7,7 +7,7 @@ projects:
     dependencies_apt: "linux-libc-dev"
 
   - name: grep
-    binary_names: "grep egrep fgrep"
+    binary_names: "grep"
     configure_args: "--disable-perl-regexp"
 
   - name: gzip
