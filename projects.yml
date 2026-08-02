@@ -189,8 +189,22 @@ projects:
   - name: shtool
     binary_names: "shtool"
 
-  - name: gengetopt
-    binary_names: "gengetopt"
+  # gengetopt: C++ program; musl-gcc has no static libstdc++. Skip.
+  # - name: gengetopt
+  #   binary_names: "gengetopt"
+
+  - name: httptunnel
+    binary_names: "htc hts"
+
+  - name: alive
+    binary_names: "alive"
+
+  - name: macchanger
+    binary_names: "macchanger"
+
+  - name: gsasl
+    binary_names: "gsasl"
+    configure_args: "--with-gssapi=no"
 
   - name: ed
     binary_names: "ed"
