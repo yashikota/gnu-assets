@@ -1,0 +1,55 @@
+version: "3"
+
+vars:
+  IMAGE: gnu-assets-builder
+  BUILD_DIR: "{{.ROOT_DIR}}/build"
+
+tasks:
+  build:
+    desc: "Build a GNU project locally in Docker. Usage: task build -- --project sed --version 4.9"
+    cmds:
+      - task: docker-build
+      - |
+        docker run --rm \
+          -v "{{.ROOT_DIR}}:/workspace" \
+          -v "{{.BUILD_DIR}}:/build" \
+          -w /workspace \
+          {{.IMAGE}} \
+          python3 scripts/build.py --work-dir /build {{.CLI_ARGS}}
+    requires:
+      vars: []
+
+  test:
+    desc: "Run Python unit tests"
+    cmds:
+      - uv run --group dev pytest tests/ -v
+
+  check:
+    desc: "Check if a new version is available. Usage: task check -- --project sed"
+    cmds:
+      - uv run --group dev python3 scripts/check.py --print {{.CLI_ARGS}}
+
+  watch-dry:
+    desc: "Dry-run the FTP watcher (checks versions, does not trigger builds)"
+    cmds:
+      - uv run --group dev python3 scripts/watcher.py --dry-run
+
+  lint:
+    desc: "Run actionlint and shellcheck"
+    cmds:
+      - actionlint .github/workflows/*.yml
+
+  docker-build:
+    desc: "Build the Docker image (cached)"
+    run: once
+    cmds:
+      - docker build -t {{.IMAGE}} .
+    sources:
+      - Dockerfile
+    generates:
+      - /dev/null
+
+  clean:
+    desc: "Remove build artifacts"
+    cmds:
+      - rm -rf {{.BUILD_DIR}}
