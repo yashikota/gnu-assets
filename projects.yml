@@ -133,13 +133,21 @@ projects:
 
   - name: indent
     binary_names: "indent"
+    dependencies_brew: "gettext"
 
   - name: which
     binary_names: "which"
+    configure_args: "'CFLAGS=-O2 -Wno-error'"
 
   - name: ed
     binary_names: "ed"
 
-  - name: combine
-    binary_names: "combine"
+  # combine: make install fails on guile scripting data install step. Skip.
+  # - name: combine
+  #   binary_names: "combine"
+
+  # global: libtool shared plugins (user-custom.la, ctags.la) are mandatory;
+  # cannot be built as fully static with musl. Skip.
+  # - name: global
+  #   binary_names: "global gtags gozilla htags"
 

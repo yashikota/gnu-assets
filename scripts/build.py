@@ -167,6 +167,15 @@ def build(src_dir, install_dir, configure_args, make_args=""):
         # macOS: link only against system libraries (libSystem.B.dylib is always present)
         env["LDFLAGS"] = f"-Wl,-dead_strip {env.get('LDFLAGS', '')} -liconv"
         env["CFLAGS"] = f"-O2 {env.get('CFLAGS', '')}"
+        # Homebrew gettext provides libintl.h — add it when present so that
+        # projects with unconditional #include <libintl.h> can compile.
+        result = subprocess.run(
+            ["brew", "--prefix", "gettext"], capture_output=True, text=True, check=False
+        )
+        if result.returncode == 0:
+            gt = result.stdout.strip()
+            env["CPPFLAGS"] = f"-I{gt}/include {env.get('CPPFLAGS', '')}"
+            env["LDFLAGS"] = f"{env['LDFLAGS']} -L{gt}/lib"
 
     configure = src_dir / "configure"
     Configure = src_dir / "Configure"
@@ -175,10 +184,17 @@ def build(src_dir, install_dir, configure_args, make_args=""):
     extra = shlex.split(configure_args) if configure_args else []
 
     _refresh_config_scripts(src_dir)
+    # Some old configure scripts ignore the CC/LDFLAGS environment variables
+    # and fall back to gcc; pass them as explicit arguments to be safe.
+    cc_args = []
+    if "CC" in env:
+        cc_args.append(f"CC={env['CC']}")
+    if env.get("LDFLAGS"):
+        cc_args.append(f"LDFLAGS={env['LDFLAGS'].strip()}")
     if configure.exists():
-        run([str(configure)] + base_args + extra, cwd=src_dir, env=env)
+        run([str(configure)] + base_args + cc_args + extra, cwd=src_dir, env=env)
     elif Configure.exists():
-        run([str(Configure), prefix] + extra, cwd=src_dir, env=env)
+        run([str(Configure), prefix] + cc_args + extra, cwd=src_dir, env=env)
 
     ncpu = os.cpu_count() or 2
     extra_make = shlex.split(make_args) if make_args else []
