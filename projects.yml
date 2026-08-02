@@ -467,6 +467,9 @@ projects:
   # - name: orgadoc
   #   binary_names: "orgadoc"
 
+  - name: fdisk
+    binary_names: "fdisk"
+
   - name: gnucap
     binary_names: "gnucap"
     configure_args: "--without-readline"
