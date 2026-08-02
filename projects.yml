@@ -531,3 +531,10 @@ projects:
   # - name: httptunnel
   #   binary_names: "htc hts"
 
+  - name: gengetopt
+    binary_names: "gengetopt"
+
+  - name: gama
+    binary_names: "gama-local gama-g3"
+    configure_args: "--disable-sqlite3"
+
