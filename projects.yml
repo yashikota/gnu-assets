@@ -141,6 +141,15 @@ projects:
   # - name: which
   #   binary_names: "which"
 
+  - name: ddrescue
+    binary_names: "ddrescue ddrescuelog"
+
+  - name: rcs
+    binary_names: "rcs ci co rcsdiff rcsmerge rlog ident merge"
+
+  - name: mtools
+    binary_names: "mtools"
+
   - name: ed
     binary_names: "ed"
 
