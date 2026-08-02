@@ -439,6 +439,9 @@ projects:
     binary_names: "vc-changelog"
     ftp_path: "vc-changelog"
 
+  - name: termutils
+    binary_names: "ul"
+
   # acct: libtool shared lib with -rpath causes musl libc.so dynamic load. Skip.
   # - name: acct
   #   binary_names: "accton ac lastcomm dump-acct dump-utmp"
