@@ -338,8 +338,9 @@ projects:
   # - name: dap
   #   binary_names: "dap"
 
-  - name: xorriso
-    binary_names: "xorriso xorrisofs xorrecord"
+  # xorriso: requires many kernel headers (asm/byteorder.h etc.); macOS links libbz2/libedit. Skip.
+  # - name: xorriso
+  #   binary_names: "xorriso xorrisofs xorrecord"
 
   # nettle: libtool shared lib; macOS links own libnettle.dylib. Skip.
   # - name: nettle
