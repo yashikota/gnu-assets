@@ -451,10 +451,9 @@ projects:
   # - name: c-graph
   #   binary_names: "c-graph"
 
-  - name: uucp
-    binary_names: "uucico uuxqt uucp uux uustat cu"
-    skip_gpg: true
-    configure_args: "--disable-static"
+  # uucp: very old configure (1994-era) fails on macOS with "C compiler cannot create executables". Skip.
+  # - name: uucp
+  #   binary_names: "uucico uuxqt uucp uux uustat cu"
 
   - name: gnucap
     binary_names: "gnucap"
