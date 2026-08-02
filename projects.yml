@@ -103,9 +103,10 @@ projects:
   # - name: barcode
   #   binary_names: "barcode"
 
-  - name: cflow
-    binary_names: "cflow"
-    configure_args: "ac_cv_have_c_attribute_maybe_unused=no"
+  # cflow: macOS clang mishandles [[maybe_unused]] on function return types
+  # in gnulib's bitrotate.h — deeply embedded in config generation. Skip.
+  # - name: cflow
+  #   binary_names: "cflow"
 
   - name: rush
     binary_names: "rush rushlast rushwho"
@@ -118,6 +119,7 @@ projects:
   - name: global
     binary_names: "global gtags gozilla htags"
     dependencies_apt: "libncurses-dev"
+    configure_args: "'CPPFLAGS=-I/usr/include'"
 
   - name: pem
     binary_names: "pem"
