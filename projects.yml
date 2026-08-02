@@ -391,11 +391,13 @@ projects:
   # - name: gnats
   #   binary_names: "send-pr query-pr file-pr edit-pr gnats-admin"
 
-  - name: adns
-    binary_names: "adnshost adnslogres adnsresfilter"
+  # adns: client binaries link against libadns.so (shared); can't find static libadns. Skip.
+  # - name: adns
+  #   binary_names: "adnshost adnslogres adnsresfilter"
 
-  - name: gss
-    binary_names: "gss"
+  # gss: gnulib-generated stdint.h has #if with no expression (syntax error on musl/macOS). Skip.
+  # - name: gss
+  #   binary_names: "gss"
 
   # gnucobol: requires GMP and Berkeley DB external dependencies. Skip.
   # - name: gnucobol
