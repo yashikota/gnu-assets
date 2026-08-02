@@ -167,6 +167,7 @@ def main(argv=None):
         "dependencies_apt": p.get("dependencies_apt", ""),
         "dependencies_apk": p.get("dependencies_apk", ""),
         "dependencies_brew": p.get("dependencies_brew", ""),
+        "skip_gpg": "true" if p.get("skip_gpg") else "false",
     }
     write_outputs(outputs, None if args.print else os.environ.get("GITHUB_OUTPUT"))
 

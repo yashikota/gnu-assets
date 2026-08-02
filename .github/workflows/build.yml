@@ -36,6 +36,7 @@ jobs:
       dependencies_apt: ${{ steps.check.outputs.dependencies_apt }}
       dependencies_apk: ${{ steps.check.outputs.dependencies_apk }}
       dependencies_brew: ${{ steps.check.outputs.dependencies_brew }}
+      skip_gpg: ${{ steps.check.outputs.skip_gpg }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -91,6 +92,7 @@ jobs:
           DEPS_APK: ${{ needs.check.outputs.dependencies_apk }}
           DEPS_BREW: ${{ needs.check.outputs.dependencies_brew }}
           TARBALL_URL: ${{ needs.check.outputs.download_url }}
+          SKIP_GPG: ${{ needs.check.outputs.skip_gpg }}
         run: |
           python3 scripts/build.py \
             --project="${PROJECT}" \
@@ -102,7 +104,8 @@ jobs:
             --deps-apt="${DEPS_APT}" \
             --deps-apk="${DEPS_APK}" \
             --deps-brew="${DEPS_BREW}" \
-            --tarball-url="${TARBALL_URL}"
+            --tarball-url="${TARBALL_URL}" \
+            $([ "${SKIP_GPG}" = "true" ] && echo "--skip-gpg")
 
       - name: Upload artifact
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1

@@ -416,12 +416,15 @@ projects:
   # - name: gnucobol
   #   binary_names: "cobc cobcrun"
 
-  - name: mcsim
-    binary_names: "mcsim"
+  # mcsim: libtool shared lib with -rpath; also requires -llapack external dep. Skip.
+  # - name: mcsim
+  #   binary_names: "mcsim"
 
   - name: hp2xx
     binary_names: "hp2xx"
+    skip_gpg: true
 
-  - name: acct
-    binary_names: "accton ac lastcomm dump-acct dump-utmp"
+  # acct: libtool shared lib with -rpath causes musl libc.so dynamic load. Skip.
+  # - name: acct
+  #   binary_names: "accton ac lastcomm dump-acct dump-utmp"
 
