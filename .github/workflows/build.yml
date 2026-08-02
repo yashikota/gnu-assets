@@ -94,6 +94,10 @@ jobs:
           TARBALL_URL: ${{ needs.check.outputs.download_url }}
           SKIP_GPG: ${{ needs.check.outputs.skip_gpg }}
         run: |
+          EXTRA_FLAGS=""
+          if [ "${SKIP_GPG}" = "true" ]; then
+            EXTRA_FLAGS="--skip-gpg"
+          fi
           python3 scripts/build.py \
             --project="${PROJECT}" \
             --version="${VERSION}" \
@@ -105,7 +109,7 @@ jobs:
             --deps-apk="${DEPS_APK}" \
             --deps-brew="${DEPS_BREW}" \
             --tarball-url="${TARBALL_URL}" \
-            $([ "${SKIP_GPG}" = "true" ] && echo "--skip-gpg")
+            ${EXTRA_FLAGS}
 
       - name: Upload artifact
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1

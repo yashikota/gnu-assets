@@ -420,9 +420,9 @@ projects:
   # - name: mcsim
   #   binary_names: "mcsim"
 
-  - name: hp2xx
-    binary_names: "hp2xx"
-    skip_gpg: true
+  # hp2xx: requires X11/Xlib.h on Linux (X11 dep); old getopt.c missing string.h on macOS. Skip.
+  # - name: hp2xx
+  #   binary_names: "hp2xx"
 
   # acct: libtool shared lib with -rpath causes musl libc.so dynamic load. Skip.
   # - name: acct
