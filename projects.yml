@@ -153,15 +153,30 @@ projects:
 
   - name: jwhois
     binary_names: "jwhois"
+    configure_args: "'CFLAGS=-O2 -Wno-implicit-function-declaration'"
 
-  - name: marst
-    binary_names: "marst"
+  # marst: libtool shared lib with -rpath causes musl libc.so dynamic load. Skip.
+  # - name: marst
+  #   binary_names: "marst"
 
   - name: vc-dwim
     binary_names: "vc-dwim"
 
-  - name: mcron
-    binary_names: "mcron"
+  # mcron: requires guile scripting engine. Skip.
+  # - name: mcron
+  #   binary_names: "mcron"
+
+  - name: rottlog
+    binary_names: "rottlog"
+
+  - name: direvent
+    binary_names: "direvent"
+
+  - name: pexec
+    binary_names: "pexec"
+
+  - name: cssc
+    binary_names: "admin cdc delta get prs prt rmdel sact sccs unget val what"
 
   - name: ed
     binary_names: "ed"
