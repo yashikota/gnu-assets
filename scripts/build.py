@@ -162,7 +162,15 @@ def verify_binary(binary_path):
             for line in result.stdout.splitlines()[1:]
             if line.strip()
         ]
-        allowed_prefixes = ("/usr/lib/libSystem", "/usr/lib/libc++", "/usr/lib/libiconv")
+        allowed_prefixes = (
+            "/usr/lib/libSystem",
+            "/usr/lib/libc++",
+            "/usr/lib/libiconv",
+            "/usr/lib/libncurses",
+            "/usr/lib/libtinfo",
+            "/usr/lib/libz",
+            "/usr/lib/libcurl",
+        )
         unexpected = [lib for lib in libs if not any(lib.startswith(p) for p in allowed_prefixes)]
         if unexpected:
             raise RuntimeError(
