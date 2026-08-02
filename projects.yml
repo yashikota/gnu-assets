@@ -547,4 +547,5 @@ projects:
   - name: chess
     binary_names: "gnuchess"
     tarball_prefix: "gnuchess"
+    configure_args: "--with-readline=no"
 
