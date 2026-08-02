@@ -288,13 +288,30 @@ projects:
   # - name: swbis
   #   binary_names: "swinstall swremove swverify swlist swign swpackage"
 
-  - name: mifluz
-    binary_names: "inverted"
+  # mifluz: requires libdb (Berkeley DB); macOS dbenv compile error. Skip.
+  # - name: mifluz
+  #   binary_names: "inverted"
 
-  - name: aspell
-    binary_names: "aspell"
-    configure_args: "--disable-dict"
+  # aspell: C++ program; not fully static with musl-gcc. Skip.
+  # - name: aspell
+  #   binary_names: "aspell"
 
-  - name: lightning
-    binary_names: "lightning"
+  # lightning: library only, no CLI binary installed. Skip.
+  # - name: lightning
+  #   binary_names: "lightning"
+
+  - name: gnushogi
+    binary_names: "gnushogi"
+
+  - name: gnugo
+    binary_names: "gnugo"
+
+  - name: motti
+    binary_names: "motti"
+
+  - name: gama
+    binary_names: "gama"
+
+  - name: pies
+    binary_names: "pies"
 
