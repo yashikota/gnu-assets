@@ -124,6 +124,23 @@ def _symlink_linux_headers_for_musl(musl_gcc):
         print(f"Warning: could not symlink linux headers for musl: {e}")
 
 
+def _refresh_config_scripts(src_dir):
+    """Replace config.sub/config.guess with the system copies when available.
+
+    Old tarballs (e.g. diction-1.11) ship ancient scripts that don't know
+    about aarch64 — updating them lets configure succeed on arm64 runners.
+    """
+    for script in ("config.sub", "config.guess"):
+        system_copy = Path(f"/usr/share/misc/{script}")
+        if not system_copy.exists():
+            continue
+        for candidate in (src_dir / script, *src_dir.rglob(script)):
+            if candidate.is_file():
+                run(["cp", str(system_copy), str(candidate)])
+                print(f"Refreshed {candidate.relative_to(src_dir)}")
+                break
+
+
 def build(src_dir, install_dir, configure_args, make_args=""):
     os_name = platform.system().lower()
     env = os.environ.copy()
@@ -157,6 +174,7 @@ def build(src_dir, install_dir, configure_args, make_args=""):
     base_args = [prefix, "--disable-dependency-tracking", "--disable-nls"]
     extra = shlex.split(configure_args) if configure_args else []
 
+    _refresh_config_scripts(src_dir)
     if configure.exists():
         run([str(configure)] + base_args + extra, cwd=src_dir, env=env)
     elif Configure.exists():

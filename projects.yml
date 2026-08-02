@@ -73,11 +73,14 @@ projects:
   - name: diction
     binary_names: "diction style"
 
-  - name: complexity
-    binary_names: "complexity"
+  # complexity: requires libopts (autogen) not available on all platforms. Skip.
+  # - name: complexity
+  #   binary_names: "complexity"
 
-  - name: sharutils
-    binary_names: "shar unshar uudecode uuencode"
+  # sharutils: autogen-generated option-parsing code has duplicate program_name
+  # symbols with --disable-nls; macOS libtool errors also. Skip.
+  # - name: sharutils
+  #   binary_names: "shar unshar uudecode uuencode"
 
   - name: spell
     binary_names: "spell"
