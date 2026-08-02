@@ -1,3 +1,18 @@
 projects:
   - name: hello
     binary_names: "hello"
+
+  - name: sed
+    binary_names: "sed"
+
+  - name: grep
+    binary_names: "grep egrep fgrep"
+
+  - name: gzip
+    binary_names: "gzip gunzip zcat"
+
+  - name: bc
+    binary_names: "bc"
+
+  - name: ed
+    binary_names: "ed"
