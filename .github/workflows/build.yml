@@ -67,24 +67,13 @@ jobs:
       matrix:
         include:
           - runner: ubuntu-latest
-            container: alpine:3.21
-            alpine: true
           - runner: ubuntu-24.04-arm
-            container: ''
-            alpine: false
           - runner: macos-latest
-            container: ''
-            alpine: false
     runs-on: ${{ matrix.runner }}
-    container: ${{ matrix.container != '' && matrix.container || null }}
     timeout-minutes: 60
     permissions:
       contents: read
     steps:
-      - name: Setup Alpine container
-        if: matrix.alpine
-        run: apk add --no-cache git python3 py3-yaml
-
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
