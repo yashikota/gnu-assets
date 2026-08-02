@@ -463,6 +463,9 @@ projects:
   # - name: mailutils
   #   binary_names: "mail dotlock mailq"
 
+  - name: orgadoc
+    binary_names: "orgadoc"
+
   - name: gnucap
     binary_names: "gnucap"
     configure_args: "--without-readline"
