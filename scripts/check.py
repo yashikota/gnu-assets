@@ -29,13 +29,23 @@ def get_latest_ftp_version(ftp_path, tarball_prefix, force_version=None):
     if force_version:
         return force_version
 
-    base_url = f"https://ftpmirror.gnu.org/{ftp_path}"
-    req = urllib.request.Request(f"{base_url}/", headers={"User-Agent": "Mozilla/5.0"})
-    try:
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            html = resp.read().decode("utf-8", errors="ignore")
-    except Exception as e:
-        raise RuntimeError(f"Failed to fetch FTP listing for {ftp_path}: {e}") from e
+    candidates = [
+        f"https://ftpmirror.gnu.org/{ftp_path}",
+        f"https://ftp.gnu.org/gnu/{ftp_path}",
+    ]
+    html = None
+    last_err = None
+    for base_url in candidates:
+        req = urllib.request.Request(f"{base_url}/", headers={"User-Agent": "Mozilla/5.0"})
+        try:
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                html = resp.read().decode("utf-8", errors="ignore")
+            break
+        except Exception as e:
+            last_err = e
+            continue
+    if html is None:
+        raise RuntimeError(f"Failed to fetch FTP listing for {ftp_path}: {last_err}") from last_err
 
     pattern = rf"{tarball_prefix}-([0-9]+(?:\.[0-9]+)*)\.(?:tar\.(?:xz|gz|bz2)|tgz)"
     matches = re.findall(pattern, html)
