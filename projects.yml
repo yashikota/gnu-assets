@@ -52,3 +52,16 @@ projects:
   - name: time
     binary_names: "time"
 
+  - name: datamash
+    binary_names: "datamash"
+
+  - name: recutils
+    binary_names: "recsel recins recdel recset recfmt recfix reccount"
+
+  - name: units
+    binary_names: "units"
+    configure_args: "--without-readline"
+
+  - name: cpio
+    binary_names: "cpio"
+
