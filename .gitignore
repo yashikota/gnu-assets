@@ -1,0 +1,13 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Environment / Temp
+.tmp/
+.env
+
+# AI
+.claude/
+
