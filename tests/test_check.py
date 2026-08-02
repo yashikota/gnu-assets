@@ -68,6 +68,29 @@ def test_get_latest_ftp_version_returns_none_when_empty():
     assert result is None
 
 
+def test_get_latest_ftp_version_falls_back_to_ftp_gnu_org():
+    html = "sed-4.9.tar.xz"
+    mock_resp = MagicMock()
+    mock_resp.read.return_value = html.encode()
+    mock_resp.__enter__ = lambda s: s
+    mock_resp.__exit__ = MagicMock(return_value=False)
+
+    def fake_urlopen(req, timeout=None):
+        if "ftpmirror" in req.full_url:
+            raise Exception("502 Bad Gateway")
+        return mock_resp
+
+    with patch("urllib.request.urlopen", side_effect=fake_urlopen):
+        result = check.get_latest_ftp_version("sed", "sed")
+    assert result == "4.9"
+
+
+def test_get_latest_ftp_version_raises_when_both_fail():
+    with patch("urllib.request.urlopen", side_effect=Exception("502 Bad Gateway")):
+        with pytest.raises(RuntimeError, match="Failed to fetch FTP listing"):
+            check.get_latest_ftp_version("sed", "sed")
+
+
 def test_resolve_tarball_url_first_match():
     call_count = [0]
 
@@ -99,6 +122,25 @@ def test_resolve_tarball_url_not_found():
         url, name = check.resolve_tarball_url("sed", "sed", "4.9")
     assert url is None
     assert name is None
+
+
+def test_resolve_tarball_url_falls_back_to_ftp_gnu_org():
+    mock_resp = MagicMock()
+    mock_resp.__enter__ = lambda s: s
+    mock_resp.__exit__ = MagicMock(return_value=False)
+
+    def fake_urlopen(req, timeout=None):
+        if "ftpmirror" in req.full_url:
+            raise Exception("502 Bad Gateway")
+        if "ftp.gnu.org" in req.full_url and "tar.gz" in req.full_url:
+            return mock_resp
+        raise Exception("not found")
+
+    with patch("urllib.request.urlopen", side_effect=fake_urlopen):
+        url, name = check.resolve_tarball_url("sed", "sed", "4.9")
+    assert url is not None
+    assert "ftp.gnu.org" in url
+    assert name == "sed-4.9.tar.gz"
 
 
 def test_get_latest_github_release_parses_tags():

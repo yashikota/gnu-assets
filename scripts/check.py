@@ -62,16 +62,20 @@ def get_latest_ftp_version(ftp_path, tarball_prefix, force_version=None):
 
 
 def resolve_tarball_url(ftp_path, tarball_prefix, version):
-    base_url = f"https://ftpmirror.gnu.org/{ftp_path}"
+    base_urls = [
+        f"https://ftpmirror.gnu.org/{ftp_path}",
+        f"https://ftp.gnu.org/gnu/{ftp_path}",
+    ]
     for ext in ("tar.xz", "tar.gz", "tar.bz2", "tgz"):
         name = f"{tarball_prefix}-{version}.{ext}"
-        url = f"{base_url}/{name}"
-        req = urllib.request.Request(url, method="HEAD")
-        try:
-            with urllib.request.urlopen(req, timeout=10):
-                return url, name
-        except Exception:
-            continue
+        for base_url in base_urls:
+            url = f"{base_url}/{name}"
+            req = urllib.request.Request(url, method="HEAD")
+            try:
+                with urllib.request.urlopen(req, timeout=10):
+                    return url, name
+            except Exception:
+                continue
     return None, None
 
 
