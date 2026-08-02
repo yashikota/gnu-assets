@@ -455,6 +455,9 @@ projects:
   # - name: uucp
   #   binary_names: "uucico uuxqt uucp uux uustat cu"
 
+  - name: sauce
+    binary_names: "sauce"
+
   - name: gnucap
     binary_names: "gnucap"
     configure_args: "--without-readline"
