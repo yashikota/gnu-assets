@@ -134,10 +134,12 @@ projects:
   - name: indent
     binary_names: "indent"
     dependencies_brew: "gettext"
+    configure_args: "'CFLAGS=-O2 -Wno-implicit-function-declaration'"
 
-  - name: which
-    binary_names: "which"
-    configure_args: "'CFLAGS=-O2 -Wno-error'"
+  # which: macOS getopt.h:105 `extern int getopt()` conflicts with unistd.h
+  # modern prototype — type error, not just a warning. Skip.
+  # - name: which
+  #   binary_names: "which"
 
   - name: ed
     binary_names: "ed"
