@@ -341,8 +341,9 @@ projects:
   - name: xorriso
     binary_names: "xorriso xorrisofs xorrecord"
 
-  - name: nettle
-    binary_names: "nettle-hash nettle-pbkdf2 nettle-lfib-stream sexp-conv"
+  # nettle: libtool shared lib; macOS links own libnettle.dylib. Skip.
+  # - name: nettle
+  #   binary_names: "nettle-hash nettle-pbkdf2 nettle-lfib-stream sexp-conv"
 
   - name: gengen
     binary_names: "gengen"

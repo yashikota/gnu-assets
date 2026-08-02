@@ -118,6 +118,7 @@ def _symlink_linux_headers_for_musl(musl_gcc):
                 ("ioctl.h", "asm-generic/ioctl.h"),
                 ("types.h", "asm-generic/types.h"),
                 ("bitsperlong.h", "asm-generic/bitsperlong.h"),
+                ("posix_types.h", "asm-generic/posix_types.h"),
             ]:
                 shim_path = asm_dir / shim_name
                 if not shim_path.exists():

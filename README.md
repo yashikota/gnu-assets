@@ -104,7 +104,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ⏳ | [gcompris](https://ftp.gnu.org/gnu/gcompris/) | - |
 | ⏳ | [gdb](https://ftp.gnu.org/gnu/gdb/) | - |
 | ⏳ | [gdbm](https://ftp.gnu.org/gnu/gdbm/) | - |
-| ⏳ | [gengen](https://ftp.gnu.org/gnu/gengen/) | - |
+| ✅ | [gengen](https://ftp.gnu.org/gnu/gengen/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=gengen&expanded=true) |
 | ⏳ | [gengetopt](https://ftp.gnu.org/gnu/gengetopt/) | - |
 | ⏳ | [gettext](https://ftp.gnu.org/gnu/gettext/) | - |
 | ⏳ | [gforth](https://ftp.gnu.org/gnu/gforth/) | - |
