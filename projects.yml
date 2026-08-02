@@ -55,13 +55,33 @@ projects:
   - name: datamash
     binary_names: "datamash"
 
-  - name: recutils
-    binary_names: "recsel recins recdel recset recfmt recfix reccount"
-    configure_args: "--disable-shared"
+  # recutils: libtool builds shared librec.la with -rpath even with
+  # --disable-shared; the resulting binaries dynamically load musl's libc.so
+  # which glibc's ldd rejects. Skip.
+  # - name: recutils
+  #   binary_names: "recsel recins recdel recset recfmt recfix reccount"
 
   - name: units
     binary_names: "units"
 
   - name: cpio
     binary_names: "cpio"
+
+  - name: cppi
+    binary_names: "cppi"
+
+  - name: diction
+    binary_names: "diction style"
+
+  - name: complexity
+    binary_names: "complexity"
+
+  - name: sharutils
+    binary_names: "shar unshar uudecode uuencode"
+
+  - name: spell
+    binary_names: "spell"
+
+  - name: teseq
+    binary_names: "teseq"
 

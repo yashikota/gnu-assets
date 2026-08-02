@@ -233,8 +233,8 @@ def package(project, version, binary_names, install_dir, work_dir, src_dir, veri
     with tempfile.TemporaryDirectory() as stage:
         stage = Path(stage)
         for binary in binary_names.split():
-            found = next(install_dir.rglob(binary), None)
-            if not found or not found.is_file():
+            found = next((p for p in install_dir.rglob(binary) if p.is_file()), None)
+            if not found:
                 raise RuntimeError(f"Expected binary '{binary}' not found in install tree")
             if verify:
                 verify_binary(found)
