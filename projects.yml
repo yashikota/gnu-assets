@@ -34,3 +34,16 @@ projects:
 
   - name: patch
     binary_names: "patch"
+
+  - name: tar
+    binary_names: "tar"
+
+  - name: wget
+    binary_names: "wget"
+    configure_args: "--without-ssl --without-zlib"
+
+  - name: less
+    binary_names: "less lesskey"
+
+  - name: bison
+    binary_names: "bison"
