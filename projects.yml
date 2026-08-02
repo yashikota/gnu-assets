@@ -463,8 +463,9 @@ projects:
   # - name: mailutils
   #   binary_names: "mail dotlock mailq"
 
-  - name: orgadoc
-    binary_names: "orgadoc"
+  # orgadoc: requires libxml2 + ICU (unicode/ucnv.h); old config.sub on macOS. Skip.
+  # - name: orgadoc
+  #   binary_names: "orgadoc"
 
   - name: gnucap
     binary_names: "gnucap"
