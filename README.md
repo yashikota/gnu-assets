@@ -69,7 +69,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ⏳ | [dap](https://ftp.gnu.org/gnu/dap/) | - |
 | ✅ | [datamash](https://ftp.gnu.org/gnu/datamash/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=datamash-v&expanded=true) |
 | ⏳ | [ddd](https://ftp.gnu.org/gnu/ddd/) | - |
-| ⏳ | [ddrescue](https://ftp.gnu.org/gnu/ddrescue/) | - |
+| ✅ | [ddrescue](https://ftp.gnu.org/gnu/ddrescue/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=ddrescue-v&expanded=true) |
 | ⏳ | [dejagnu](https://ftp.gnu.org/gnu/dejagnu/) | - |
 | ⏳ | [denemo](https://ftp.gnu.org/gnu/denemo/) | - |
 | ⏳ | [dico](https://ftp.gnu.org/gnu/dico/) | - |
@@ -78,12 +78,12 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ⏳ | [direvent](https://ftp.gnu.org/gnu/direvent/) | - |
 | ⏳ | [dominion](https://ftp.gnu.org/gnu/dominion/) | - |
 | ⏳ | [easejs](https://ftp.gnu.org/gnu/easejs/) | - |
-| ⏳ | [ed](https://ftp.gnu.org/gnu/ed/) | - |
+| ✅ | [ed](https://ftp.gnu.org/gnu/ed/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=ed-v&expanded=true) |
 | ⏳ | [edma](https://ftp.gnu.org/gnu/edma/) | - |
 | ⏳ | [electric](https://ftp.gnu.org/gnu/electric/) | - |
 | ⏳ | [emacs](https://ftp.gnu.org/gnu/emacs/) | - |
 | ⏳ | [emms](https://ftp.gnu.org/gnu/emms/) | - |
-| ⏳ | [enscript](https://ftp.gnu.org/gnu/enscript/) | - |
+| ✅ | [enscript](https://ftp.gnu.org/gnu/enscript/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=enscript-v&expanded=true) |
 | ⏳ | [fdisk](https://ftp.gnu.org/gnu/fdisk/) | - |
 | ⏳ | [ferret](https://ftp.gnu.org/gnu/ferret/) | - |
 | ✅ | [findutils](https://ftp.gnu.org/gnu/findutils/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=findutils-v&expanded=true) |
@@ -97,7 +97,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ⏳ | [g-golf](https://ftp.gnu.org/gnu/g-golf/) | - |
 | ⏳ | [gama](https://ftp.gnu.org/gnu/gama/) | - |
 | ✅ | [gawk](https://ftp.gnu.org/gnu/gawk/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=gawk-v&expanded=true) |
-| ⏳ | [gcal](https://ftp.gnu.org/gnu/gcal/) | - |
+| ✅ | [gcal](https://ftp.gnu.org/gnu/gcal/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=gcal-v&expanded=true) |
 | ⏳ | [gcc](https://ftp.gnu.org/gnu/gcc/) | - |
 | ⏳ | [gcide](https://ftp.gnu.org/gnu/gcide/) | - |
 | ⏳ | [gcl](https://ftp.gnu.org/gnu/gcl/) | - |
@@ -211,7 +211,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ⏳ | [miscfiles](https://ftp.gnu.org/gnu/miscfiles/) | - |
 | ⏳ | [moe](https://ftp.gnu.org/gnu/moe/) | - |
 | ⏳ | [motti](https://ftp.gnu.org/gnu/motti/) | - |
-| ⏳ | [mtools](https://ftp.gnu.org/gnu/mtools/) | - |
+| ✅ | [mtools](https://ftp.gnu.org/gnu/mtools/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=mtools-v&expanded=true) |
 | ⏳ | [nano](https://ftp.gnu.org/gnu/nano/) | - |
 | ⏳ | [ncurses](https://ftp.gnu.org/gnu/ncurses/) | - |
 | ⏳ | [nettle](https://ftp.gnu.org/gnu/nettle/) | - |
@@ -233,7 +233,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ⏳ | [psychosynth](https://ftp.gnu.org/gnu/psychosynth/) | - |
 | ⏳ | [pth](https://ftp.gnu.org/gnu/pth/) | - |
 | ⏳ | [radius](https://ftp.gnu.org/gnu/radius/) | - |
-| ⏳ | [rcs](https://ftp.gnu.org/gnu/rcs/) | - |
+| ✅ | [rcs](https://ftp.gnu.org/gnu/rcs/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=rcs-v&expanded=true) |
 | ⏳ | [readline](https://ftp.gnu.org/gnu/readline/) | - |
 | ⏳ | [recutils](https://ftp.gnu.org/gnu/recutils/) | - |
 | ⏳ | [reftex](https://ftp.gnu.org/gnu/reftex/) | - |
