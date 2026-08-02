@@ -250,9 +250,10 @@ projects:
   # - name: combine
   #   binary_names: "combine"
 
-  # less: requires ncurses; musl-gcc cannot link glibc-built libncurses statically. Skip.
-  # - name: less
-  #   binary_names: "less lesskey"
+  - name: less
+    binary_names: "less lesskey"
+    configure_args: "--with-ncurses"
+    dependencies_apt: "libncurses-dev"
 
   # nano: requires ncurses; same musl/ncurses static link issue. Skip.
   # - name: nano

@@ -213,7 +213,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ⏳ | [motti](https://ftp.gnu.org/gnu/motti/) | - |
 | ✅ | [mtools](https://ftp.gnu.org/gnu/mtools/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=mtools&expanded=true) |
 | ⏳ | [nano](https://ftp.gnu.org/gnu/nano/) | - |
-| ⏳ | [ncurses](https://ftp.gnu.org/gnu/ncurses/) | - |
+| ✅ | [ncurses](https://ftp.gnu.org/gnu/ncurses/) | - |
 | ⏳ | [nettle](https://ftp.gnu.org/gnu/nettle/) | - |
 | ⏳ | [ocrad](https://ftp.gnu.org/gnu/ocrad/) | - |
 | ⏳ | [octave](https://ftp.gnu.org/gnu/octave/) | - |
