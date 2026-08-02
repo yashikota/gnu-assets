@@ -366,12 +366,15 @@ projects:
   # - name: radius
   #   binary_names: "radiusd radtest radlast radwho radzap"
 
-  - name: poke
-    binary_names: "poke"
+  # poke: requires Boehm GC external dependency. Skip.
+  # - name: poke
+  #   binary_names: "poke"
 
-  - name: vcdimager
-    binary_names: "vcdimager vcddebug vcd-info"
+  # vcdimager: requires libcdio external dependency. Skip.
+  # - name: vcdimager
+  #   binary_names: "vcdimager vcddebug vcd-info"
 
-  - name: vera
-    binary_names: "vera"
+  # vera: data-only package (dictionary text + Perl script); no C binary. Skip.
+  # - name: vera
+  #   binary_names: "vera"
 

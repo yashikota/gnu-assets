@@ -61,7 +61,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ⏳ | [combine](https://ftp.gnu.org/gnu/combine/) | - |
 | ⏳ | [commoncpp](https://ftp.gnu.org/gnu/commoncpp/) | - |
 | ⏳ | [complexity](https://ftp.gnu.org/gnu/complexity/) | - |
-| ⏳ | [coreutils](https://ftp.gnu.org/gnu/coreutils/) | - |
+| ✅ | [coreutils](https://ftp.gnu.org/gnu/coreutils/) | - |
 | ✅ | [cpio](https://ftp.gnu.org/gnu/cpio/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=cpio&expanded=true) |
 | ✅ | [cppi](https://ftp.gnu.org/gnu/cppi/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=cppi&expanded=true) |
 | ✅ | [cssc](https://ftp.gnu.org/gnu/cssc/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=cssc&expanded=true) |
