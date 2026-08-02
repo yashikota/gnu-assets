@@ -91,6 +91,13 @@ def _symlink_linux_headers_for_musl(musl_gcc):
     """Symlink /usr/include/linux into musl's include dir if not already there."""
     try:
         arch = platform.machine().lower()
+        # arch-specific asm dir (e.g. /usr/include/x86_64-linux-gnu/asm)
+        asm_src_candidates = [
+            Path(f"/usr/include/{arch}-linux-gnu/asm"),
+            Path(f"/usr/include/{arch}-linux-gnu"),
+        ]
+        asm_src = next((p for p in asm_src_candidates if p.is_dir()), None)
+
         for candidate in (
             f"/usr/include/{arch}-linux-musl",
             "/usr/include/x86_64-linux-musl",
@@ -99,13 +106,19 @@ def _symlink_linux_headers_for_musl(musl_gcc):
             "/usr/lib/x86_64-linux-musl/include",
         ):
             musl_inc = Path(candidate)
-            if musl_inc.is_dir():
-                linux_dst = musl_inc / "linux"
-                linux_src = Path("/usr/include/linux")
-                if linux_src.is_dir() and not linux_dst.exists():
-                    run(["sudo", "ln", "-sf", str(linux_src), str(linux_dst)])
-                    print(f"Symlinked {linux_src} -> {linux_dst}")
-                return
+            if not musl_inc.is_dir():
+                continue
+            for name, src in [
+                ("linux", Path("/usr/include/linux")),
+                ("asm-generic", Path("/usr/include/asm-generic")),
+                ("asm", asm_src),
+            ]:
+                if src and src.is_dir():
+                    dst = musl_inc / name
+                    if not dst.exists():
+                        run(["sudo", "ln", "-sf", str(src), str(dst)])
+                        print(f"Symlinked {src} -> {dst}")
+            return
     except Exception as e:
         print(f"Warning: could not symlink linux headers for musl: {e}")
 
