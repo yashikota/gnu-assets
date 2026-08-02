@@ -457,6 +457,7 @@ projects:
 
   - name: sauce
     binary_names: "sauce"
+    skip_gpg: true
 
   - name: gnucap
     binary_names: "gnucap"
