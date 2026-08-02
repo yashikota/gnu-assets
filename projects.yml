@@ -330,9 +330,20 @@ projects:
   - name: texinfo
     binary_names: "install-info texindex"
 
-  - name: groff
-    binary_names: "groff grog troff nroff pic tbl eqn refer soelim preconv grops gropdf grotty grn grodvi"
+  # groff: gnulib lib/sys/types.h off64_t conflicts with musl's typedef. Skip.
+  # - name: groff
+  #   binary_names: "groff grog troff nroff pic tbl eqn refer soelim preconv grops gropdf grotty grn grodvi"
 
-  - name: dap
-    binary_names: "dap"
+  # dap: libtool shared lib on Linux; uses finite() (non-standard) on macOS. Skip.
+  # - name: dap
+  #   binary_names: "dap"
+
+  - name: xorriso
+    binary_names: "xorriso xorrisofs xorrecord"
+
+  - name: nettle
+    binary_names: "nettle-hash nettle-pbkdf2 nettle-lfib-stream sexp-conv"
+
+  - name: gengen
+    binary_names: "gengen"
 
