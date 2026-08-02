@@ -489,3 +489,14 @@ projects:
   # which: already skipped above (getopt type conflict on macOS).
   # complexity: already skipped above (requires libopts).
 
+  - name: adns
+    binary_names: "adnshost adnslogres adnsheloex"
+    configure_args: "--disable-dynamic"
+
+  - name: nettle
+    binary_names: "sexp-conv nettle-hash nettle-pbkdf2 pkcs1-conv"
+    configure_args: "--enable-mini-gmp"
+
+  - name: swbis
+    binary_names: "swpackage swinstall swcopy swlist swremove swverify"
+
