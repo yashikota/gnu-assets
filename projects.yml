@@ -350,16 +350,19 @@ projects:
     binary_names: "gengen"
 
   - name: coreutils
-    binary_names: "ls cp mv rm mkdir rmdir cat head tail tee wc sort uniq cut paste join tr od touch chmod chown ln stat du df date id who whoami hostname echo printf env pwd tty true false sleep"
+    binary_names: "ls cp mv mkdir rmdir cat head tail tee wc sort uniq cut paste join tr od touch chmod chown ln stat du df date id echo printf env pwd tty true false sleep comm shred split shuf truncate timeout nice"
 
-  - name: gettext
-    binary_names: "msgfmt msgmerge msginit msgcat msgconv xgettext msgattrib msgcomm msgcmp msgen msgexec msgfilter msggrep msginit msgunfmt msguniq envsubst"
+  # gettext: gnulib off64_t conflict with musl; macOS undefined symbols. Skip.
+  # - name: gettext
+  #   binary_names: "msgfmt msgmerge msginit msgcat msgconv xgettext msgattrib msgcomm msgcmp msgen msgexec msgfilter msggrep msginit msgunfmt msguniq envsubst"
 
-  - name: gnuchess
-    binary_names: "gnuchess"
-    ftp_path: "chess"
-    tarball_prefix: "gnuchess"
+  # gnuchess: C++ program with readline; not fully static with musl-gcc. Skip.
+  # - name: gnuchess
+  #   binary_names: "gnuchess"
+  #   ftp_path: "chess"
+  #   tarball_prefix: "gnuchess"
 
-  - name: radius
-    binary_names: "radiusd radtest radlast radwho radzap"
+  # radius: uses u_char (BSD type) unavailable with musl. Skip.
+  # - name: radius
+  #   binary_names: "radiusd radtest radlast radwho radzap"
 
