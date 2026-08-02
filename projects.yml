@@ -497,6 +497,8 @@ projects:
     binary_names: "sexp-conv nettle-hash nettle-pbkdf2 pkcs1-conv"
     configure_args: "--enable-mini-gmp"
 
-  - name: swbis
-    binary_names: "swpackage swinstall swcopy swlist swremove swverify"
+  # swbis: old config.guess fails on macOS arm64; embedded rpm submodule requires
+  # libz.a (static zlib) on Linux. Skip.
+  # - name: swbis
+  #   binary_names: "swpackage swinstall swcopy swlist swremove swverify"
 

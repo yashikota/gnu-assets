@@ -16,7 +16,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ⏳ | [a2ps](https://ftp.gnu.org/gnu/a2ps/) | - |
 | ⏳ | [acct](https://ftp.gnu.org/gnu/acct/) | - |
 | ⏳ | [acm](https://ftp.gnu.org/gnu/acm/) | - |
-| ⏳ | [adns](https://ftp.gnu.org/gnu/adns/) | - |
+| ✅ | [adns](https://ftp.gnu.org/gnu/adns/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=adns&expanded=true) |
 | ⏳ | [alive](https://ftp.gnu.org/gnu/alive/) | - |
 | ⏳ | [anastasis](https://ftp.gnu.org/gnu/anastasis/) | - |
 | ⏳ | [anubis](https://ftp.gnu.org/gnu/anubis/) | - |
@@ -214,7 +214,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ✅ | [mtools](https://ftp.gnu.org/gnu/mtools/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=mtools&expanded=true) |
 | ⏳ | [nano](https://ftp.gnu.org/gnu/nano/) | - |
 | ✅ | [ncurses](https://ftp.gnu.org/gnu/ncurses/) | - |
-| ⏳ | [nettle](https://ftp.gnu.org/gnu/nettle/) | - |
+| ✅ | [nettle](https://ftp.gnu.org/gnu/nettle/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=nettle&expanded=true) |
 | ⏳ | [ocrad](https://ftp.gnu.org/gnu/ocrad/) | - |
 | ⏳ | [octave](https://ftp.gnu.org/gnu/octave/) | - |
 | ⏳ | [oleo](https://ftp.gnu.org/gnu/oleo/) | - |
