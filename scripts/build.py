@@ -177,7 +177,8 @@ def build(src_dir, install_dir, configure_args, make_args=""):
     configure = src_dir / "configure"
     Configure = src_dir / "Configure"
     prefix = f"--prefix={install_dir}"
-    base_args = [prefix, "--disable-dependency-tracking", "--disable-nls"]
+    base_args = [prefix, "--disable-dependency-tracking", "--disable-nls",
+                 "--disable-shared", "--enable-static"]
     extra = shlex.split(configure_args) if configure_args else []
 
     _refresh_config_scripts(src_dir)
