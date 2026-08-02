@@ -133,9 +133,13 @@ def verify_binary(binary_path):
     if os_name == "linux":
         result = run(["ldd", str(binary_path)], check=False, capture_output=True, text=True)
         output = result.stdout + result.stderr
-        if "not a dynamic executable" in output or result.returncode != 0:
+        if "not a dynamic executable" in output:
             print(f"  static: {binary_path.name}")
             return
+        if result.returncode != 0:
+            raise RuntimeError(
+                f"{binary_path.name} ldd failed unexpectedly (exit {result.returncode}):\n{output}"
+            )
         # ldd succeeded → dynamically linked; vdso is kernel-injected and not a real file dep
         deps = [
             line.strip()
@@ -250,12 +254,16 @@ def main(args=None):
 
     run(["tar", "xf", str(tarball_path)], cwd=work_dir)
 
-    candidates = [d for d in work_dir.iterdir() if d.is_dir() and d.name.startswith(f"{a.project}-")]
-    src_dir = candidates[0] if candidates else next(
-        (d for d in work_dir.iterdir() if d.is_dir() and not d.name.startswith((".", "_"))), None
-    )
-    if not src_dir:
-        raise RuntimeError("Could not find extracted source directory")
+    # Derive the expected directory name from the tarball stem so we don't
+    # accidentally pick up a leftover directory from a previous build run.
+    stem = tarball_name
+    for suffix in (".tar.xz", ".tar.gz", ".tar.bz2", ".tgz"):
+        if stem.endswith(suffix):
+            stem = stem[: -len(suffix)]
+            break
+    src_dir = work_dir / stem
+    if not src_dir.is_dir():
+        raise RuntimeError(f"Expected source directory '{stem}' not found after extraction")
 
     build(src_dir, install_dir, a.configure_args)
     package(a.project, a.version, a.binary_names, install_dir, work_dir, src_dir, verify=not a.skip_verify)

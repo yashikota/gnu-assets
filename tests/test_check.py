@@ -218,6 +218,35 @@ def test_main_print_flag(projects_file, capsys):
     assert "binary_names=sed" in out
 
 
+def test_main_ftp_older_than_github_has_new_false(projects_file, tmp_path):
+    output_file = tmp_path / "github_output"
+    output_file.write_text("")
+
+    with patch("check.get_latest_ftp_version", return_value="4.8"), \
+         patch("check.resolve_tarball_url", return_value=("https://example.com/sed-4.8.tar.xz", "sed-4.8.tar.xz")), \
+         patch("check.get_latest_github_release", return_value="4.9"), \
+         patch.dict(os.environ, {"GITHUB_OUTPUT": str(output_file)}):
+        check.main(["--project", "sed", "--projects-file", projects_file])
+
+    content = output_file.read_text()
+    assert "has_new=false" in content
+
+
+def test_main_force_version_always_has_new(projects_file, tmp_path):
+    output_file = tmp_path / "github_output"
+    output_file.write_text("")
+
+    # even if FTP == GitHub, --force-version should set has_new=true
+    with patch("check.get_latest_ftp_version", return_value="4.9"), \
+         patch("check.resolve_tarball_url", return_value=("https://example.com/sed-4.9.tar.xz", "sed-4.9.tar.xz")), \
+         patch("check.get_latest_github_release", return_value="4.9"), \
+         patch.dict(os.environ, {"GITHUB_OUTPUT": str(output_file)}):
+        check.main(["--project", "sed", "--projects-file", projects_file, "--force-version", "4.9"])
+
+    content = output_file.read_text()
+    assert "has_new=true" in content
+
+
 def test_main_configure_args_included(projects_file, tmp_path):
     output_file = tmp_path / "github_output"
     output_file.write_text("")

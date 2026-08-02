@@ -60,7 +60,9 @@ def main():
         sys.exit(1)
 
     print(f"Downloading signature from {args.download_url}.sig...")
-    download_file(f"{args.download_url}.sig", sig_path)
+    if not download_file(f"{args.download_url}.sig", sig_path):
+        print(f"Failed to download signature from {args.download_url}.sig")
+        sys.exit(1)
 
     asset_files = []
     for asset in args.assets.replace("\n", " ").split():
@@ -83,10 +85,18 @@ def main():
     with open(notes_file, "w") as f:
         f.write(notes)
 
-    run_gh(
+    res = run_gh(
         ["release", "create", tag, "--title", f"{args.project} {args.version}", "--notes-file", notes_file]
-        + asset_files
+        + asset_files,
+        check=False,
     )
+    if res.returncode != 0:
+        # Treat a race where another concurrent run already created the release as success.
+        if check_existing_release(tag):
+            print(f"::warning::Release {tag} was created concurrently. Treating as success.")
+        else:
+            print(f"Error: gh release create failed\nStdout: {res.stdout}\nStderr: {res.stderr}")
+            sys.exit(res.returncode)
 
     print(f"Successfully created immutable release: {tag}")
 

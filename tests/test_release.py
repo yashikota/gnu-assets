@@ -102,3 +102,44 @@ def test_main_tag_format(tmp_path):
                     release.main()
                     create_call_args = mock_gh.call_args[0][0]
                     assert "sed-v4.9" in create_call_args
+
+
+def test_main_sig_download_failure_exits(tmp_path):
+    os.chdir(tmp_path)
+    test_args = [
+        "release.py",
+        "--project", "hello",
+        "--version", "2.12.1",
+        "--assets", "dummy.tar.gz",
+        "--download-url", "https://example.com/hello-2.12.1.tar.gz",
+        "--tarball-name", "hello-2.12.1.tar.gz",
+    ]
+    with patch.object(sys, 'argv', test_args):
+        with patch('release.check_existing_release', return_value=False):
+            # tarball DL succeeds, sig DL fails
+            with patch('release.download_file', side_effect=[True, False]):
+                with pytest.raises(SystemExit) as exc_info:
+                    release.main()
+                assert exc_info.value.code != 0
+
+
+def test_main_concurrent_race_treated_as_success(tmp_path):
+    os.chdir(tmp_path)
+    dummy_asset = tmp_path / "hello-2.12.1-linux-amd64.tar.gz"
+    dummy_asset.write_text("fake")
+
+    test_args = [
+        "release.py",
+        "--project", "hello",
+        "--version", "2.12.1",
+        "--assets", str(dummy_asset),
+        "--download-url", "https://example.com/hello-2.12.1.tar.gz",
+        "--tarball-name", "hello-2.12.1.tar.gz",
+    ]
+    with patch.object(sys, 'argv', test_args):
+        with patch('release.check_existing_release', side_effect=[False, True]):
+            with patch('release.download_file', return_value=True):
+                with patch('release.run_gh') as mock_gh:
+                    # release create fails (race), but subsequent view succeeds
+                    mock_gh.return_value = MagicMock(returncode=1, stdout="", stderr="already exists")
+                    release.main()  # must not raise or exit nonzero

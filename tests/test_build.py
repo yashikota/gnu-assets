@@ -49,6 +49,21 @@ def test_verify_gpg_fails_on_bad_sig(tmp_path):
 
 # --- verify_binary ---
 
+def test_verify_binary_linux_unexpected_ldd_failure_raises(tmp_path):
+    binary = tmp_path / "myscript"
+    binary.write_bytes(b"#!/bin/sh\necho hi")
+
+    with patch("platform.system", return_value="Linux"), \
+         patch("build.run", return_value=MagicMock(
+             returncode=1,
+             stdout="",
+             stderr="ldd: ./myscript: No such file or directory\n",
+         )):
+        # returncode != 0 but no "not a dynamic executable" diagnostic → should raise
+        with pytest.raises(RuntimeError, match="ldd failed unexpectedly"):
+            build.verify_binary(binary)
+
+
 def test_verify_binary_linux_static(tmp_path):
     binary = tmp_path / "sed"
     binary.write_bytes(b"ELF fake")
@@ -185,6 +200,36 @@ def test_package_calls_verify(tmp_path):
 
 
 # --- main ---
+
+def test_main_src_dir_from_tarball_stem(tmp_path):
+    """Source directory is derived from the tarball stem, not a glob that could match stale dirs."""
+    with patch("build.install_deps"), \
+         patch("build.download"), \
+         patch("build.verify_gpg"), \
+         patch("build.run"), \
+         patch("build.build") as mock_build, \
+         patch("build.package") as mock_package:
+
+        mock_package.return_value = tmp_path / "hello-2.12-linux-amd64.tar.gz"
+        # Stale dir from a previous run — must NOT be picked
+        stale = tmp_path / "hello-2.10"
+        stale.mkdir()
+        # Correct dir matching the requested version
+        correct = tmp_path / "hello-2.12"
+        correct.mkdir()
+        (tmp_path / "hello-2.12.tar.gz").write_bytes(b"fake")
+
+        build.main([
+            "--project", "hello",
+            "--version", "2.12",
+            "--binary-names", "hello",
+            "--work-dir", str(tmp_path),
+            "--tarball-url", "https://example.com/hello-2.12.tar.gz",
+        ])
+
+        call_src_dir = mock_build.call_args[0][0]
+        assert call_src_dir.name == "hello-2.12"
+
 
 def test_main_uses_tarball_url(tmp_path):
     with patch("build.install_deps"), \

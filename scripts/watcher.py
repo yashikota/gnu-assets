@@ -8,6 +8,7 @@ and triggers build workflows via workflow_dispatch.
 import os
 import re
 import subprocess
+import sys
 import urllib.request
 
 import yaml
@@ -53,7 +54,7 @@ def get_latest_ftp_version(project_name, ftp_path, tar_prefix):
 
 
 def get_latest_github_release(repo, project_name):
-    res = run_gh(["release", "list", "--repo", repo, "--json", "tagName", "-q", ".[].tagName"])
+    res = run_gh(["release", "list", "--repo", repo, "--limit", "1000", "--json", "tagName", "-q", ".[].tagName"])
     if res.returncode != 0 or not res.stdout.strip():
         return None
     prefix = f"{project_name}-v"
@@ -87,6 +88,7 @@ def main(dry_run=False):
     print("Starting GNU-Assets Central Watcher..." + (" (dry-run)" if dry_run else ""))
     projects = load_projects(projects_file)
     triggered = []
+    failed = []
 
     for p in projects:
         name = p["name"]
@@ -116,9 +118,13 @@ def main(dry_run=False):
                     triggered.append(name)
                 else:
                     print(f"Failed to trigger {name}: {res.stderr}")
+                    failed.append(name)
 
     label = "Would trigger" if dry_run else "Triggered"
     print(f"Done. {label} {len(triggered)} builds: {triggered}")
+    if failed:
+        print(f"Failed to dispatch: {failed}", file=sys.stderr)
+        sys.exit(1)
 
 
 if __name__ == "__main__":

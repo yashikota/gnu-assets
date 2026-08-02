@@ -81,7 +81,7 @@ def resolve_tarball_url(ftp_path, tarball_prefix, version):
 
 def get_latest_github_release(project_name):
     res = subprocess.run(
-        ["gh", "release", "list", "--json", "tagName", "-q", ".[].tagName"],
+        ["gh", "release", "list", "--limit", "1000", "--json", "tagName", "-q", ".[].tagName"],
         capture_output=True, text=True,
     )
     if res.returncode != 0:
@@ -139,7 +139,17 @@ def main(argv=None):
         sys.exit(0)
 
     current = get_latest_github_release(args.project)
-    has_new = "false" if latest == current else "true"
+
+    def _parse_ver(v):
+        try:
+            return [int(x) for x in v.split(".")]
+        except (ValueError, AttributeError):
+            return [0]
+
+    if args.force_version:
+        has_new = "true"
+    else:
+        has_new = "true" if (not current or _parse_ver(latest) > _parse_ver(current)) else "false"
 
     if has_new == "false":
         print(f"Already up to date: {latest}")
