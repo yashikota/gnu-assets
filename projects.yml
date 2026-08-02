@@ -540,6 +540,9 @@ projects:
 
   - name: gnugo
     binary_names: "gnugo"
+    configure_args: "CFLAGS=-fcommon"
+
+  # direvent: macOS lacks clock_nanosleep/TIMER_ABSTIME (POSIX realtime ext). Skip.
 
   - name: chess
     binary_names: "gnuchess"
