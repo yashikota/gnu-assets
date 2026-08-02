@@ -160,9 +160,7 @@ def build(src_dir, install_dir, configure_args, make_args=""):
             if musl_gcc:
                 env["CC"] = musl_gcc
                 env["CFLAGS"] = f"-O2 {env.get('CFLAGS', '')}"
-                # -all-static tells libtool to link executables fully statically;
-                # plain -static is ignored by libtool for executables it manages.
-                env["LDFLAGS"] = f"-static -all-static {env.get('LDFLAGS', '')}"
+                env["LDFLAGS"] = f"-static {env.get('LDFLAGS', '')}"
                 # musl-gcc uses its own sysroot and skips /usr/include, so
                 # kernel headers (e.g. linux/fs.h) are unreachable.  Symlink
                 # the system linux/ tree into musl's include dir if needed.
