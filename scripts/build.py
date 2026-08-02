@@ -237,6 +237,7 @@ def verify_binary(binary_path):
             "/usr/lib/libSystem",
             "/usr/lib/libc++",
             "/usr/lib/libiconv",
+            "/usr/lib/libcharset",  # part of iconv, separate dylib on macOS
             "/usr/lib/libncurses",
             "/usr/lib/libtinfo",
             "/usr/lib/libz",

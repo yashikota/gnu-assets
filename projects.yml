@@ -328,5 +328,5 @@ projects:
     binary_names: "bash"
 
   - name: texinfo
-    binary_names: "info install-info makeinfo pod2texi texi2any texi2dvi texi2pdf texindex"
+    binary_names: "install-info texindex"
 
