@@ -502,8 +502,9 @@ projects:
   # - name: swbis
   #   binary_names: "swpackage swinstall swcopy swlist swremove swverify"
 
-  - name: ocrad
-    binary_names: "ocrad"
+  # ocrad: requires libpng (png.h not found). Skip.
+  # - name: ocrad
+  #   binary_names: "ocrad"
 
   - name: a2ps
     binary_names: "a2ps"
