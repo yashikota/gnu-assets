@@ -131,10 +131,10 @@ projects:
     binary_names: "gcal gcal2txt tcal txt2gcal"
     configure_args: "--disable-term 'CFLAGS=-O2 -Wno-implicit-function-declaration'"
 
-  - name: indent
-    binary_names: "indent"
-    dependencies_brew: "gettext"
-    configure_args: "'CFLAGS=-O2 -Wno-implicit-function-declaration'"
+  # indent: unconditionally #include <libintl.h> even with --disable-nls;
+  # macOS lacks system libintl and Homebrew's is outside allowed prefixes. Skip.
+  # - name: indent
+  #   binary_names: "indent"
 
   # which: macOS getopt.h:105 `extern int getopt()` conflicts with unistd.h
   # modern prototype — type error, not just a warning. Skip.
