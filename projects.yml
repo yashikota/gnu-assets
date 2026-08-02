@@ -426,9 +426,11 @@ projects:
 
   - name: superopt
     binary_names: "superopt"
+    skip_gpg: true
 
   - name: proxyknife
     binary_names: "proxyknife"
+    make_args: "SUBDIRS=."
 
   # acct: libtool shared lib with -rpath causes musl libc.so dynamic load. Skip.
   # - name: acct
