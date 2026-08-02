@@ -226,18 +226,21 @@ projects:
   # - name: anubis
   #   binary_names: "anubis"
 
-  - name: gnu-pw-mgr
-    binary_names: "gnu-pw-mgr"
+  # gnu-pw-mgr: libtool shared lib with -rpath causes musl libc.so dynamic load. Skip.
+  # - name: gnu-pw-mgr
+  #   binary_names: "gnu-pw-mgr"
 
-  - name: serveez
-    binary_names: "serveez"
-    configure_args: "--without-guile"
+  # serveez: --without-guile is unrecognized; guile is required. Skip.
+  # - name: serveez
+  #   binary_names: "serveez"
 
-  - name: ccd2cue
-    binary_names: "ccd2cue"
+  # ccd2cue: #include <error.h> is glibc-specific; not available with musl. Skip.
+  # - name: ccd2cue
+  #   binary_names: "ccd2cue"
 
-  - name: avl
-    binary_names: "avltest"
+  # avl: GPG signature verification fails for avl-2.0.3.tar.gz. Skip.
+  # - name: avl
+  #   binary_names: "avltest"
 
   - name: ed
     binary_names: "ed"
@@ -246,8 +249,18 @@ projects:
   # - name: combine
   #   binary_names: "combine"
 
-  # global: libtool shared plugins (user-custom.la, ctags.la) are mandatory;
-  # cannot be built as fully static with musl. Skip.
-  # - name: global
-  #   binary_names: "global gtags gozilla htags"
+  - name: less
+    binary_names: "less lesskey"
+
+  - name: nano
+    binary_names: "nano"
+
+  - name: screen
+    binary_names: "screen"
+
+  - name: inetutils
+    binary_names: "ftp hostname ifconfig logger ping rcp rexec rlogin rsh talk telnet tftp traceroute uname whois"
+
+  - name: gdbm
+    binary_names: "gdbm_dump gdbm_load gdbmtool"
 
