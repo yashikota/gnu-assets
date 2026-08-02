@@ -92,9 +92,11 @@ def _symlink_linux_headers_for_musl(musl_gcc):
     try:
         arch = platform.machine().lower()
         for candidate in (
+            f"/usr/include/{arch}-linux-musl",
+            "/usr/include/x86_64-linux-musl",
+            "/usr/include/aarch64-linux-musl",
             f"/usr/lib/{arch}-linux-musl/include",
             "/usr/lib/x86_64-linux-musl/include",
-            "/usr/lib/aarch64-linux-musl/include",
         ):
             musl_inc = Path(candidate)
             if musl_inc.is_dir():
