@@ -131,3 +131,15 @@ projects:
     binary_names: "gcal gcal2txt tcal txt2gcal"
     configure_args: "--disable-term 'CFLAGS=-O2 -Wno-implicit-function-declaration'"
 
+  - name: indent
+    binary_names: "indent"
+
+  - name: which
+    binary_names: "which"
+
+  - name: ed
+    binary_names: "ed"
+
+  - name: combine
+    binary_names: "combine"
+
