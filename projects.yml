@@ -378,3 +378,9 @@ projects:
   # - name: vera
   #   binary_names: "vera"
 
+  - name: glpk
+    binary_names: "glpsol"
+
+  - name: gnubatch
+    binary_names: "btq btr bta btd btedit btrw btwrite xbq"
+
