@@ -252,16 +252,21 @@ projects:
 
   - name: less
     binary_names: "less lesskey"
+    deps_apt: "libncurses5-dev"
 
   - name: nano
     binary_names: "nano"
+    deps_apt: "libncurses5-dev"
 
-  - name: screen
-    binary_names: "screen"
+  # screen: links libpam on macOS (not in allowed list). Skip.
+  # - name: screen
+  #   binary_names: "screen"
 
-  - name: inetutils
-    binary_names: "ftp hostname ifconfig logger ping rcp rexec rlogin rsh talk telnet tftp traceroute uname whois"
+  # inetutils: rcp not installed by 2.8; ftp links libedit on macOS. Skip.
+  # - name: inetutils
+  #   binary_names: "ftp hostname ifconfig logger ping rcp rexec rlogin rsh talk telnet tftp traceroute uname whois"
 
-  - name: gdbm
-    binary_names: "gdbm_dump gdbm_load gdbmtool"
+  # gdbm: libtool shared lib with -rpath causes musl libc.so dynamic load. Skip.
+  # - name: gdbm
+  #   binary_names: "gdbm_dump gdbm_load gdbmtool"
 
