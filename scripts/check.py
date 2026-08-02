@@ -163,6 +163,7 @@ def main(argv=None):
         "tarball_name": tarball_name,
         "binary_names": p["binary_names"],
         "configure_args": p.get("configure_args", ""),
+        "make_args": p.get("make_args", ""),
         "dependencies_apt": p.get("dependencies_apt", ""),
         "dependencies_apk": p.get("dependencies_apk", ""),
         "dependencies_brew": p.get("dependencies_brew", ""),

@@ -32,6 +32,7 @@ jobs:
       tarball_name: ${{ steps.check.outputs.tarball_name }}
       binary_names: ${{ steps.check.outputs.binary_names }}
       configure_args: ${{ steps.check.outputs.configure_args }}
+      make_args: ${{ steps.check.outputs.make_args }}
       dependencies_apt: ${{ steps.check.outputs.dependencies_apt }}
       dependencies_apk: ${{ steps.check.outputs.dependencies_apk }}
       dependencies_brew: ${{ steps.check.outputs.dependencies_brew }}
@@ -85,6 +86,7 @@ jobs:
           VERSION: ${{ needs.check.outputs.latest_version }}
           BINARY_NAMES: ${{ needs.check.outputs.binary_names }}
           CONFIGURE_ARGS: ${{ needs.check.outputs.configure_args }}
+          MAKE_ARGS: ${{ needs.check.outputs.make_args }}
           DEPS_APT: ${{ needs.check.outputs.dependencies_apt }}
           DEPS_APK: ${{ needs.check.outputs.dependencies_apk }}
           DEPS_BREW: ${{ needs.check.outputs.dependencies_brew }}
@@ -96,6 +98,7 @@ jobs:
             --binary-names "${BINARY_NAMES}" \
             --work-dir "${GITHUB_WORKSPACE}/build" \
             --configure-args "${CONFIGURE_ARGS}" \
+            --make-args "${MAKE_ARGS}" \
             --deps-apt "${DEPS_APT}" \
             --deps-apk "${DEPS_APK}" \
             --deps-brew "${DEPS_BREW}" \

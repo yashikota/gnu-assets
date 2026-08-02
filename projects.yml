@@ -4,7 +4,9 @@ projects:
 
   - name: sed
     binary_names: "sed"
-    dependencies_apt: "linux-libc-dev"
+    # gnulib-tests requires linux/fs.h (kernel >=6.11) which musl-gcc can't find;
+    # skip tests subdir so they don't block the main build
+    make_args: "SUBDIRS=po ."
 
   - name: grep
     binary_names: "grep"

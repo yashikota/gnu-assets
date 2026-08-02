@@ -86,7 +86,7 @@ def _find_musl_gcc():
     return None
 
 
-def build(src_dir, install_dir, configure_args):
+def build(src_dir, install_dir, configure_args, make_args=""):
     os_name = platform.system().lower()
     env = os.environ.copy()
 
@@ -101,9 +101,6 @@ def build(src_dir, install_dir, configure_args):
                 env["CC"] = musl_gcc
                 env["CFLAGS"] = f"-O2 {env.get('CFLAGS', '')}"
                 env["LDFLAGS"] = f"-static {env.get('LDFLAGS', '')}"
-                # Make system kernel headers available to musl-gcc so that
-                # gnulib modules that probe <linux/fs.h> etc. can compile.
-                env["CPPFLAGS"] = f"-I/usr/include {env.get('CPPFLAGS', '')}"
             else:
                 print("WARNING: musl-gcc not found, falling back to glibc static link")
                 env["LDFLAGS"] = f"-static -static-libgcc -static-libstdc++ {env.get('LDFLAGS', '')}"
@@ -125,8 +122,9 @@ def build(src_dir, install_dir, configure_args):
         run([str(Configure), prefix] + extra, cwd=src_dir, env=env)
 
     ncpu = os.cpu_count() or 2
-    run(["make", f"-j{ncpu}"], cwd=src_dir, env=env)
-    run(["make", "install"], cwd=src_dir, env=env)
+    extra_make = make_args.split() if make_args else []
+    run(["make", f"-j{ncpu}"] + extra_make, cwd=src_dir, env=env)
+    run(["make", "install"] + extra_make, cwd=src_dir, env=env)
 
 
 def verify_binary(binary_path):
@@ -219,6 +217,7 @@ def main(args=None):
     parser.add_argument("--ftp-path", default=None)
     parser.add_argument("--tarball-prefix", default=None)
     parser.add_argument("--configure-args", default="")
+    parser.add_argument("--make-args", default="", help="Extra arguments passed to make (e.g. SUBDIRS='po .')")
     parser.add_argument("--tarball-url", default=None, help="Skip FTP resolution, use this URL directly")
     parser.add_argument("--deps-apt", default="")
     parser.add_argument("--deps-apk", default="")
@@ -269,7 +268,7 @@ def main(args=None):
     if not src_dir.is_dir():
         raise RuntimeError(f"Expected source directory '{stem}' not found after extraction")
 
-    build(src_dir, install_dir, a.configure_args)
+    build(src_dir, install_dir, a.configure_args, a.make_args)
     package(a.project, a.version, a.binary_names, install_dir, work_dir, src_dir, verify=not a.skip_verify)
 
 
