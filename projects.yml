@@ -386,9 +386,10 @@ projects:
   # - name: gnubatch
   #   binary_names: "btq btr bta btd btedit btrw btwrite xbq"
 
-  - name: gnats
-    binary_names: "send-pr query-pr file-pr edit-pr gnats-admin"
-    configure_args: "'CFLAGS=-O2 -Wno-error -Wno-pointer-compare -Wno-implicit-fallthrough -Wno-format-overflow'"
+  # gnats: broken build system (ds-file/libds-file.a missing rule on macOS);
+  # also has -Werror on old code with pointer/fallthrough warnings. Skip.
+  # - name: gnats
+  #   binary_names: "send-pr query-pr file-pr edit-pr gnats-admin"
 
   # gnucobol: requires GMP and Berkeley DB external dependencies. Skip.
   # - name: gnucobol
