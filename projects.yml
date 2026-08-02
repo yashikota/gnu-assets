@@ -166,17 +166,31 @@ projects:
   # - name: mcron
   #   binary_names: "mcron"
 
-  - name: rottlog
-    binary_names: "rottlog"
+  # rottlog: configure script uses GNU sed extensions; BSD sed on macOS fails. Skip.
+  # - name: rottlog
+  #   binary_names: "rottlog"
 
-  - name: direvent
-    binary_names: "direvent"
+  # direvent: uses clock_nanosleep/TIMER_ABSTIME which are Linux-only. Skip.
+  # - name: direvent
+  #   binary_names: "direvent"
 
   - name: pexec
     binary_names: "pexec"
 
   - name: cssc
     binary_names: "admin cdc delta get prs prt rmdel sact sccs unget val what"
+
+  - name: help2man
+    binary_names: "help2man"
+
+  - name: stow
+    binary_names: "stow"
+
+  - name: shtool
+    binary_names: "shtool"
+
+  - name: gengetopt
+    binary_names: "gengetopt"
 
   - name: ed
     binary_names: "ed"
