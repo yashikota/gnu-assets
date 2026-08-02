@@ -1,0 +1,160 @@
+name: Build and Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      project:
+        description: "GNU project name (must exist in projects.yml)"
+        required: true
+        type: string
+      force_version:
+        description: "Force build a specific version (skip FTP check)"
+        required: false
+        type: string
+        default: ""
+
+permissions: {}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    outputs:
+      has_new: ${{ steps.check.outputs.has_new }}
+      latest_version: ${{ steps.check.outputs.latest_version }}
+      download_url: ${{ steps.check.outputs.download_url }}
+      tarball_name: ${{ steps.check.outputs.tarball_name }}
+      binary_names: ${{ steps.check.outputs.binary_names }}
+      configure_args: ${{ steps.check.outputs.configure_args }}
+      dependencies_apt: ${{ steps.check.outputs.dependencies_apt }}
+      dependencies_brew: ${{ steps.check.outputs.dependencies_brew }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.local/share/aquaproj-aqua
+          key: v2-aqua-installer-${{runner.os}}-${{runner.arch}}-${{hashFiles('aqua.yaml')}}
+          restore-keys: |
+            v2-aqua-installer-${{runner.os}}-${{runner.arch}}-
+
+      - uses: aquaproj/aqua-installer@96a9bc20066c5bf5e275b41019cfc165b25f4e2e # v4.0.5
+        with:
+          aqua_version: v2.62.2
+
+      - name: Check for new version
+        id: check
+        env:
+          PROJECT: ${{ inputs.project }}
+          FORCE_VERSION: ${{ inputs.force_version }}
+          GH_TOKEN: ${{ github.token }}
+        run: uv run --group dev python3 scripts/check.py --project "${PROJECT}" --force-version "${FORCE_VERSION}"
+
+  build:
+    needs: check
+    if: needs.check.outputs.has_new == 'true'
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: ubuntu-latest
+            container: alpine:3.21
+          - runner: ubuntu-24.04-arm
+            container: alpine:3.21
+          - runner: macos-latest
+    runs-on: ${{ matrix.runner }}
+    container: ${{ matrix.container }}
+    timeout-minutes: 60
+    permissions:
+      contents: read
+    steps:
+      - name: Setup Alpine container
+        if: matrix.container != ''
+        run: apk add --no-cache git python3 py3-yaml
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Build and package
+        id: package
+        env:
+          PROJECT: ${{ inputs.project }}
+          VERSION: ${{ needs.check.outputs.latest_version }}
+          BINARY_NAMES: ${{ needs.check.outputs.binary_names }}
+          CONFIGURE_ARGS: ${{ needs.check.outputs.configure_args }}
+          DEPS_APT: ${{ needs.check.outputs.dependencies_apt }}
+          DEPS_BREW: ${{ needs.check.outputs.dependencies_brew }}
+          TARBALL_URL: ${{ needs.check.outputs.download_url }}
+        run: |
+          python3 scripts/build.py \
+            --project "${PROJECT}" \
+            --version "${VERSION}" \
+            --binary-names "${BINARY_NAMES}" \
+            --work-dir "${GITHUB_WORKSPACE}/build" \
+            --configure-args "${CONFIGURE_ARGS}" \
+            --deps-apt "${DEPS_APT}" \
+            --deps-brew "${DEPS_BREW}" \
+            --tarball-url "${TARBALL_URL}"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
+        with:
+          name: ${{ steps.package.outputs.asset_name }}
+          path: ${{ steps.package.outputs.asset_path }}
+
+  release:
+    needs: [check, build]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.local/share/aquaproj-aqua
+          key: v2-aqua-installer-${{runner.os}}-${{runner.arch}}-${{hashFiles('aqua.yaml')}}
+          restore-keys: |
+            v2-aqua-installer-${{runner.os}}-${{runner.arch}}-
+
+      - uses: aquaproj/aqua-installer@96a9bc20066c5bf5e275b41019cfc165b25f4e2e # v4.0.5
+        with:
+          aqua_version: v2.62.2
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          path: assets/
+
+      - name: Collect assets
+        id: assets
+        run: |
+          {
+            echo "files<<EOF"
+            find assets/ -name '*.tar.gz' -type f
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Create release
+        env:
+          PROJECT: ${{ inputs.project }}
+          VERSION: ${{ needs.check.outputs.latest_version }}
+          ASSETS: ${{ steps.assets.outputs.files }}
+          DOWNLOAD_URL: ${{ needs.check.outputs.download_url }}
+          TARBALL_NAME: ${{ needs.check.outputs.tarball_name }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          uv run --group dev python3 scripts/release.py \
+            --project "${PROJECT}" \
+            --version "${VERSION}" \
+            --assets "${ASSETS}" \
+            --download-url "${DOWNLOAD_URL}" \
+            --tarball-name "${TARBALL_NAME}"

@@ -1,0 +1,3 @@
+projects:
+  - name: hello
+    binary_names: "hello"

@@ -1,0 +1,17 @@
+[project]
+name = "gnu-assets"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "yashikota", email = "52403688+yashikota@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = []
+
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "pyyaml>=6.0.3",
+]
