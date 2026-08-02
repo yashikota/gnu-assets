@@ -119,6 +119,8 @@ def _symlink_linux_headers_for_musl(musl_gcc):
                 ("types.h", "asm-generic/types.h"),
                 ("bitsperlong.h", "asm-generic/bitsperlong.h"),
                 ("posix_types.h", "asm-generic/posix_types.h"),
+                ("sockios.h", "asm-generic/sockios.h"),
+                ("socket.h", "asm-generic/socket.h"),
             ]:
                 shim_path = asm_dir / shim_name
                 if not shim_path.exists():
@@ -244,6 +246,8 @@ def verify_binary(binary_path):
             "/usr/lib/libtinfo",
             "/usr/lib/libz",
             "/usr/lib/libcurl",
+            "/usr/lib/libedit",     # readline-compatible line editor, system-provided on macOS
+            "/usr/lib/libresolv",   # DNS resolver, system-provided on macOS
             "/System/Library/Frameworks/CoreFoundation.framework",
             "/System/Library/Frameworks/CoreServices.framework",
         )

@@ -506,11 +506,13 @@ projects:
   # - name: ocrad
   #   binary_names: "ocrad"
 
-  - name: a2ps
-    binary_names: "a2ps"
+  # a2ps: requires Boehm GC (bdw-gc >= 7.2). Skip.
+  # - name: a2ps
+  #   binary_names: "a2ps"
 
-  - name: indent
-    binary_names: "indent"
+  # indent: macOS missing libintl.h even with --disable-nls. Skip.
+  # - name: indent
+  #   binary_names: "indent"
 
   - name: macchanger
     binary_names: "macchanger"
@@ -518,13 +520,15 @@ projects:
   - name: inetutils
     binary_names: "ftp ping telnet traceroute"
 
-  - name: global
-    binary_names: "global gtags"
+  # global: libtool .la shared lib in plugin subdir fails with --disable-shared. Skip.
+  # - name: global
+  #   binary_names: "global gtags"
 
-  - name: ccd2cue
-    binary_names: "ccd2cue"
+  # ccd2cue: uses GNU error.h (glibc-only); not available in musl. Skip.
+  # - name: ccd2cue
+  #   binary_names: "ccd2cue"
 
-  - name: httptunnel
-    binary_names: "htc hts"
-    skip_gpg: true
+  # httptunnel: old configure fails on macOS ("C compiler cannot create executables"). Skip.
+  # - name: httptunnel
+  #   binary_names: "htc hts"
 
