@@ -471,8 +471,9 @@ projects:
   # - name: fdisk
   #   binary_names: "fdisk"
 
-  - name: gnudos
-    binary_names: "gnudos"
+  # gnudos: requires ncurses; fcloseall (GNU-only) fails on macOS. Skip.
+  # - name: gnudos
+  #   binary_names: "gnudos"
 
   - name: gnucap
     binary_names: "gnucap"
@@ -481,4 +482,19 @@ projects:
   # acct: libtool shared lib with -rpath causes musl libc.so dynamic load. Skip.
   # - name: acct
   #   binary_names: "accton ac lastcomm dump-acct dump-utmp"
+
+  - name: recutils
+    binary_names: "recsel recins recdel recset recfmt reccount recfix recconv"
+
+  - name: sharutils
+    binary_names: "shar unshar uuencode uudecode"
+
+  - name: cflow
+    binary_names: "cflow"
+
+  - name: which
+    binary_names: "which"
+
+  - name: complexity
+    binary_names: "complexity"
 
