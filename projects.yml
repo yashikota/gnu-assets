@@ -388,8 +388,9 @@ projects:
 
   - name: gnats
     binary_names: "send-pr query-pr file-pr edit-pr gnats-admin"
+    configure_args: "'CFLAGS=-O2 -Wno-error -Wno-pointer-compare -Wno-implicit-fallthrough -Wno-format-overflow'"
 
-  # gnucobol: COBOL compiler - check if pure C
-  - name: gnucobol
-    binary_names: "cobc cobcrun"
+  # gnucobol: requires GMP and Berkeley DB external dependencies. Skip.
+  # - name: gnucobol
+  #   binary_names: "cobc cobcrun"
 
