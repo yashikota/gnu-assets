@@ -175,7 +175,7 @@ def build(src_dir, install_dir, configure_args, make_args=""):
         if result.returncode == 0:
             gt = result.stdout.strip()
             env["CPPFLAGS"] = f"-I{gt}/include {env.get('CPPFLAGS', '')}"
-            env["LDFLAGS"] = f"{env['LDFLAGS']} -L{gt}/lib"
+            env["LDFLAGS"] = f"{env['LDFLAGS']} -L{gt}/lib -lintl"
 
     configure = src_dir / "configure"
     Configure = src_dir / "Configure"

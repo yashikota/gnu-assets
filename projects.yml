@@ -146,6 +146,7 @@ projects:
 
   - name: rcs
     binary_names: "rcs ci co rcsdiff rcsmerge rlog ident merge"
+    configure_args: "'CFLAGS=-O2 -Wno-error=incompatible-function-pointer-types'"
 
   - name: mtools
     binary_names: "mtools"
