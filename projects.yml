@@ -40,5 +40,5 @@ projects:
 
   - name: wget
     binary_names: "wget"
-    configure_args: "--without-ssl --without-zlib --disable-pcre --disable-pcre2 --disable-ntlm"
+    configure_args: "--without-ssl --without-zlib --disable-pcre --disable-pcre2 --disable-ntlm --without-libidn2 --without-libpsl"
 
