@@ -151,6 +151,18 @@ projects:
   - name: mtools
     binary_names: "mtools"
 
+  - name: jwhois
+    binary_names: "jwhois"
+
+  - name: marst
+    binary_names: "marst"
+
+  - name: vc-dwim
+    binary_names: "vc-dwim"
+
+  - name: mcron
+    binary_names: "mcron"
+
   - name: ed
     binary_names: "ed"
 
