@@ -455,9 +455,9 @@ projects:
   # - name: uucp
   #   binary_names: "uucico uuxqt uucp uux uustat cu"
 
-  - name: sauce
-    binary_names: "sauce"
-    skip_gpg: true
+  # sauce: requires Tcl (tclsh) to build. Skip.
+  # - name: sauce
+  #   binary_names: "sauce"
 
   - name: gnucap
     binary_names: "gnucap"
