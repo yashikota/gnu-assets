@@ -40,10 +40,9 @@ projects:
 
   - name: wget
     binary_names: "wget"
-    configure_args: "--without-ssl --without-zlib"
+    configure_args: "--without-ssl --without-zlib --without-pcre2"
 
   - name: less
     binary_names: "less lesskey"
-
-  - name: bison
-    binary_names: "bison"
+    dependencies_apt: "libncurses5-dev"
+    configure_args: "--without-libedit"
