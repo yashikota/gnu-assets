@@ -431,6 +431,7 @@ projects:
   - name: proxyknife
     binary_names: "proxyknife"
     make_args: "SUBDIRS=src"
+    configure_args: "'CFLAGS=-O2 -include locale.h'"
 
   # acct: libtool shared lib with -rpath causes musl libc.so dynamic load. Skip.
   # - name: acct
