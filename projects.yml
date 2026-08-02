@@ -535,3 +535,12 @@ projects:
     binary_names: "gama-local gama-g3"
     configure_args: "--disable-sqlite3"
 
+  - name: direvent
+    binary_names: "direvent"
+
+  - name: gnugo
+    binary_names: "gnugo"
+
+  - name: chess
+    binary_names: "gnuchess"
+

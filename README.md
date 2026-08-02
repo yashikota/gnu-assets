@@ -95,7 +95,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ⏳ | [freeipmi](https://ftp.gnu.org/gnu/freeipmi/) | - |
 | ⏳ | [freetalk](https://ftp.gnu.org/gnu/freetalk/) | - |
 | ⏳ | [g-golf](https://ftp.gnu.org/gnu/g-golf/) | - |
-| ⏳ | [gama](https://ftp.gnu.org/gnu/gama/) | - |
+| ✅ | [gama](https://ftp.gnu.org/gnu/gama/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=gama&expanded=true) |
 | ✅ | [gawk](https://ftp.gnu.org/gnu/gawk/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=gawk&expanded=true) |
 | ✅ | [gcal](https://ftp.gnu.org/gnu/gcal/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=gcal&expanded=true) |
 | ⏳ | [gcc](https://ftp.gnu.org/gnu/gcc/) | - |
@@ -182,7 +182,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ⏳ | [idutils](https://ftp.gnu.org/gnu/idutils/) | - |
 | ⏳ | [ignuit](https://ftp.gnu.org/gnu/ignuit/) | - |
 | ⏳ | [indent](https://ftp.gnu.org/gnu/indent/) | - |
-| ⏳ | [inetutils](https://ftp.gnu.org/gnu/inetutils/) | - |
+| ✅ | [inetutils](https://ftp.gnu.org/gnu/inetutils/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=inetutils&expanded=true) |
 | ⏳ | [jacal](https://ftp.gnu.org/gnu/jacal/) | - |
 | ⏳ | [jami](https://ftp.gnu.org/gnu/jami/) | - |
 | ⏳ | [jel](https://ftp.gnu.org/gnu/jel/) | - |
