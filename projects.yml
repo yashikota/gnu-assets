@@ -459,6 +459,10 @@ projects:
   # - name: sauce
   #   binary_names: "sauce"
 
+  - name: mailutils
+    binary_names: "mail dotlock mailq"
+    configure_args: "--without-guile --without-python --without-gsasl --without-gnutls --without-ldap"
+
   - name: gnucap
     binary_names: "gnucap"
     configure_args: "--without-readline"
