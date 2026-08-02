@@ -549,7 +549,5 @@ projects:
     tarball_prefix: "gnuchess"
     configure_args: "--with-readline=no"
 
-  - name: gprolog
-    binary_names: "gprolog gplc"
-    ftp_path: "gprolog"
+  # gprolog: configure is in src/ subdirectory, not top-level; non-standard build system. Skip.
 
