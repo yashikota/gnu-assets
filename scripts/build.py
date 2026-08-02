@@ -90,6 +90,8 @@ def _find_musl_gcc():
 def build(src_dir, install_dir, configure_args, make_args=""):
     os_name = platform.system().lower()
     env = os.environ.copy()
+    # make_env may diverge from configure_env (extra headers added after configure)
+    make_env = None
 
     if os_name == "linux":
         if _is_alpine():
@@ -102,9 +104,10 @@ def build(src_dir, install_dir, configure_args, make_args=""):
                 env["CC"] = musl_gcc
                 env["CFLAGS"] = f"-O2 {env.get('CFLAGS', '')}"
                 env["LDFLAGS"] = f"-static {env.get('LDFLAGS', '')}"
-                # musl-gcc omits /usr/include; add it back so kernel headers
-                # (e.g. linux/fs.h with PROCMAP_QUERY) are reachable at compile time
-                env["CPPFLAGS"] = f"-I/usr/include {env.get('CPPFLAGS', '')}"
+                # Pass /usr/include only during make (not configure) so that
+                # kernel headers like linux/fs.h are reachable without
+                # triggering the cross-compilation check in configure.
+                make_env = {**env, "CPPFLAGS": f"-I/usr/include {env.get('CPPFLAGS', '')}"}
             else:
                 print("WARNING: musl-gcc not found, falling back to glibc static link")
                 env["LDFLAGS"] = f"-static -static-libgcc -static-libstdc++ {env.get('LDFLAGS', '')}"
@@ -127,8 +130,9 @@ def build(src_dir, install_dir, configure_args, make_args=""):
 
     ncpu = os.cpu_count() or 2
     extra_make = shlex.split(make_args) if make_args else []
-    run(["make", f"-j{ncpu}"] + extra_make, cwd=src_dir, env=env)
-    run(["make", "install"] + extra_make, cwd=src_dir, env=env)
+    build_env = make_env if make_env is not None else env
+    run(["make", f"-j{ncpu}"] + extra_make, cwd=src_dir, env=build_env)
+    run(["make", "install"] + extra_make, cwd=src_dir, env=build_env)
 
 
 def verify_binary(binary_path):
