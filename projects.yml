@@ -125,8 +125,9 @@ projects:
 
   - name: enscript
     binary_names: "enscript mkafmmap"
+    configure_args: "'CFLAGS=-O2 -Wno-implicit-function-declaration'"
 
   - name: gcal
     binary_names: "gcal gcal2txt tcal txt2gcal"
-    configure_args: "--disable-term"
+    configure_args: "--disable-term 'CFLAGS=-O2 -Wno-implicit-function-declaration'"
 
