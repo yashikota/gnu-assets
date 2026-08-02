@@ -7,10 +7,9 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 
 ---
 
-- ✅ : Supported & Released (1 project)
-- ⏳ : Planned / Backlog
+✅ : Supported / ⏳ : Planned
 
-| Status | Project Name | GitHub Repository |
+| Status | Project Name | Latest Release |
 | :---: | :--- | :--- |
 | ⏳ | [3dldf](https://ftp.gnu.org/gnu/3dldf/) | - |
 | ⏳ | [8sync](https://ftp.gnu.org/gnu/8sync/) | - |
@@ -174,7 +173,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ⏳ | [gzip](https://ftp.gnu.org/gnu/gzip/) | - |
 | ⏳ | [halifax](https://ftp.gnu.org/gnu/halifax/) | - |
 | ⏳ | [health](https://ftp.gnu.org/gnu/health/) | - |
-| ✅ | [hello](https://ftp.gnu.org/gnu/hello/) | [`yashikota/gnu-assets`](https://github.com/yashikota/gnu-assets) |
+| ✅ | [hello](https://ftp.gnu.org/gnu/hello/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=hello-v&expanded=true) |
 | ⏳ | [help2man](https://ftp.gnu.org/gnu/help2man/) | - |
 | ⏳ | [hp2xx](https://ftp.gnu.org/gnu/hp2xx/) | - |
 | ⏳ | [httptunnel](https://ftp.gnu.org/gnu/httptunnel/) | - |

@@ -31,8 +31,11 @@ def get_latest_ftp_version(ftp_path, tarball_prefix, force_version=None):
 
     base_url = f"https://ftpmirror.gnu.org/{ftp_path}"
     req = urllib.request.Request(f"{base_url}/", headers={"User-Agent": "Mozilla/5.0"})
-    with urllib.request.urlopen(req, timeout=15) as resp:
-        html = resp.read().decode("utf-8", errors="ignore")
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            html = resp.read().decode("utf-8", errors="ignore")
+    except Exception as e:
+        raise RuntimeError(f"Failed to fetch FTP listing for {ftp_path}: {e}") from e
 
     pattern = rf"{tarball_prefix}-([0-9]+(?:\.[0-9]+)*)\.(?:tar\.(?:xz|gz|bz2)|tgz)"
     matches = re.findall(pattern, html)
