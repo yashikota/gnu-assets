@@ -88,3 +88,16 @@ projects:
   - name: teseq
     binary_names: "teseq"
 
+  - name: gperf
+    binary_names: "gperf"
+
+  - name: bool
+    binary_names: "bool"
+
+  - name: idutils
+    binary_names: "mkid lid fid fnid xtokid aid eid gid"
+
+  - name: barcode
+    binary_names: "barcode"
+    configure_args: "--disable-shared"
+
