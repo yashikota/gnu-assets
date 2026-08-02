@@ -461,7 +461,7 @@ projects:
 
   - name: mailutils
     binary_names: "mail dotlock mailq"
-    configure_args: "--without-guile --without-python --without-gsasl --without-gnutls --without-ldap"
+    configure_args: "--without-guile --disable-python --without-gsasl --without-gnutls --without-ldap --without-berkeley-db"
 
   - name: gnucap
     binary_names: "gnucap"
