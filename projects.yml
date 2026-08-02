@@ -424,13 +424,13 @@ projects:
   # - name: hp2xx
   #   binary_names: "hp2xx"
 
-  - name: superopt
-    binary_names: "superopt"
-    skip_gpg: true
+  # superopt: requires explicit CPU target flag (-DSPARC etc.); very old code. Skip.
+  # - name: superopt
+  #   binary_names: "superopt"
 
   - name: proxyknife
     binary_names: "proxyknife"
-    make_args: "SUBDIRS=."
+    make_args: "SUBDIRS=src"
 
   # acct: libtool shared lib with -rpath causes musl libc.so dynamic load. Skip.
   # - name: acct
