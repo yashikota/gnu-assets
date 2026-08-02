@@ -454,6 +454,7 @@ projects:
   - name: uucp
     binary_names: "uucico uuxqt uucp uux uustat cu"
     skip_gpg: true
+    configure_args: "--disable-static"
 
   - name: gnucap
     binary_names: "gnucap"
