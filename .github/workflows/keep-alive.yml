@@ -16,12 +16,17 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Keep Alive Commit
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           date -u > .keep-alive
           git add .keep-alive
           git commit -m "chore: keep alive central watcher cron [skip ci]" || exit 0
+          gh auth setup-git
           git push
