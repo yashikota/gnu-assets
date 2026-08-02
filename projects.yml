@@ -17,3 +17,19 @@ projects:
 
   - name: bc
     binary_names: "bc"
+
+  - name: diffutils
+    binary_names: "diff diff3 sdiff cmp"
+
+  - name: findutils
+    binary_names: "find xargs locate"
+    configure_args: "--disable-assert"
+
+  - name: gawk
+    binary_names: "gawk"
+
+  - name: make
+    binary_names: "make"
+
+  - name: patch
+    binary_names: "patch"
