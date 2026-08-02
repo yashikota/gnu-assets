@@ -505,3 +505,25 @@ projects:
   - name: ocrad
     binary_names: "ocrad"
 
+  - name: a2ps
+    binary_names: "a2ps"
+
+  - name: indent
+    binary_names: "indent"
+
+  - name: macchanger
+    binary_names: "macchanger"
+
+  - name: inetutils
+    binary_names: "ftp ping telnet traceroute"
+
+  - name: global
+    binary_names: "global gtags"
+
+  - name: ccd2cue
+    binary_names: "ccd2cue"
+
+  - name: httptunnel
+    binary_names: "htc hts"
+    skip_gpg: true
+
