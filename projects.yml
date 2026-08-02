@@ -300,17 +300,21 @@ projects:
   # - name: lightning
   #   binary_names: "lightning"
 
-  - name: gnushogi
-    binary_names: "gnushogi"
+  # gnushogi: ld linker error building static binary. Skip.
+  # - name: gnushogi
+  #   binary_names: "gnushogi"
 
-  - name: gnugo
-    binary_names: "gnugo"
+  # gnugo: ld linker error building mkmcpat static binary. Skip.
+  # - name: gnugo
+  #   binary_names: "gnugo"
 
-  - name: motti
-    binary_names: "motti"
+  # motti: C++ program; not fully static with musl-gcc. Skip.
+  # - name: motti
+  #   binary_names: "motti"
 
-  - name: gama
-    binary_names: "gama"
+  # gama: binary names are gama-local/gama-g3, not gama; also C++ program. Skip.
+  # - name: gama
+  #   binary_names: "gama"
 
   - name: pies
     binary_names: "pies"
