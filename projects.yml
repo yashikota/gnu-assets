@@ -27,6 +27,7 @@ projects:
 
   - name: gawk
     binary_names: "gawk"
+    configure_args: "--disable-extensions"
 
   - name: make
     binary_names: "make"
