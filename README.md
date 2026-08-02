@@ -274,8 +274,8 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ⏳ | [tramp](https://ftp.gnu.org/gnu/tramp/) | - |
 | ⏳ | [trueprint](https://ftp.gnu.org/gnu/trueprint/) | - |
 | ✅ | [units](https://ftp.gnu.org/gnu/units/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=units&expanded=true) |
-| ⏳ | [unrtf](https://ftp.gnu.org/gnu/unrtf/) | - |
-| ⏳ | [userv](https://ftp.gnu.org/gnu/userv/) | - |
+| ✅ | [unrtf](https://ftp.gnu.org/gnu/unrtf/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=unrtf&expanded=true) |
+| ✅ | [userv](https://ftp.gnu.org/gnu/userv/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=userv&expanded=true) |
 | ⏳ | [uucp](https://ftp.gnu.org/gnu/uucp/) | - |
 | ⏳ | [vc-changelog](https://ftp.gnu.org/gnu/vc-changelog/) | - |
 | ✅ | [vc-dwim](https://ftp.gnu.org/gnu/vc-dwim/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=vc-dwim&expanded=true) |

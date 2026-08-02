@@ -273,16 +273,28 @@ projects:
   - name: unrtf
     binary_names: "unrtf"
 
-  - name: ocrad
-    binary_names: "ocrad"
+  # ocrad: C++ program; not fully static with musl-gcc (no static libstdc++). Skip.
+  # - name: ocrad
+  #   binary_names: "ocrad"
 
-  - name: a2ps
-    binary_names: "a2ps fixps pdiff psmandup psnup psset card composeglyphs fixnt ogonkify"
-    configure_args: "--without-lispdir"
+  # a2ps: requires bdw-gc (Boehm GC) external dependency. Skip.
+  # - name: a2ps
+  #   binary_names: "a2ps fixps pdiff psmandup psnup psset card composeglyphs fixnt ogonkify"
 
   - name: userv
     binary_names: "userv uservd"
 
-  - name: swbis
-    binary_names: "swinstall swremove swverify swlist swign swpackage"
+  # swbis: requires libz.a (static zlib); config.sub too old for macOS. Skip.
+  # - name: swbis
+  #   binary_names: "swinstall swremove swverify swlist swign swpackage"
+
+  - name: mifluz
+    binary_names: "inverted"
+
+  - name: aspell
+    binary_names: "aspell"
+    configure_args: "--disable-dict"
+
+  - name: lightning
+    binary_names: "lightning"
 
