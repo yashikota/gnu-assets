@@ -170,6 +170,8 @@ def verify_binary(binary_path):
             "/usr/lib/libtinfo",
             "/usr/lib/libz",
             "/usr/lib/libcurl",
+            "/System/Library/Frameworks/CoreFoundation.framework",
+            "/System/Library/Frameworks/CoreServices.framework",
         )
         unexpected = [lib for lib in libs if not any(lib.startswith(p) for p in allowed_prefixes)]
         if unexpected:

@@ -40,19 +40,18 @@ projects:
 
   - name: wget
     binary_names: "wget"
-    configure_args: "--without-ssl --without-zlib --disable-pcre --disable-pcre2 --disable-ntlm --without-libidn2 --without-libpsl"
-
-  - name: which
-    binary_names: "which"
+    configure_args: "--without-ssl --without-zlib --disable-pcre --disable-pcre2 --disable-ntlm --without-libidn2 --without-libpsl --disable-iri"
 
   - name: wdiff
     binary_names: "wdiff"
 
   - name: m4
     binary_names: "m4"
+    make_args: "SUBDIRS=."
 
   - name: indent
     binary_names: "indent"
+    deps_brew: "gettext"
 
   - name: time
     binary_names: "time"
