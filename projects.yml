@@ -210,20 +210,34 @@ projects:
   # - name: gsasl
   #   binary_names: "gsasl"
 
-  - name: plotutils
-    binary_names: "graph plot spline ode"
-    configure_args: "--without-x --disable-libplotter"
+  # plotutils: libtool shared lib with -rpath. Skip.
+  # - name: plotutils
+  #   binary_names: "graph plot spline ode"
 
-  - name: moe
-    binary_names: "moe"
+  # moe: libtool shared lib with -rpath. Skip.
+  # - name: moe
+  #   binary_names: "moe"
 
-  - name: gtypist
-    binary_names: "gtypist"
-    configure_args: "--without-ncurses"
+  # gtypist: requires ncursesw; musl-gcc cannot find system ncurses headers. Skip.
+  # - name: gtypist
+  #   binary_names: "gtypist"
 
-  - name: anubis
-    binary_names: "anubis"
-    configure_args: "--without-gsasl --without-gnutls --without-gss"
+  # anubis: requires libgpg-error external dependency. Skip.
+  # - name: anubis
+  #   binary_names: "anubis"
+
+  - name: gnu-pw-mgr
+    binary_names: "gnu-pw-mgr"
+
+  - name: serveez
+    binary_names: "serveez"
+    configure_args: "--without-guile"
+
+  - name: ccd2cue
+    binary_names: "ccd2cue"
+
+  - name: avl
+    binary_names: "avltest"
 
   - name: ed
     binary_names: "ed"
