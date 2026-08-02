@@ -47,7 +47,6 @@ projects:
 
   - name: m4
     binary_names: "m4"
-    make_args: "SUBDIRS='. examples lib src doc po'"
 
   - name: indent
     binary_names: "indent"

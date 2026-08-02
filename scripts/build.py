@@ -102,6 +102,9 @@ def build(src_dir, install_dir, configure_args, make_args=""):
                 env["CC"] = musl_gcc
                 env["CFLAGS"] = f"-O2 {env.get('CFLAGS', '')}"
                 env["LDFLAGS"] = f"-static {env.get('LDFLAGS', '')}"
+                # musl-gcc omits /usr/include; add it back so kernel headers
+                # (e.g. linux/fs.h with PROCMAP_QUERY) are reachable at compile time
+                env["CPPFLAGS"] = f"-I/usr/include {env.get('CPPFLAGS', '')}"
             else:
                 print("WARNING: musl-gcc not found, falling back to glibc static link")
                 env["LDFLAGS"] = f"-static -static-libgcc -static-libstdc++ {env.get('LDFLAGS', '')}"
