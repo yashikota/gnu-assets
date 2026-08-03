@@ -53,7 +53,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [cflow](https://ftp.gnu.org/gnu/cflow/) | Not Supported: [[maybe_unused]] attribute fails on macOS |
 | 🚫 | [cgicc](https://ftp.gnu.org/gnu/cgicc/) | Not Supported: C++ CGI library (libtool), no standalone CLI |
 | ✅ | [chess](https://ftp.gnu.org/gnu/chess/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=chess&expanded=true) |
-| ⏳ | [cim](https://ftp.gnu.org/gnu/cim/) | - |
+| 🚫 | [cim](https://ftp.gnu.org/gnu/cim/) | Not Supported: libtool: -rpath causes musl dynamic load |
 | 🚫 | [classpath](https://ftp.gnu.org/gnu/classpath/) | Not Supported: Java class library, no standalone CLI binary |
 | 🚫 | [classpathx](https://ftp.gnu.org/gnu/classpathx/) | Not Supported: Java extensions for GNU Classpath, no CLI binary |
 | 🚫 | [combine](https://ftp.gnu.org/gnu/combine/) | Not Supported: requires guile (install step fails) |
@@ -63,7 +63,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ✅ | [cpio](https://ftp.gnu.org/gnu/cpio/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=cpio&expanded=true) |
 | ✅ | [cppi](https://ftp.gnu.org/gnu/cppi/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=cppi&expanded=true) |
 | ✅ | [cssc](https://ftp.gnu.org/gnu/cssc/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=cssc&expanded=true) |
-| ⏳ | [cursynth](https://ftp.gnu.org/gnu/cursynth/) | - |
+| 🚫 | [cursynth](https://ftp.gnu.org/gnu/cursynth/) | Not Supported: requires ncurses + PortAudio |
 | 🚫 | [dap](https://ftp.gnu.org/gnu/dap/) | Not Supported: libtool on Linux; uses finite() (non-standard) on macOS |
 | ✅ | [datamash](https://ftp.gnu.org/gnu/datamash/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=datamash&expanded=true) |
 | 🚫 | [ddd](https://ftp.gnu.org/gnu/ddd/) | Not Supported: graphical debugger, requires Motif/X11 |
@@ -74,10 +74,10 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ✅ | [diction](https://ftp.gnu.org/gnu/diction/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=diction&expanded=true) |
 | ✅ | [diffutils](https://ftp.gnu.org/gnu/diffutils/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=diffutils&expanded=true) |
 | 🚫 | [direvent](https://ftp.gnu.org/gnu/direvent/) | Not Supported: macOS lacks clock_nanosleep / TIMER_ABSTIME |
-| ⏳ | [dominion](https://ftp.gnu.org/gnu/dominion/) | - |
+| 🚫 | [dominion](https://ftp.gnu.org/gnu/dominion/) | Not Supported: requires ncurses |
 | 🚫 | [easejs](https://ftp.gnu.org/gnu/easejs/) | Not Supported: JavaScript library, no CLI binary |
 | ✅ | [ed](https://ftp.gnu.org/gnu/ed/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=ed&expanded=true) |
-| ⏳ | [edma](https://ftp.gnu.org/gnu/edma/) | - |
+| 🚫 | [edma](https://ftp.gnu.org/gnu/edma/) | Not Supported: shell scripts only, no C binary |
 | 🚫 | [electric](https://ftp.gnu.org/gnu/electric/) | Not Supported: Java VLSI CAD tool, requires Java runtime |
 | 🚫 | [emacs](https://ftp.gnu.org/gnu/emacs/) | Not Supported: GUI text editor with complex deps (X11/GTK/GMP) |
 | 🚫 | [emms](https://ftp.gnu.org/gnu/emms/) | Not Supported: Emacs music player package, not a standalone binary |
@@ -85,11 +85,11 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [fdisk](https://ftp.gnu.org/gnu/fdisk/) | Not Supported: requires GNU Parted (parted.h) |
 | 🚫 | [ferret](https://ftp.gnu.org/gnu/ferret/) | Not Supported: no configure script; bare Makefile fails with musl-gcc |
 | ✅ | [findutils](https://ftp.gnu.org/gnu/findutils/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=findutils&expanded=true) |
-| ⏳ | [fisicalab](https://ftp.gnu.org/gnu/fisicalab/) | - |
+| 🚫 | [fisicalab](https://ftp.gnu.org/gnu/fisicalab/) | Not Supported: GTK physics lab, requires GTK |
 | 🚫 | [foliot](https://ftp.gnu.org/gnu/foliot/) | Not Supported: Guile/GTK time tracking, requires Guile + GTK |
-| ⏳ | [fontopia](https://ftp.gnu.org/gnu/fontopia/) | - |
-| ⏳ | [fontutils](https://ftp.gnu.org/gnu/fontutils/) | - |
-| ⏳ | [freedink](https://ftp.gnu.org/gnu/freedink/) | - |
+| 🚫 | [fontopia](https://ftp.gnu.org/gnu/fontopia/) | Not Supported: requires libncurses; console font editor |
+| 🚫 | [fontutils](https://ftp.gnu.org/gnu/fontutils/) | Not Supported: old code (1992); no configure script, bare Makefile |
+| 🚫 | [freedink](https://ftp.gnu.org/gnu/freedink/) | Not Supported: requires SDL2 and related libs |
 | 🚫 | [freeipmi](https://ftp.gnu.org/gnu/freeipmi/) | Not Supported: libtool: -rpath causes musl dynamic load |
 | 🚫 | [freetalk](https://ftp.gnu.org/gnu/freetalk/) | Not Supported: Guile-based Jabber client, requires Guile/libgloox |
 | 🚫 | [g-golf](https://ftp.gnu.org/gnu/g-golf/) | Not Supported: Guile GTK bindings, requires Guile + GLib |
@@ -106,14 +106,14 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [gengetopt](https://ftp.gnu.org/gnu/gengetopt/) | Not Supported: C++: musl-gcc has no static libstdc++ |
 | 🚫 | [gettext](https://ftp.gnu.org/gnu/gettext/) | Not Supported: gnulib off64_t conflict with musl; macOS undefined symbols |
 | 🚫 | [gforth](https://ftp.gnu.org/gnu/gforth/) | Not Supported: Forth interpreter, libtool shared libs |
-| ⏳ | [ggradebook](https://ftp.gnu.org/gnu/ggradebook/) | - |
+| 🚫 | [ggradebook](https://ftp.gnu.org/gnu/ggradebook/) | Not Supported: GTK gradebook, requires GTK |
 | 🚫 | [ghostscript](https://ftp.gnu.org/gnu/ghostscript/) | Not Supported: requires many external libs (X11, libpng, libjpeg, etc.) |
-| ⏳ | [gift](https://ftp.gnu.org/gnu/gift/) | - |
-| ⏳ | [git](https://ftp.gnu.org/gnu/git/) | - |
+| 🚫 | [gift](https://ftp.gnu.org/gnu/gift/) | Not Supported: C++ image retrieval, libtool + complex deps |
+| 🚫 | [git](https://ftp.gnu.org/gnu/git/) | Not Supported: not a GNU package; only a symlink/redirect on FTP |
 | 🚫 | [global](https://ftp.gnu.org/gnu/global/) | Not Supported: libtool shared lib in plugin subdir |
 | 🚫 | [glpk](https://ftp.gnu.org/gnu/glpk/) | Not Supported: libtool: -rpath causes musl dynamic load |
 | 🚫 | [gnats](https://ftp.gnu.org/gnu/gnats/) | Not Supported: broken build system (ds-file/libds-file.a); -Werror on old code |
-| ⏳ | [gnatsweb](https://ftp.gnu.org/gnu/gnatsweb/) | - |
+| 🚫 | [gnatsweb](https://ftp.gnu.org/gnu/gnatsweb/) | Not Supported: Perl web interface for GNATS, no C binary |
 | 🚫 | [gnu-c-manual](https://ftp.gnu.org/gnu/gnu-c-manual/) | Not Supported: documentation only, no CLI binary |
 | 🚫 | [gnu-crypto](https://ftp.gnu.org/gnu/gnu-crypto/) | Not Supported: Java cryptography library, no standalone CLI binary |
 | 🚫 | [gnu-pw-mgr](https://ftp.gnu.org/gnu/gnu-pw-mgr/) | Not Supported: libtool: -rpath causes musl dynamic load |
@@ -125,7 +125,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [gnucobol](https://ftp.gnu.org/gnu/gnucobol/) | Not Supported: requires GMP and Berkeley DB |
 | 🚫 | [gnudos](https://ftp.gnu.org/gnu/gnudos/) | Not Supported: requires ncurses; fcloseall (GNU-only) on macOS |
 | ✅ | [gnugo](https://ftp.gnu.org/gnu/gnugo/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=gnugo&expanded=true) |
-| ⏳ | [gnuit](https://ftp.gnu.org/gnu/gnuit/) | - |
+| 🚫 | [gnuit](https://ftp.gnu.org/gnu/gnuit/) | Not Supported: requires ncurses |
 | 🚫 | [gnujump](https://ftp.gnu.org/gnu/gnujump/) | Not Supported: SDL platform game, requires SDL |
 | 🚫 | [gnukart](https://ftp.gnu.org/gnu/gnukart/) | Not Supported: not available on FTP (empty/removed project) |
 | 🚫 | [gnumach](https://ftp.gnu.org/gnu/gnumach/) | Not Supported: Mach microkernel, not a CLI tool |
@@ -139,14 +139,14 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [gnushogi](https://ftp.gnu.org/gnu/gnushogi/) | Not Supported: linker error building static binary |
 | 🚫 | [gnusound](https://ftp.gnu.org/gnu/gnusound/) | Not Supported: GTK audio editor, requires GTK/audio libs |
 | 🚫 | [gnuspeech](https://ftp.gnu.org/gnu/gnuspeech/) | Not Supported: speech synthesis, requires complex audio/DSP libs |
-| ⏳ | [gnuspool](https://ftp.gnu.org/gnu/gnuspool/) | - |
+| 🚫 | [gnuspool](https://ftp.gnu.org/gnu/gnuspool/) | Not Supported: requires ncurses + complex UNIX daemon setup |
 | 🚫 | [gnutls](https://ftp.gnu.org/gnu/gnutls/) | Not Supported: libtool: -rpath causes musl dynamic load |
-| ⏳ | [gnutrition](https://ftp.gnu.org/gnu/gnutrition/) | - |
+| 🚫 | [gnutrition](https://ftp.gnu.org/gnu/gnutrition/) | Not Supported: GTK nutrition tracker, requires GTK3 |
 | 🚫 | [goptical](https://ftp.gnu.org/gnu/goptical/) | Not Supported: C++ optical design library, no standalone CLI |
 | 🚫 | [gperf](https://ftp.gnu.org/gnu/gperf/) | Not Supported: gnulib off64_t typedef conflict with musl |
 | 🚫 | [gprofng-gui](https://ftp.gnu.org/gnu/gprofng-gui/) | Not Supported: Java GUI for gprofng, requires Java runtime |
 | 🚫 | [gprolog](https://ftp.gnu.org/gnu/gprolog/) | Not Supported: configure is in src/ only; non-standard build system |
-| ⏳ | [greg](https://ftp.gnu.org/gnu/greg/) | - |
+| 🚫 | [greg](https://ftp.gnu.org/gnu/greg/) | Not Supported: libtool; Guile/Tcl-based test framework |
 | ✅ | [grep](https://ftp.gnu.org/gnu/grep/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=grep&expanded=true) |
 | 🚫 | [groff](https://ftp.gnu.org/gnu/groff/) | Not Supported: gnulib off64_t conflict with musl |
 | 🚫 | [grub](https://ftp.gnu.org/gnu/grub/) | Not Supported: bootloader, not a general CLI tool |
@@ -169,8 +169,8 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [gwl](https://ftp.gnu.org/gnu/gwl/) | Not Supported: Guile workflow language, requires Guile |
 | 🚫 | [gxmessage](https://ftp.gnu.org/gnu/gxmessage/) | Not Supported: GTK message dialog, requires GTK |
 | ✅ | [gzip](https://ftp.gnu.org/gnu/gzip/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=gzip&expanded=true) |
-| ⏳ | [halifax](https://ftp.gnu.org/gnu/halifax/) | - |
-| ⏳ | [health](https://ftp.gnu.org/gnu/health/) | - |
+| 🚫 | [halifax](https://ftp.gnu.org/gnu/halifax/) | Not Supported: GTK fax application, requires GTK |
+| 🚫 | [health](https://ftp.gnu.org/gnu/health/) | Not Supported: Python/Tryton medical management system, no C binary |
 | ✅ | [hello](https://ftp.gnu.org/gnu/hello/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=hello&expanded=true) |
 | ✅ | [help2man](https://ftp.gnu.org/gnu/help2man/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=help2man&expanded=true) |
 | 🚫 | [hp2xx](https://ftp.gnu.org/gnu/hp2xx/) | Not Supported: requires X11 on Linux; old getopt.c on macOS |
@@ -184,7 +184,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [jacal](https://ftp.gnu.org/gnu/jacal/) | Not Supported: Scheme/SCSH CAS system, requires Scheme interpreter |
 | 🚫 | [jami](https://ftp.gnu.org/gnu/jami/) | Not Supported: VoIP/messaging app, requires Qt/WebRTC/complex deps |
 | 🚫 | [jel](https://ftp.gnu.org/gnu/jel/) | Not Supported: Java expression library, no standalone CLI binary |
-| ⏳ | [jtw](https://ftp.gnu.org/gnu/jtw/) | - |
+| 🚫 | [jtw](https://ftp.gnu.org/gnu/jtw/) | Not Supported: Java Training Wheels library, no standalone CLI binary |
 | ✅ | [jwhois](https://ftp.gnu.org/gnu/jwhois/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=jwhois&expanded=true) |
 | 🚫 | [kawa](https://ftp.gnu.org/gnu/kawa/) | Not Supported: JVM-based Scheme, requires Java runtime |
 | 🚫 | [less](https://ftp.gnu.org/gnu/less/) | Not Supported: requires ncurses built with musl; two-stage build |
@@ -197,15 +197,15 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [mailutils](https://ftp.gnu.org/gnu/mailutils/) | Not Supported: libtool: -rpath causes musl dynamic load |
 | ✅ | [make](https://ftp.gnu.org/gnu/make/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=make&expanded=true) |
 | 🚫 | [marst](https://ftp.gnu.org/gnu/marst/) | Not Supported: libtool: -rpath causes musl dynamic load |
-| ⏳ | [maverik](https://ftp.gnu.org/gnu/maverik/) | - |
+| 🚫 | [maverik](https://ftp.gnu.org/gnu/maverik/) | Not Supported: abandoned VR project (last release 1999), no configure |
 | 🚫 | [mc](https://ftp.gnu.org/gnu/mc/) | Not Supported: requires ncurses or S-Lang |
 | 🚫 | [mcron](https://ftp.gnu.org/gnu/mcron/) | Not Supported: requires guile scripting engine |
 | 🚫 | [mcsim](https://ftp.gnu.org/gnu/mcsim/) | Not Supported: libtool + requires liblapack |
 | 🚫 | [mes](https://ftp.gnu.org/gnu/mes/) | Not Supported: Scheme bootstrap system for GNU, not a general CLI tool |
-| ⏳ | [metahtml](https://ftp.gnu.org/gnu/metahtml/) | - |
+| 🚫 | [metahtml](https://ftp.gnu.org/gnu/metahtml/) | Not Supported: old HTML scripting system, complex build system |
 | ⏳ | [micron](https://ftp.gnu.org/gnu/micron/) | - |
 | 🚫 | [mifluz](https://ftp.gnu.org/gnu/mifluz/) | Not Supported: requires Berkeley DB; macOS dbenv error |
-| ⏳ | [mig](https://ftp.gnu.org/gnu/mig/) | - |
+| 🚫 | [mig](https://ftp.gnu.org/gnu/mig/) | Not Supported: libtool + Mach-specific interface generator (Hurd only) |
 | 🚫 | [miscfiles](https://ftp.gnu.org/gnu/miscfiles/) | Not Supported: data files only (word lists, country codes), no CLI binary |
 | 🚫 | [moe](https://ftp.gnu.org/gnu/moe/) | Not Supported: libtool: -rpath causes musl dynamic load |
 | 🚫 | [motti](https://ftp.gnu.org/gnu/motti/) | Not Supported: C++: not fully static with musl-gcc |
@@ -217,7 +217,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [octave](https://ftp.gnu.org/gnu/octave/) | Not Supported: requires FFTW/LAPACK/Atlas/OpenBLAS/complex deps |
 | 🚫 | [oleo](https://ftp.gnu.org/gnu/oleo/) | Not Supported: ncurses/X11 spreadsheet, requires ncurses |
 | 🚫 | [orgadoc](https://ftp.gnu.org/gnu/orgadoc/) | Not Supported: requires libxml2 + ICU |
-| ⏳ | [osip](https://ftp.gnu.org/gnu/osip/) | - |
+| 🚫 | [osip](https://ftp.gnu.org/gnu/osip/) | Not Supported: libtool: -rpath causes musl dynamic load |
 | 🚫 | [parallel](https://ftp.gnu.org/gnu/parallel/) | Not Supported: Perl scripts only, no C binary |
 | 🚫 | [parted](https://ftp.gnu.org/gnu/parted/) | Not Supported: libtool: -rpath causes musl dynamic load |
 | ✅ | [patch](https://ftp.gnu.org/gnu/patch/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=patch&expanded=true) |
@@ -235,11 +235,11 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [readline](https://ftp.gnu.org/gnu/readline/) | Not Supported: input line editing library only, no CLI binary |
 | 🚫 | [recutils](https://ftp.gnu.org/gnu/recutils/) | Not Supported: libtool: -rpath causes musl dynamic load |
 | 🚫 | [reftex](https://ftp.gnu.org/gnu/reftex/) | Not Supported: Emacs Lisp package, not a standalone binary |
-| ⏳ | [remotecontrol](https://ftp.gnu.org/gnu/remotecontrol/) | - |
+| 🚫 | [remotecontrol](https://ftp.gnu.org/gnu/remotecontrol/) | Not Supported: PHP web application, no CLI binary |
 | 🚫 | [rottlog](https://ftp.gnu.org/gnu/rottlog/) | Not Supported: configure uses GNU sed extensions; BSD sed on macOS fails |
-| ⏳ | [rpge](https://ftp.gnu.org/gnu/rpge/) | - |
+| 🚫 | [rpge](https://ftp.gnu.org/gnu/rpge/) | Not Supported: Guile/SDL RPG engine, requires Guile + SDL |
 | ✅ | [rush](https://ftp.gnu.org/gnu/rush/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=rush&expanded=true) |
-| ⏳ | [sather](https://ftp.gnu.org/gnu/sather/) | - |
+| 🚫 | [sather](https://ftp.gnu.org/gnu/sather/) | Not Supported: Sather language compiler/interpreter, requires Tk/X11 |
 | 🚫 | [sauce](https://ftp.gnu.org/gnu/sauce/) | Not Supported: requires Tcl (tclsh) to build |
 | 🚫 | [scm](https://ftp.gnu.org/gnu/scm/) | Not Supported: Scheme interpreter, requires complex static deps |
 | 🚫 | [screen](https://ftp.gnu.org/gnu/screen/) | Not Supported: requires ncurses on Linux; links libpam on macOS |
@@ -249,19 +249,19 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [shepherd](https://ftp.gnu.org/gnu/shepherd/) | Not Supported: Guile-based service manager, requires Guile |
 | 🚫 | [shishi](https://ftp.gnu.org/gnu/shishi/) | Not Supported: libtool: -rpath causes musl dynamic load |
 | ✅ | [shtool](https://ftp.gnu.org/gnu/shtool/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=shtool&expanded=true) |
-| ⏳ | [sipwitch](https://ftp.gnu.org/gnu/sipwitch/) | - |
+| 🚫 | [sipwitch](https://ftp.gnu.org/gnu/sipwitch/) | Not Supported: libtool + requires uCommon/OpenSSL |
 | 🚫 | [slib](https://ftp.gnu.org/gnu/slib/) | Not Supported: Scheme library, no standalone CLI binary |
 | 🚫 | [smalltalk](https://ftp.gnu.org/gnu/smalltalk/) | Not Supported: Smalltalk interpreter, libtool + complex deps |
 | 🚫 | [solfege](https://ftp.gnu.org/gnu/solfege/) | Not Supported: GTK music ear training, requires GTK/Python |
 | 🚫 | [spacechart](https://ftp.gnu.org/gnu/spacechart/) | Not Supported: GTK/GL 3D star map, requires GTK/OpenGL |
 | ✅ | [speedx](https://ftp.gnu.org/gnu/speedx/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=speedx&expanded=true) |
 | ✅ | [spell](https://ftp.gnu.org/gnu/spell/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=spell&expanded=true) |
-| ⏳ | [sqltutor](https://ftp.gnu.org/gnu/sqltutor/) | - |
-| ⏳ | [src-highlite](https://ftp.gnu.org/gnu/src-highlite/) | - |
+| 🚫 | [sqltutor](https://ftp.gnu.org/gnu/sqltutor/) | Not Supported: C++ CGI, requires PostgreSQL (libpqxx) |
+| 🚫 | [src-highlite](https://ftp.gnu.org/gnu/src-highlite/) | Not Supported: libtool + requires Boost::regex |
 | ✅ | [stow](https://ftp.gnu.org/gnu/stow/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=stow&expanded=true) |
 | 🚫 | [superopt](https://ftp.gnu.org/gnu/superopt/) | Not Supported: requires explicit CPU target flag; very old code |
 | 🚫 | [swbis](https://ftp.gnu.org/gnu/swbis/) | Not Supported: old config.guess fails on macOS arm64; needs libz.a |
-| ⏳ | [taler](https://ftp.gnu.org/gnu/taler/) | - |
+| 🚫 | [taler](https://ftp.gnu.org/gnu/taler/) | Not Supported: GTK digital payment app, requires GTK/libgcrypt |
 | ✅ | [tar](https://ftp.gnu.org/gnu/tar/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=tar&expanded=true) |
 | 🚫 | [termcap](https://ftp.gnu.org/gnu/termcap/) | Not Supported: terminal capability library only, no CLI binary |
 | 🚫 | [termutils](https://ftp.gnu.org/gnu/termutils/) | Not Supported: K&R C syntax errors on modern compilers |
@@ -279,7 +279,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ✅ | [vc-dwim](https://ftp.gnu.org/gnu/vc-dwim/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=vc-dwim&expanded=true) |
 | 🚫 | [vcdimager](https://ftp.gnu.org/gnu/vcdimager/) | Not Supported: requires libcdio |
 | 🚫 | [vera](https://ftp.gnu.org/gnu/vera/) | Not Supported: data-only package; no C binary |
-| ⏳ | [wb](https://ftp.gnu.org/gnu/wb/) | - |
+| 🚫 | [wb](https://ftp.gnu.org/gnu/wb/) | Not Supported: Scheme/Java database library, no C binary |
 | ✅ | [wdiff](https://ftp.gnu.org/gnu/wdiff/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=wdiff&expanded=true) |
 | 🚫 | [websocket4j](https://ftp.gnu.org/gnu/websocket4j/) | Not Supported: Java WebSocket library, no standalone CLI binary |
 | ✅ | [wget](https://ftp.gnu.org/gnu/wget/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=wget&expanded=true) |
