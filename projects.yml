@@ -104,7 +104,8 @@ projects:
   # - name: barcode
   #   binary_names: "barcode"
 
-  # cflow: gnulib bitrotate.h uses [[maybe_unused]] on return types; macOS clang rejects this as error. Skip.
+  - name: cflow
+    binary_names: "cflow"
 
   - name: rush
     binary_names: "rush rushlast rushwho"
@@ -222,9 +223,9 @@ projects:
   # - name: gtypist
   #   binary_names: "gtypist"
 
-  # anubis: requires libgpg-error external dependency. Skip.
-  # - name: anubis
-  #   binary_names: "anubis"
+  - name: anubis
+    binary_names: "anubis"
+    configure_args: "--without-gpgme --without-gnutls"
 
   # gnu-pw-mgr: libtool shared lib with -rpath causes musl libc.so dynamic load. Skip.
   # - name: gnu-pw-mgr
@@ -245,9 +246,9 @@ projects:
   - name: ed
     binary_names: "ed"
 
-  # combine: make install fails on guile scripting data install step. Skip.
-  # - name: combine
-  #   binary_names: "combine"
+  - name: combine
+    binary_names: "combine"
+    configure_args: "GUILE_SITE=$(prefix)/lib/guile/site"
 
   # less: requires ncurses built with musl; two-stage build not supported. Skip.
   # - name: less
@@ -383,10 +384,9 @@ projects:
   # - name: gnubatch
   #   binary_names: "btq btr bta btd btedit btrw btwrite xbq"
 
-  # gnats: broken build system (ds-file/libds-file.a missing rule on macOS);
-  # also has -Werror on old code with pointer/fallthrough warnings. Skip.
-  # - name: gnats
-  #   binary_names: "send-pr query-pr file-pr edit-pr gnats-admin"
+  - name: gnats
+    binary_names: "query-pr"
+    make_args: "GCC_CFLAGS=-Wall ARFLAGS=cr"
 
   # adns: client binaries link against libadns.so (shared); can't find static libadns. Skip.
   # - name: adns

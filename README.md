@@ -17,7 +17,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ✅ | [adns](https://ftp.gnu.org/gnu/adns/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=adns&expanded=true) |
 | 🚫 | [alive](https://ftp.gnu.org/gnu/alive/) | Not Supported: requires guile scripting engine |
 | 🚫 | [anastasis](https://ftp.gnu.org/gnu/anastasis/) | Not Supported: requires libgcrypt/libcurl/complex deps |
-| 🚫 | [anubis](https://ftp.gnu.org/gnu/anubis/) | Not Supported: requires libgpg-error |
+| ✅ | [anubis](https://ftp.gnu.org/gnu/anubis/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=anubis&expanded=true) |
 | 🚫 | [apl](https://ftp.gnu.org/gnu/apl/) | Not Supported: C++ APL interpreter, requires complex static build |
 | 🚫 | [archimedes](https://ftp.gnu.org/gnu/archimedes/) | Not Supported: requires GSL, GTK, X11 |
 | 🚫 | [aris](https://ftp.gnu.org/gnu/aris/) | Not Supported: GTK logic proof assistant, requires GTK |
@@ -50,13 +50,13 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [ccrtp](https://ftp.gnu.org/gnu/ccrtp/) | Not Supported: C++ RTP library (libtool), no standalone CLI |
 | 🚫 | [ccscript](https://ftp.gnu.org/gnu/ccscript/) | Not Supported: C++ scripting library (libtool), no standalone CLI |
 | 🚫 | [cfengine](https://ftp.gnu.org/gnu/cfengine/) | Not Supported: requires OpenSSL + PCRE; complex static deps |
-| 🚫 | [cflow](https://ftp.gnu.org/gnu/cflow/) | Not Supported: gnulib bitrotate.h [[maybe_unused]] on return types rejected by macOS clang |
+| ✅ | [cflow](https://ftp.gnu.org/gnu/cflow/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=cflow&expanded=true) |
 | 🚫 | [cgicc](https://ftp.gnu.org/gnu/cgicc/) | Not Supported: C++ CGI library (libtool), no standalone CLI |
 | ✅ | [chess](https://ftp.gnu.org/gnu/chess/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=chess&expanded=true) |
 | 🚫 | [cim](https://ftp.gnu.org/gnu/cim/) | Not Supported: libtool: -rpath causes musl dynamic load |
 | 🚫 | [classpath](https://ftp.gnu.org/gnu/classpath/) | Not Supported: Java class library, no standalone CLI binary |
 | 🚫 | [classpathx](https://ftp.gnu.org/gnu/classpathx/) | Not Supported: Java extensions for GNU Classpath, no CLI binary |
-| 🚫 | [combine](https://ftp.gnu.org/gnu/combine/) | Not Supported: requires guile (install step fails) |
+| ✅ | [combine](https://ftp.gnu.org/gnu/combine/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=combine&expanded=true) |
 | 🚫 | [commoncpp](https://ftp.gnu.org/gnu/commoncpp/) | Not Supported: C++ threading library (libtool), no standalone CLI |
 | 🚫 | [complexity](https://ftp.gnu.org/gnu/complexity/) | Not Supported: requires libopts |
 | ✅ | [coreutils](https://ftp.gnu.org/gnu/coreutils/) | - |
@@ -112,7 +112,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [git](https://ftp.gnu.org/gnu/git/) | Not Supported: not a GNU package; only a symlink/redirect on FTP |
 | 🚫 | [global](https://ftp.gnu.org/gnu/global/) | Not Supported: libtool shared lib in plugin subdir |
 | 🚫 | [glpk](https://ftp.gnu.org/gnu/glpk/) | Not Supported: libtool: -rpath causes musl dynamic load |
-| 🚫 | [gnats](https://ftp.gnu.org/gnu/gnats/) | Not Supported: broken build system (ds-file/libds-file.a); -Werror on old code |
+| ✅ | [gnats](https://ftp.gnu.org/gnu/gnats/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=gnats&expanded=true) |
 | 🚫 | [gnatsweb](https://ftp.gnu.org/gnu/gnatsweb/) | Not Supported: Perl web interface for GNATS, no C binary |
 | 🚫 | [gnu-c-manual](https://ftp.gnu.org/gnu/gnu-c-manual/) | Not Supported: documentation only, no CLI binary |
 | 🚫 | [gnu-crypto](https://ftp.gnu.org/gnu/gnu-crypto/) | Not Supported: Java cryptography library, no standalone CLI binary |
