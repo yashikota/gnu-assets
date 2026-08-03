@@ -386,7 +386,7 @@ projects:
 
   - name: gnats
     binary_names: "query-pr"
-    configure_args: "'CFLAGS=-O2 -Wno-error'"
+    configure_args: "'CFLAGS=-O2 -Wno-error -fcommon'"
     make_args: "-j1 ARFLAGS=cr"
 
   # adns: client binaries link against libadns.so (shared); can't find static libadns. Skip.
