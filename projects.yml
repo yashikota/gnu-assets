@@ -194,6 +194,7 @@ projects:
   - name: httptunnel
     binary_names: "htc hts"
     skip_gpg: true
+    configure_args: "LDFLAGS=-Wl,-dead_strip"
 
   # alive: requires guile scripting engine. Skip.
   # - name: alive
