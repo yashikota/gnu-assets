@@ -550,8 +550,6 @@ projects:
 
   # mig: cpu.sym includes mach/message.h (Mach kernel header); not available on Linux/macOS. Skip.
 
-  - name: gnuit
-    binary_names: "gitfm gitps gitview gitwipe gitkeys gitwhich"
-    dependencies_apt: "libncurses-dev"
-    configure_args: "'CFLAGS=-O2 -Wno-implicit-function-declaration -I/usr/include'"
+  # gnuit: requires ncurses; musl-gcc cannot find system libncurses.a (sysroot
+  # isolation prevents LIBRARY_PATH from working). Skip.
 
