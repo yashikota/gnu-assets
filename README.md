@@ -179,7 +179,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [hyperbole](https://ftp.gnu.org/gnu/hyperbole/) | Not Supported: Emacs Lisp package, not a standalone binary |
 | 🚫 | [idutils](https://ftp.gnu.org/gnu/idutils/) | Not Supported: gnulib _GL_WARN_ON_USE(gets) fails on musl (gets removed) |
 | 🚫 | [ignuit](https://ftp.gnu.org/gnu/ignuit/) | Not Supported: GTK flashcard application, requires GTK |
-| 🚫 | [indent](https://ftp.gnu.org/gnu/indent/) | Not Supported: macOS missing libintl.h |
+| ✅ | [indent](https://ftp.gnu.org/gnu/indent/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=indent&expanded=true) |
 | ✅ | [inetutils](https://ftp.gnu.org/gnu/inetutils/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=inetutils&expanded=true) |
 | 🚫 | [jacal](https://ftp.gnu.org/gnu/jacal/) | Not Supported: Scheme/SCSH CAS system, requires Scheme interpreter |
 | 🚫 | [jami](https://ftp.gnu.org/gnu/jami/) | Not Supported: VoIP/messaging app, requires Qt/WebRTC/complex deps |

@@ -130,10 +130,10 @@ projects:
     binary_names: "gcal gcal2txt tcal txt2gcal"
     configure_args: "--disable-term 'CFLAGS=-O2 -Wno-implicit-function-declaration'"
 
-  # indent: unconditionally #include <libintl.h> even with --disable-nls;
-  # macOS lacks system libintl and Homebrew's is outside allowed prefixes. Skip.
-  # - name: indent
-  #   binary_names: "indent"
+  - name: indent
+    binary_names: "indent"
+    dependencies_brew: "gettext"
+    configure_args: "CPPFLAGS=-I/opt/homebrew/opt/gettext/include"
 
   - name: which
     binary_names: "which"
