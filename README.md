@@ -136,7 +136,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [gnuradio](https://ftp.gnu.org/gnu/gnuradio/) | Not Supported: requires FFTW/Boost/Python/Qt, extremely complex build |
 | 🚫 | [gnurobots](https://ftp.gnu.org/gnu/gnurobots/) | Not Supported: GTK robot game, requires GTK/Guile |
 | 🚫 | [gnuschool](https://ftp.gnu.org/gnu/gnuschool/) | Not Supported: PHP/web application, no CLI binary |
-| 🚫 | [gnushogi](https://ftp.gnu.org/gnu/gnushogi/) | Not Supported: linker error building static binary |
+| ✅ | [gnushogi](https://ftp.gnu.org/gnu/gnushogi/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=gnushogi&expanded=true) |
 | 🚫 | [gnusound](https://ftp.gnu.org/gnu/gnusound/) | Not Supported: GTK audio editor, requires GTK/audio libs |
 | 🚫 | [gnuspeech](https://ftp.gnu.org/gnu/gnuspeech/) | Not Supported: speech synthesis, requires complex audio/DSP libs |
 | 🚫 | [gnuspool](https://ftp.gnu.org/gnu/gnuspool/) | Not Supported: requires ncurses + complex UNIX daemon setup |
@@ -174,7 +174,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ✅ | [hello](https://ftp.gnu.org/gnu/hello/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=hello&expanded=true) |
 | ✅ | [help2man](https://ftp.gnu.org/gnu/help2man/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=help2man&expanded=true) |
 | 🚫 | [hp2xx](https://ftp.gnu.org/gnu/hp2xx/) | Not Supported: requires X11 on Linux; old getopt.c on macOS |
-| 🚫 | [httptunnel](https://ftp.gnu.org/gnu/httptunnel/) | Not Supported: old configure fails on macOS |
+| ✅ | [httptunnel](https://ftp.gnu.org/gnu/httptunnel/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=httptunnel&expanded=true) |
 | 🚫 | [hurd](https://ftp.gnu.org/gnu/hurd/) | Not Supported: OS kernel/microkernel, not a CLI tool |
 | 🚫 | [hyperbole](https://ftp.gnu.org/gnu/hyperbole/) | Not Supported: Emacs Lisp package, not a standalone binary |
 | 🚫 | [idutils](https://ftp.gnu.org/gnu/idutils/) | Not Supported: gnulib _GL_WARN_ON_USE(gets) fails on musl (gets removed) |

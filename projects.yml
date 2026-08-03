@@ -191,9 +191,9 @@ projects:
   # - name: gengetopt
   #   binary_names: "gengetopt"
 
-  # httptunnel: no GPG signature file on FTP server. Skip.
-  # - name: httptunnel
-  #   binary_names: "htc hts"
+  - name: httptunnel
+    binary_names: "htc hts"
+    skip_gpg: true
 
   # alive: requires guile scripting engine. Skip.
   # - name: alive
@@ -297,9 +297,9 @@ projects:
   # - name: lightning
   #   binary_names: "lightning"
 
-  # gnushogi: ld linker error building static binary. Skip.
-  # - name: gnushogi
-  #   binary_names: "gnushogi"
+  - name: gnushogi
+    binary_names: "gnushogi"
+    configure_args: "--with-curses=no"
 
   # gnugo: ld linker error building mkmcpat static binary. Skip.
   # - name: gnugo
@@ -522,9 +522,7 @@ projects:
   # - name: ccd2cue
   #   binary_names: "ccd2cue"
 
-  # httptunnel: old configure fails on macOS ("C compiler cannot create executables"). Skip.
-  # - name: httptunnel
-  #   binary_names: "htc hts"
+  # httptunnel: already active above (skip_gpg: true).
 
   # gengetopt: C++ program; musl-gcc has no static libstdc++. Skip. (see comment at line ~193)
 
