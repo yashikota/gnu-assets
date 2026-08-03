@@ -254,7 +254,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [smalltalk](https://ftp.gnu.org/gnu/smalltalk/) | Not Supported: Smalltalk interpreter, libtool + complex deps |
 | 🚫 | [solfege](https://ftp.gnu.org/gnu/solfege/) | Not Supported: GTK music ear training, requires GTK/Python |
 | 🚫 | [spacechart](https://ftp.gnu.org/gnu/spacechart/) | Not Supported: GTK/GL 3D star map, requires GTK/OpenGL |
-| ✅ | [speedx](https://ftp.gnu.org/gnu/speedx/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=speedx&expanded=true) |
+| 🚫 | [speedx](https://ftp.gnu.org/gnu/speedx/) | Only b-suffix releases; tarball directory name mismatch |
 | ✅ | [spell](https://ftp.gnu.org/gnu/spell/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=spell&expanded=true) |
 | 🚫 | [sqltutor](https://ftp.gnu.org/gnu/sqltutor/) | Not Supported: C++ CGI, requires PostgreSQL (libpqxx) |
 | 🚫 | [src-highlite](https://ftp.gnu.org/gnu/src-highlite/) | Not Supported: libtool + requires Boost::regex |
@@ -273,7 +273,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [trueprint](https://ftp.gnu.org/gnu/trueprint/) | Not Supported: libtool: -rpath causes musl dynamic load |
 | ✅ | [units](https://ftp.gnu.org/gnu/units/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=units&expanded=true) |
 | ✅ | [unrtf](https://ftp.gnu.org/gnu/unrtf/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=unrtf&expanded=true) |
-| ✅ | [userv](https://ftp.gnu.org/gnu/userv/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=userv&expanded=true) |
+| 🚫 | [userv](https://ftp.gnu.org/gnu/userv/) | macOS configure fails; Linux make install hardcodes /sbin path |
 | 🚫 | [uucp](https://ftp.gnu.org/gnu/uucp/) | Not Supported: 1994-era configure fails on macOS |
 | ✅ | [vc-changelog](https://ftp.gnu.org/gnu/vc-changelog/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=vc-changelog&expanded=true) |
 | ✅ | [vc-dwim](https://ftp.gnu.org/gnu/vc-dwim/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=vc-dwim&expanded=true) |

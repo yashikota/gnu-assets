@@ -285,9 +285,11 @@ projects:
   # - name: a2ps
   #   binary_names: "a2ps fixps pdiff psmandup psnup psset card composeglyphs fixnt ogonkify"
 
-  - name: userv
-    binary_names: "userv uservd"
-    skip_gpg: true
+  # userv: ancient configure fails on macOS ("C compiler cannot create executables"
+  # with no LDFLAGS); on Linux, make install targets /sbin/ which doesn't exist
+  # under --prefix causing make install to fail. Skip.
+  # - name: userv
+  #   binary_names: "userv uservd"
 
   # swbis: requires libz.a (static zlib); config.sub too old for macOS. Skip.
   # - name: swbis
@@ -435,10 +437,10 @@ projects:
   # - name: proxyknife
   #   binary_names: "proxyknife"
 
-  - name: speedx
-    binary_names: "speedx"
-    force_version: "0.1.3b3"
-    skip_gpg: true
+  # speedx: tarball extracts to directory with different name than expected
+  # (speedx-0.1.3b3.tar.gz → not speedx-0.1.3b3/), only rc/b-suffix releases exist. Skip.
+  # - name: speedx
+  #   binary_names: "speedx"
 
   - name: vc-changelog
     binary_names: "git-merge-changelog"
@@ -483,7 +485,7 @@ projects:
 
   - name: gnucap
     binary_names: "gnucap"
-    configure_args: "--without-readline"
+    configure_args: "--without-readline 'CXXFLAGS=-O2 -fpermissive'"
     skip_gpg: true
 
   # acct: libtool shared lib with -rpath causes musl libc.so dynamic load. Skip.
