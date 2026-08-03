@@ -181,17 +181,22 @@ def build(src_dir, install_dir, configure_args, make_args=""):
     prefix = f"--prefix={install_dir}"
     base_args = [prefix, "--disable-dependency-tracking", "--disable-nls",
                  "--disable-shared", "--enable-static"]
-    extra = shlex.split(configure_args) if configure_args else []
+    raw_extra = shlex.split(configure_args) if configure_args else []
 
-    # If configure_args explicitly sets LDFLAGS= on macOS, sync it into the
-    # environment so that old configure scripts (which read env vars directly
-    # in the C-compiler test) see the same value.  Skip on Linux: the -static
-    # flag set above is essential and must not be clobbered.
-    if os_name == "darwin":
-        for arg in extra:
-            if arg.startswith("LDFLAGS="):
+    # LDFLAGS= in configure_args is platform-specific: on macOS it overrides
+    # the env var so old configure scripts (which run C compiler tests using
+    # env LDFLAGS) see the right flags. On Linux the env already carries
+    # -static which must not be replaced. Strip LDFLAGS= from the configure
+    # argument list on Linux so it never reaches the configure invocation there.
+    extra = []
+    for arg in raw_extra:
+        if arg.startswith("LDFLAGS="):
+            if os_name == "darwin":
                 env["LDFLAGS"] = arg[len("LDFLAGS="):]
-                break
+                extra.append(arg)
+            # Linux: discard; env LDFLAGS (-static) takes precedence
+        else:
+            extra.append(arg)
 
     _refresh_config_scripts(src_dir)
     # Some old configure scripts ignore CC from the environment and fall back
