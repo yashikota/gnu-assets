@@ -50,13 +50,13 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [ccrtp](https://ftp.gnu.org/gnu/ccrtp/) | Not Supported: C++ RTP library (libtool), no standalone CLI |
 | 🚫 | [ccscript](https://ftp.gnu.org/gnu/ccscript/) | Not Supported: C++ scripting library (libtool), no standalone CLI |
 | 🚫 | [cfengine](https://ftp.gnu.org/gnu/cfengine/) | Not Supported: requires OpenSSL + PCRE; complex static deps |
-| ✅ | [cflow](https://ftp.gnu.org/gnu/cflow/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=cflow&expanded=true) |
+| 🚫 | [cflow](https://ftp.gnu.org/gnu/cflow/) | Not Supported: gnulib bitrotate.h uses [[maybe_unused]] via _GL_EXTERN_INLINE on return types; macOS clang rejects even in v1.8 |
 | 🚫 | [cgicc](https://ftp.gnu.org/gnu/cgicc/) | Not Supported: C++ CGI library (libtool), no standalone CLI |
 | ✅ | [chess](https://ftp.gnu.org/gnu/chess/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=chess&expanded=true) |
 | 🚫 | [cim](https://ftp.gnu.org/gnu/cim/) | Not Supported: libtool: -rpath causes musl dynamic load |
 | 🚫 | [classpath](https://ftp.gnu.org/gnu/classpath/) | Not Supported: Java class library, no standalone CLI binary |
 | 🚫 | [classpathx](https://ftp.gnu.org/gnu/classpathx/) | Not Supported: Java extensions for GNU Classpath, no CLI binary |
-| ✅ | [combine](https://ftp.gnu.org/gnu/combine/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=combine&expanded=true) |
+| 🚫 | [combine](https://ftp.gnu.org/gnu/combine/) | Not Supported: config.sub too old for macOS arm64 (missing CPU prefix in host triplet) |
 | 🚫 | [commoncpp](https://ftp.gnu.org/gnu/commoncpp/) | Not Supported: C++ threading library (libtool), no standalone CLI |
 | 🚫 | [complexity](https://ftp.gnu.org/gnu/complexity/) | Not Supported: requires libopts |
 | ✅ | [coreutils](https://ftp.gnu.org/gnu/coreutils/) | - |

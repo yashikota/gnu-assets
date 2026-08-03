@@ -104,8 +104,9 @@ projects:
   # - name: barcode
   #   binary_names: "barcode"
 
-  - name: cflow
-    binary_names: "cflow"
+  # cflow: gnulib bitrotate.h uses [[maybe_unused]] on return types via
+  # _GL_EXTERN_INLINE/_GL_ATTRIBUTE_MAYBE_UNUSED; macOS clang rejects on return
+  # types even in v1.8 (2024). Skip.
 
   - name: rush
     binary_names: "rush rushlast rushwho"
@@ -225,7 +226,7 @@ projects:
 
   - name: anubis
     binary_names: "anubis"
-    configure_args: "--without-gpgme --without-gnutls"
+    configure_args: "--without-gpgme --without-gnutls 'CFLAGS=-O2 -Du_char=uint8_t -Wno-implicit-function-declaration'"
 
   # gnu-pw-mgr: libtool shared lib with -rpath causes musl libc.so dynamic load. Skip.
   # - name: gnu-pw-mgr
@@ -246,9 +247,8 @@ projects:
   - name: ed
     binary_names: "ed"
 
-  - name: combine
-    binary_names: "combine"
-    configure_args: "GUILE_SITE=$(prefix)/lib/guile/site"
+  # combine: config.sub too old for macOS arm64 (produces -apple-darwin triplet
+  # without CPU prefix); autoreconf would be needed. Skip.
 
   # less: requires ncurses built with musl; two-stage build not supported. Skip.
   # - name: less
@@ -386,7 +386,8 @@ projects:
 
   - name: gnats
     binary_names: "query-pr"
-    make_args: "GCC_CFLAGS=-Wall ARFLAGS=cr"
+    configure_args: "GCC_CFLAGS=-Wall"
+    make_args: "-j1 ARFLAGS=cr"
 
   # adns: client binaries link against libadns.so (shared); can't find static libadns. Skip.
   # - name: adns
