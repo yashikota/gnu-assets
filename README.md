@@ -50,7 +50,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [ccrtp](https://ftp.gnu.org/gnu/ccrtp/) | Not Supported: C++ RTP library (libtool), no standalone CLI |
 | 🚫 | [ccscript](https://ftp.gnu.org/gnu/ccscript/) | Not Supported: C++ scripting library (libtool), no standalone CLI |
 | 🚫 | [cfengine](https://ftp.gnu.org/gnu/cfengine/) | Not Supported: requires OpenSSL + PCRE; complex static deps |
-| 🚫 | [cflow](https://ftp.gnu.org/gnu/cflow/) | Not Supported: [[maybe_unused]] attribute fails on macOS |
+| ⏳ | [cflow](https://ftp.gnu.org/gnu/cflow/) | - |
 | 🚫 | [cgicc](https://ftp.gnu.org/gnu/cgicc/) | Not Supported: C++ CGI library (libtool), no standalone CLI |
 | ✅ | [chess](https://ftp.gnu.org/gnu/chess/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=chess&expanded=true) |
 | 🚫 | [cim](https://ftp.gnu.org/gnu/cim/) | Not Supported: libtool: -rpath causes musl dynamic load |
