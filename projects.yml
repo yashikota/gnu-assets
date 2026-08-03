@@ -181,6 +181,7 @@ projects:
   - name: cssc
     binary_names: "admin cdc delta get prs prt rmdel sact sccs unget val what"
     tarball_prefix: "CSSC"
+    configure_args: "'CXXFLAGS=-O2 -static-libstdc++ -static-libgcc'"
 
   - name: help2man
     binary_names: "help2man"
@@ -285,6 +286,7 @@ projects:
 
   - name: userv
     binary_names: "userv uservd"
+    skip_gpg: true
 
   # swbis: requires libz.a (static zlib); config.sub too old for macOS. Skip.
   # - name: swbis
@@ -435,6 +437,7 @@ projects:
   - name: speedx
     binary_names: "speedx"
     force_version: "0.1.3b3"
+    skip_gpg: true
 
   - name: vc-changelog
     binary_names: "git-merge-changelog"
@@ -480,6 +483,7 @@ projects:
   - name: gnucap
     binary_names: "gnucap"
     configure_args: "--without-readline"
+    skip_gpg: true
 
   # acct: libtool shared lib with -rpath causes musl libc.so dynamic load. Skip.
   # - name: acct
