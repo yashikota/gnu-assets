@@ -95,9 +95,8 @@ projects:
   - name: bool
     binary_names: "bool"
 
-  # idutils: gnulib-generated stdio.h references gets() which musl removed. Skip.
-  # - name: idutils
-  #   binary_names: "mkid lid fid fnid xtokid aid eid gid"
+  - name: idutils
+    binary_names: "mkid lid fid fnid xtokid aid eid gid"
 
   # barcode: multiple definition of 'streaming' (common-symbol bug in old code). Skip.
   # - name: barcode
