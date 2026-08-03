@@ -125,7 +125,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [gnucobol](https://ftp.gnu.org/gnu/gnucobol/) | Not Supported: requires GMP and Berkeley DB |
 | 🚫 | [gnudos](https://ftp.gnu.org/gnu/gnudos/) | Not Supported: requires ncurses; fcloseall (GNU-only) on macOS |
 | ✅ | [gnugo](https://ftp.gnu.org/gnu/gnugo/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=gnugo&expanded=true) |
-| 🚫 | [gnuit](https://ftp.gnu.org/gnu/gnuit/) | Not Supported: requires ncurses |
+| ✅ | [gnuit](https://ftp.gnu.org/gnu/gnuit/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=gnuit&expanded=true) |
 | 🚫 | [gnujump](https://ftp.gnu.org/gnu/gnujump/) | Not Supported: SDL platform game, requires SDL |
 | 🚫 | [gnukart](https://ftp.gnu.org/gnu/gnukart/) | Not Supported: not available on FTP (empty/removed project) |
 | 🚫 | [gnumach](https://ftp.gnu.org/gnu/gnumach/) | Not Supported: Mach microkernel, not a CLI tool |
