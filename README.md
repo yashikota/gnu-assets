@@ -177,7 +177,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [httptunnel](https://ftp.gnu.org/gnu/httptunnel/) | Not Supported: old configure fails on macOS |
 | 🚫 | [hurd](https://ftp.gnu.org/gnu/hurd/) | Not Supported: OS kernel/microkernel, not a CLI tool |
 | 🚫 | [hyperbole](https://ftp.gnu.org/gnu/hyperbole/) | Not Supported: Emacs Lisp package, not a standalone binary |
-| ✅ | [idutils](https://ftp.gnu.org/gnu/idutils/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=idutils&expanded=true) |
+| 🚫 | [idutils](https://ftp.gnu.org/gnu/idutils/) | Not Supported: gnulib _GL_WARN_ON_USE(gets) fails on musl (gets removed) |
 | 🚫 | [ignuit](https://ftp.gnu.org/gnu/ignuit/) | Not Supported: GTK flashcard application, requires GTK |
 | 🚫 | [indent](https://ftp.gnu.org/gnu/indent/) | Not Supported: macOS missing libintl.h |
 | ✅ | [inetutils](https://ftp.gnu.org/gnu/inetutils/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=inetutils&expanded=true) |

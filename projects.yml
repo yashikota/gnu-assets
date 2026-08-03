@@ -95,8 +95,10 @@ projects:
   - name: bool
     binary_names: "bool"
 
-  - name: idutils
-    binary_names: "mkid lid fid fnid xtokid aid eid gid"
+  # idutils: gnulib stdio.h:1030 _GL_WARN_ON_USE(gets, ...) fails on musl
+  # because musl removed gets(). Not fixable via CFLAGS. Skip.
+  # - name: idutils
+  #   binary_names: "mkid lid fid fnid xtokid aid eid gid"
 
   # barcode: multiple definition of 'streaming' (common-symbol bug in old code). Skip.
   # - name: barcode
