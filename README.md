@@ -245,7 +245,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [screen](https://ftp.gnu.org/gnu/screen/) | Not Supported: requires ncurses on Linux; links libpam on macOS |
 | ✅ | [sed](https://ftp.gnu.org/gnu/sed/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=sed&expanded=true) |
 | 🚫 | [serveez](https://ftp.gnu.org/gnu/serveez/) | Not Supported: --without-guile unrecognized; guile required |
-| ✅ | [sharutils](https://ftp.gnu.org/gnu/sharutils/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=sharutils&expanded=true) |
+| 🚫 | [sharutils](https://ftp.gnu.org/gnu/sharutils/) | Not Supported: multiple definition of program_name (chdir-long.c in libgnu.a vs autogen opts code) |
 | 🚫 | [shepherd](https://ftp.gnu.org/gnu/shepherd/) | Not Supported: Guile-based service manager, requires Guile |
 | 🚫 | [shishi](https://ftp.gnu.org/gnu/shishi/) | Not Supported: libtool: -rpath causes musl dynamic load |
 | ✅ | [shtool](https://ftp.gnu.org/gnu/shtool/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=shtool&expanded=true) |

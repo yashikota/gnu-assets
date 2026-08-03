@@ -77,8 +77,10 @@ projects:
   # - name: complexity
   #   binary_names: "complexity"
 
-  - name: sharutils
-    binary_names: "shar unshar uudecode uuencode"
+  # sharutils: multiple definition of program_name (chdir-long.c in libgnu.a
+  # vs unshar-opts.c); autogen-generated opts code conflict. Skip.
+  # - name: sharutils
+  #   binary_names: "shar unshar uudecode uuencode"
 
   - name: spell
     binary_names: "spell"
