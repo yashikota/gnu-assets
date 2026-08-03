@@ -133,7 +133,7 @@ projects:
   - name: indent
     binary_names: "indent"
     dependencies_brew: "gettext"
-    configure_args: "CPPFLAGS=-I/opt/homebrew/opt/gettext/include CFLAGS=-Wno-implicit-function-declaration LDFLAGS=-L/opt/homebrew/opt/gettext/lib"
+    configure_args: "CPPFLAGS=-I/opt/homebrew/opt/gettext/include CFLAGS=-Wno-implicit-function-declaration 'LDFLAGS=-Wl,-dead_strip /opt/homebrew/opt/gettext/lib/libintl.a'"
 
   - name: which
     binary_names: "which"
