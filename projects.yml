@@ -535,9 +535,6 @@ projects:
     binary_names: "gama-local gama-g3"
     configure_args: "--disable-sqlite3"
 
-  - name: direvent
-    binary_names: "direvent"
-
   - name: gnugo
     binary_names: "gnugo"
     configure_args: "CFLAGS=-fcommon"
@@ -550,4 +547,8 @@ projects:
     configure_args: "--with-readline=no"
 
   # gprolog: configure is in src/ subdirectory, not top-level; non-standard build system. Skip.
+
+  - name: micron
+    binary_names: "crontab micrond"
+    configure_args: "--without-inotify"
 
