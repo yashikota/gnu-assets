@@ -226,7 +226,7 @@ projects:
 
   - name: anubis
     binary_names: "anubis"
-    configure_args: "--without-gpgme --without-gnutls 'CFLAGS=-O2 -Du_char=uint8_t -Wno-implicit-function-declaration'"
+    configure_args: "--without-gpgme --without-gnutls --with-libgcrypt-prefix=/nonexistent 'CFLAGS=-O2 -Du_char=uint8_t -Wno-implicit-function-declaration'"
 
   # gnu-pw-mgr: libtool shared lib with -rpath causes musl libc.so dynamic load. Skip.
   # - name: gnu-pw-mgr
@@ -386,7 +386,7 @@ projects:
 
   - name: gnats
     binary_names: "query-pr"
-    configure_args: "GCC_CFLAGS=-Wall"
+    configure_args: "'CFLAGS=-O2 -Wno-pointer-compare -Wno-error=pointer-compare'"
     make_args: "-j1 ARFLAGS=cr"
 
   # adns: client binaries link against libadns.so (shared); can't find static libadns. Skip.
