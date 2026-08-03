@@ -222,7 +222,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [parted](https://ftp.gnu.org/gnu/parted/) | Not Supported: libtool: -rpath causes musl dynamic load |
 | ✅ | [patch](https://ftp.gnu.org/gnu/patch/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=patch&expanded=true) |
 | ✅ | [pem](https://ftp.gnu.org/gnu/pem/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=pem&expanded=true) |
-| ✅ | [pexec](https://ftp.gnu.org/gnu/pexec/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=pexec&expanded=true) |
+| 🚫 | [pexec](https://ftp.gnu.org/gnu/pexec/) | Makefile ignores LDFLAGS; musl-gcc links without -static |
 | 🚫 | [pies](https://ftp.gnu.org/gnu/pies/) | Not Supported: Linux daemon; macOS lacks CBAUD/SIGPWR |
 | 🚫 | [plotutils](https://ftp.gnu.org/gnu/plotutils/) | Not Supported: libtool: -rpath causes musl dynamic load |
 | 🚫 | [poke](https://ftp.gnu.org/gnu/poke/) | Not Supported: requires Boehm GC |
