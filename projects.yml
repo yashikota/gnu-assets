@@ -191,10 +191,11 @@ projects:
   # - name: gengetopt
   #   binary_names: "gengetopt"
 
-  - name: httptunnel
-    binary_names: "htc hts"
-    skip_gpg: true
-    configure_args: "LDFLAGS="
+  # httptunnel: ancient AM_INIT_AUTOMAKE configure (1990s); C compiler test
+  # fails on macOS even with empty LDFLAGS. Old autoconf conftest incompatible
+  # with modern Apple clang. Skip.
+  # - name: httptunnel
+  #   binary_names: "htc hts"
 
   # alive: requires guile scripting engine. Skip.
   # - name: alive

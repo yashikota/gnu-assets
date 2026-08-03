@@ -174,7 +174,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ✅ | [hello](https://ftp.gnu.org/gnu/hello/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=hello&expanded=true) |
 | ✅ | [help2man](https://ftp.gnu.org/gnu/help2man/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=help2man&expanded=true) |
 | 🚫 | [hp2xx](https://ftp.gnu.org/gnu/hp2xx/) | Not Supported: requires X11 on Linux; old getopt.c on macOS |
-| ✅ | [httptunnel](https://ftp.gnu.org/gnu/httptunnel/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=httptunnel&expanded=true) |
+| 🚫 | [httptunnel](https://ftp.gnu.org/gnu/httptunnel/) | Not Supported: ancient autoconf configure; C compiler test fails on macOS clang |
 | 🚫 | [hurd](https://ftp.gnu.org/gnu/hurd/) | Not Supported: OS kernel/microkernel, not a CLI tool |
 | 🚫 | [hyperbole](https://ftp.gnu.org/gnu/hyperbole/) | Not Supported: Emacs Lisp package, not a standalone binary |
 | 🚫 | [idutils](https://ftp.gnu.org/gnu/idutils/) | Not Supported: gnulib _GL_WARN_ON_USE(gets) fails on musl (gets removed) |
