@@ -550,8 +550,5 @@ projects:
 
   # micron: macOS missing HOST_NAME_MAX; runner.c missing signal.h (kill undeclared). Skip.
 
-  - name: mig
-    binary_names: "migcom"
-    ftp_path: "mig"
-    make_args: "SUBDIRS=."
+  # mig: cpu.sym includes mach/message.h (Mach kernel header); not available on Linux/macOS. Skip.
 

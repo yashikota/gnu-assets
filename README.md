@@ -205,7 +205,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [metahtml](https://ftp.gnu.org/gnu/metahtml/) | Not Supported: old HTML scripting system, complex build system |
 | 🚫 | [micron](https://ftp.gnu.org/gnu/micron/) | Not Supported: macOS missing HOST_NAME_MAX; runner.c missing signal.h |
 | 🚫 | [mifluz](https://ftp.gnu.org/gnu/mifluz/) | Not Supported: requires Berkeley DB; macOS dbenv error |
-| ⏳ | [mig](https://ftp.gnu.org/gnu/mig/) | - |
+| 🚫 | [mig](https://ftp.gnu.org/gnu/mig/) | Not Supported: cpu.sym requires mach/message.h (Mach kernel header) |
 | 🚫 | [miscfiles](https://ftp.gnu.org/gnu/miscfiles/) | Not Supported: data files only (word lists, country codes), no CLI binary |
 | 🚫 | [moe](https://ftp.gnu.org/gnu/moe/) | Not Supported: libtool: -rpath causes musl dynamic load |
 | 🚫 | [motti](https://ftp.gnu.org/gnu/motti/) | Not Supported: C++: not fully static with musl-gcc |
