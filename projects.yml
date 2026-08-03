@@ -103,8 +103,7 @@ projects:
   # - name: barcode
   #   binary_names: "barcode"
 
-  - name: cflow
-    binary_names: "cflow"
+  # cflow: gnulib bitrotate.h uses [[maybe_unused]] on return types; macOS clang rejects this as error. Skip.
 
   - name: rush
     binary_names: "rush rushlast rushwho"
