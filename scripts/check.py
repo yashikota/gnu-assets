@@ -47,7 +47,7 @@ def get_latest_ftp_version(ftp_path, tarball_prefix, force_version=None):
     if html is None:
         raise RuntimeError(f"Failed to fetch FTP listing for {ftp_path}: {last_err}") from last_err
 
-    pattern = rf"{tarball_prefix}-([0-9]+(?:\.[0-9]+)*)\.(?:tar\.(?:xz|gz|bz2|lz)|tgz)"
+    pattern = rf"{tarball_prefix}-([0-9]+(?:\.[0-9]+)*)\.(?:tar\.(?:xz|gz|bz2|lz)|tgz)(?![.\w])"
     matches = re.findall(pattern, html)
     if not matches:
         return None
@@ -125,8 +125,9 @@ def main(argv=None):
     p = load_project(args.projects_file, args.project)
     ftp_path = p.get("ftp_path", args.project)
     tarball_prefix = p.get("tarball_prefix", args.project)
+    project_force_version = p.get("force_version", "")
 
-    latest = get_latest_ftp_version(ftp_path, tarball_prefix, args.force_version or None)
+    latest = get_latest_ftp_version(ftp_path, tarball_prefix, args.force_version or project_force_version or None)
     if not latest:
         print(f"::error::No versions found for {args.project}", file=sys.stderr)
         write_outputs({"has_new": "false"}, None if args.print else os.environ.get("GITHUB_OUTPUT"))

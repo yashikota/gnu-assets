@@ -176,9 +176,11 @@ projects:
 
   - name: pexec
     binary_names: "pexec"
+    force_version: "1.0rc8"
 
   - name: cssc
     binary_names: "admin cdc delta get prs prt rmdel sact sccs unget val what"
+    tarball_prefix: "CSSC"
 
   - name: help2man
     binary_names: "help2man"
@@ -432,10 +434,12 @@ projects:
 
   - name: speedx
     binary_names: "speedx"
+    force_version: "0.1.3b3"
 
   - name: vc-changelog
-    binary_names: "vc-changelog"
+    binary_names: "git-merge-changelog"
     ftp_path: "vc-changelog"
+    tarball_prefix: "git-merge-changelog"
 
   # termutils: very old K&R C syntax errors on modern compilers. Skip.
   # - name: termutils
