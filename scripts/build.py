@@ -167,6 +167,12 @@ def build(src_dir, install_dir, configure_args, make_args=""):
                 # kernel headers (e.g. linux/fs.h) are unreachable.  Symlink
                 # the system linux/ tree into musl's include dir if needed.
                 _symlink_linux_headers_for_musl(musl_gcc)
+                # Expose system lib dirs so musl-gcc can find libncurses.a etc.
+                # installed by apt when configure runs AC_CHECK_LIB tests.
+                machine = platform.machine().lower()
+                arch_triple = "x86_64-linux-gnu" if machine == "x86_64" else "aarch64-linux-gnu"
+                lib_path = f"/usr/lib/{arch_triple}:/usr/lib"
+                env["LIBRARY_PATH"] = f"{lib_path}:{env.get('LIBRARY_PATH', '')}"
             else:
                 print("WARNING: musl-gcc not found, falling back to glibc static link")
                 env["LDFLAGS"] = f"-static -static-libgcc -static-libstdc++ {env.get('LDFLAGS', '')}"
