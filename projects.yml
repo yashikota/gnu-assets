@@ -299,7 +299,7 @@ projects:
 
   - name: gnushogi
     binary_names: "gnushogi"
-    configure_args: "--with-curses=no"
+    configure_args: "--with-curses=no CFLAGS=-fcommon"
 
   # gnugo: ld linker error building mkmcpat static binary. Skip.
   # - name: gnugo
