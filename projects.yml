@@ -179,10 +179,10 @@ projects:
   # - name: pexec
   #   binary_names: "pexec"
 
-  - name: cssc
-    binary_names: "admin cdc delta get prs prt rmdel sact sccs unget val what"
-    tarball_prefix: "CSSC"
-    configure_args: "'CXXFLAGS=-O2 -static-libstdc++ -static-libgcc'"
+  # cssc: C++ with libtool; libtool ignores -static-libstdc++ so libstdc++.so
+  # remains dynamic on Linux. macOS fails with lndir.c hard-link error. Skip.
+  # - name: cssc
+  #   binary_names: "admin cdc delta get prs prt rmdel sact sccs unget val what"
 
   - name: help2man
     binary_names: "help2man"
@@ -483,10 +483,10 @@ projects:
   # - name: gnudos
   #   binary_names: "gnudos"
 
-  - name: gnucap
-    binary_names: "gnucap"
-    configure_args: "--without-readline 'CXXFLAGS=-O2 -fpermissive'"
-    skip_gpg: true
+  # gnucap: C++03 code — missing typename keyword and undeclared strchr/strerror
+  # in templates; modern GCC fails even with -fpermissive. Skip.
+  # - name: gnucap
+  #   binary_names: "gnucap"
 
   # acct: libtool shared lib with -rpath causes musl libc.so dynamic load. Skip.
   # - name: acct

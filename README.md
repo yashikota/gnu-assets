@@ -62,7 +62,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ✅ | [coreutils](https://ftp.gnu.org/gnu/coreutils/) | - |
 | ✅ | [cpio](https://ftp.gnu.org/gnu/cpio/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=cpio&expanded=true) |
 | ✅ | [cppi](https://ftp.gnu.org/gnu/cppi/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=cppi&expanded=true) |
-| ✅ | [cssc](https://ftp.gnu.org/gnu/cssc/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=cssc&expanded=true) |
+| 🚫 | [cssc](https://ftp.gnu.org/gnu/cssc/) | C++ with libtool; libstdc++ remains dynamic; macOS lndir.c error |
 | 🚫 | [cursynth](https://ftp.gnu.org/gnu/cursynth/) | Not Supported: requires ncurses + PortAudio |
 | 🚫 | [dap](https://ftp.gnu.org/gnu/dap/) | Not Supported: libtool on Linux; uses finite() (non-standard) on macOS |
 | ✅ | [datamash](https://ftp.gnu.org/gnu/datamash/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=datamash&expanded=true) |
@@ -121,7 +121,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [gnubatch](https://ftp.gnu.org/gnu/gnubatch/) | Not Supported: requires ncurses; musl-gcc cannot find headers |
 | 🚫 | [gnubg](https://ftp.gnu.org/gnu/gnubg/) | Not Supported: GTK backgammon, requires GTK/Cairo |
 | 🚫 | [gnubik](https://ftp.gnu.org/gnu/gnubik/) | Not Supported: GTK/OpenGL Rubik's cube, requires GTK/OpenGL |
-| ✅ | [gnucap](https://ftp.gnu.org/gnu/gnucap/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=gnucap&expanded=true) |
+| 🚫 | [gnucap](https://ftp.gnu.org/gnu/gnucap/) | C++03 code; missing typename/header includes fail with modern GCC |
 | 🚫 | [gnucobol](https://ftp.gnu.org/gnu/gnucobol/) | Not Supported: requires GMP and Berkeley DB |
 | 🚫 | [gnudos](https://ftp.gnu.org/gnu/gnudos/) | Not Supported: requires ncurses; fcloseall (GNU-only) on macOS |
 | ✅ | [gnugo](https://ftp.gnu.org/gnu/gnugo/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=gnugo&expanded=true) |
