@@ -548,7 +548,5 @@ projects:
 
   # gprolog: configure is in src/ subdirectory, not top-level; non-standard build system. Skip.
 
-  - name: micron
-    binary_names: "crontab micrond"
-    configure_args: "--without-inotify CFLAGS=-DHOST_NAME_MAX=256"
+  # micron: macOS missing HOST_NAME_MAX; runner.c missing signal.h (kill undeclared). Skip.
 

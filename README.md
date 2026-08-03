@@ -203,7 +203,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [mcsim](https://ftp.gnu.org/gnu/mcsim/) | Not Supported: libtool + requires liblapack |
 | 🚫 | [mes](https://ftp.gnu.org/gnu/mes/) | Not Supported: Scheme bootstrap system for GNU, not a general CLI tool |
 | 🚫 | [metahtml](https://ftp.gnu.org/gnu/metahtml/) | Not Supported: old HTML scripting system, complex build system |
-| ⏳ | [micron](https://ftp.gnu.org/gnu/micron/) | - |
+| 🚫 | [micron](https://ftp.gnu.org/gnu/micron/) | Not Supported: macOS missing HOST_NAME_MAX; runner.c missing signal.h |
 | 🚫 | [mifluz](https://ftp.gnu.org/gnu/mifluz/) | Not Supported: requires Berkeley DB; macOS dbenv error |
 | 🚫 | [mig](https://ftp.gnu.org/gnu/mig/) | Not Supported: libtool + Mach-specific interface generator (Hurd only) |
 | 🚫 | [miscfiles](https://ftp.gnu.org/gnu/miscfiles/) | Not Supported: data files only (word lists, country codes), no CLI binary |
