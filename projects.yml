@@ -134,10 +134,9 @@ projects:
   # - name: indent
   #   binary_names: "indent"
 
-  # which: macOS getopt.h:105 `extern int getopt()` conflicts with unistd.h
-  # modern prototype — type error, not just a warning. Skip.
-  # - name: which
-  #   binary_names: "which"
+  - name: which
+    binary_names: "which"
+    configure_args: "CFLAGS=-D__GNU_LIBRARY__"
 
   - name: ddrescue
     binary_names: "ddrescue ddrescuelog"

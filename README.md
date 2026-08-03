@@ -283,7 +283,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | ✅ | [wdiff](https://ftp.gnu.org/gnu/wdiff/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=wdiff&expanded=true) |
 | 🚫 | [websocket4j](https://ftp.gnu.org/gnu/websocket4j/) | Not Supported: Java WebSocket library, no standalone CLI binary |
 | ✅ | [wget](https://ftp.gnu.org/gnu/wget/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=wget&expanded=true) |
-| 🚫 | [which](https://ftp.gnu.org/gnu/which/) | Not Supported: getopt type conflict on macOS |
+| ✅ | [which](https://ftp.gnu.org/gnu/which/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=which&expanded=true) |
 | 🚫 | [xaos](https://ftp.gnu.org/gnu/xaos/) | Not Supported: interactive fractal zoom, requires SDL2/GTK |
 | 🚫 | [xboard](https://ftp.gnu.org/gnu/xboard/) | Not Supported: X11 chess board GUI, requires X11/Cairo |
 | 🚫 | [xlogmaster](https://ftp.gnu.org/gnu/xlogmaster/) | Not Supported: GTK log monitor, requires GTK |
