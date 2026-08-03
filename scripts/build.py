@@ -183,6 +183,14 @@ def build(src_dir, install_dir, configure_args, make_args=""):
                  "--disable-shared", "--enable-static"]
     extra = shlex.split(configure_args) if configure_args else []
 
+    # If configure_args explicitly sets LDFLAGS=, sync it into the environment
+    # so that old configure scripts (which read env vars directly in the
+    # C-compiler test) see the same value as the configure argument.
+    for arg in extra:
+        if arg.startswith("LDFLAGS="):
+            env["LDFLAGS"] = arg[len("LDFLAGS="):]
+            break
+
     _refresh_config_scripts(src_dir)
     # Some old configure scripts ignore CC from the environment and fall back
     # to gcc; pass it as an explicit argument.  LDFLAGS must NOT be passed

@@ -191,11 +191,10 @@ projects:
   # - name: gengetopt
   #   binary_names: "gengetopt"
 
-  # httptunnel: old AM_INIT_AUTOMAKE configure inherits LDFLAGS=-liconv from
-  # build.py macOS env; C compiler test fails. Env LDFLAGS can't be overridden
-  # via configure_args. Skip.
-  # - name: httptunnel
-  #   binary_names: "htc hts"
+  - name: httptunnel
+    binary_names: "htc hts"
+    skip_gpg: true
+    configure_args: "LDFLAGS=-Wl,-dead_strip"
 
   # alive: requires guile scripting engine. Skip.
   # - name: alive
