@@ -59,7 +59,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [combine](https://ftp.gnu.org/gnu/combine/) | Not Supported: config.sub too old for macOS arm64 (missing CPU prefix in host triplet) |
 | 🚫 | [commoncpp](https://ftp.gnu.org/gnu/commoncpp/) | Not Supported: C++ threading library (libtool), no standalone CLI |
 | 🚫 | [complexity](https://ftp.gnu.org/gnu/complexity/) | Not Supported: requires libopts |
-| ✅ | [coreutils](https://ftp.gnu.org/gnu/coreutils/) | - |
+| ✅ | [coreutils](https://ftp.gnu.org/gnu/coreutils/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=coreutils&expanded=true) |
 | ✅ | [cpio](https://ftp.gnu.org/gnu/cpio/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=cpio&expanded=true) |
 | ✅ | [cppi](https://ftp.gnu.org/gnu/cppi/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=cppi&expanded=true) |
 | 🚫 | [cssc](https://ftp.gnu.org/gnu/cssc/) | C++ with libtool; libstdc++ remains dynamic; macOS lndir.c error |
@@ -211,7 +211,7 @@ This project automatically checks for new upstream releases on [GNU Software](ht
 | 🚫 | [motti](https://ftp.gnu.org/gnu/motti/) | Not Supported: C++: not fully static with musl-gcc |
 | ✅ | [mtools](https://ftp.gnu.org/gnu/mtools/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=mtools&expanded=true) |
 | 🚫 | [nano](https://ftp.gnu.org/gnu/nano/) | Not Supported: requires ncurses (musl/ncurses static link issue) |
-| ✅ | [ncurses](https://ftp.gnu.org/gnu/ncurses/) | - |
+| ✅ | [ncurses](https://ftp.gnu.org/gnu/ncurses/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=ncurses&expanded=true) |
 | ✅ | [nettle](https://ftp.gnu.org/gnu/nettle/) | [releases](https://github.com/yashikota/gnu-assets/releases?q=nettle&expanded=true) |
 | 🚫 | [ocrad](https://ftp.gnu.org/gnu/ocrad/) | Not Supported: requires libpng |
 | 🚫 | [octave](https://ftp.gnu.org/gnu/octave/) | Not Supported: requires FFTW/LAPACK/Atlas/OpenBLAS/complex deps |
