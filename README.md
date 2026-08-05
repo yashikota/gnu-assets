@@ -5,10 +5,6 @@
 
 This project automatically checks for new upstream releases on [GNU Software](https://ftp.gnu.org/gnu/), builds native standalone CLI binaries across 3 major target architectures (`linux-amd64`, `linux-arm64`, `darwin-arm64`), and publishes them as Immutable GitHub Releases with GPG signatures for consumption by modern package managers like [aqua](https://aquaproj.github.io/) and [mise](https://mise.jdx.dev/).
 
----
-
-✅ : Supported / ⏳ : Planned / 🚫 : Not Supported
-
 ## Supported
 
 | Project Name | Latest Release |
